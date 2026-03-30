@@ -162,10 +162,10 @@ export function buildRedirectPage(params: RedirectPageParams): string {
 
     // Tạo Android Intent URL
     function getIntentUrl(url) {
-      const withoutScheme = url.replace('movieapp://', '');
+      const withoutScheme = url.replace('movieticket://', '');
       return 'intent://' + withoutScheme +
-        '#Intent;scheme=movieapp;' +
-        'package=com.appphim.mobile;' + // Đã dùng package hiện tại của app
+        '#Intent;scheme=movieticket;' +
+        'package=com.movieticket.mobile;' +
         'S.browser_fallback_url=about:blank;end';
     }
 

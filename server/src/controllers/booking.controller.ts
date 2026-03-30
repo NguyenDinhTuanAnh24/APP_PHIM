@@ -153,14 +153,14 @@ export const vnpayReturnController = async (req: Request, res: Response, next: N
         success: true,
         message: 'Thanh toán thành công!',
         subMessage: 'Ứng dụng sẽ tự động mở sau',
-        deepLink: `movieapp://payment/success?bookingId=${result.bookingId}`,
+        deepLink: `movieticket://payment/success?bookingId=${result.bookingId}`,
       }));
     } else if ((result as any).reason === 'invalid_signature') {
       res.send(buildRedirectPage({
         success: false,
         message: 'Chữ ký không hợp lệ',
         subMessage: 'Ứng dụng sẽ tự động mở sau',
-        deepLink: 'movieapp://payment/failed?reason=invalid_signature',
+        deepLink: 'movieticket://payment/failed?reason=invalid_signature',
       }));
     } else {
       const code = (result as any).code || '';
@@ -168,7 +168,7 @@ export const vnpayReturnController = async (req: Request, res: Response, next: N
         success: false,
         message: 'Thanh toán thất bại',
         subMessage: 'Ứng dụng sẽ tự động mở sau',
-        deepLink: `movieapp://payment/failed?bookingId=${result.bookingId}&code=${code}`,
+        deepLink: `movieticket://payment/failed?bookingId=${result.bookingId}&code=${code}`,
       }));
     }
   } catch (error: any) {
@@ -178,7 +178,7 @@ export const vnpayReturnController = async (req: Request, res: Response, next: N
       success: false,
       message: 'Có lỗi xảy ra',
       subMessage: 'Ứng dụng sẽ tự động mở sau',
-      deepLink: 'movieapp://payment/failed?reason=server_error',
+      deepLink: 'movieticket://payment/failed?reason=server_error',
     }));
   }
 };
