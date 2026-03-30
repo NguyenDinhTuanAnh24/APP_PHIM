@@ -10,6 +10,17 @@ export const registerSchema = z.object({
     .regex(/[a-z]/, "Mật khẩu phải có ít nhất 1 chữ thường")
     .regex(/[0-9]/, "Mật khẩu phải có ít nhất 1 số"),
   confirmPassword: z.string(),
+  birthday: z.string()
+    .optional()
+    .refine((val) => {
+      if (!val) return true;
+      const date = new Date(val);
+      if (isNaN(date.getTime())) return false;
+      // Phải từ 5 tuổi trở lên
+      const minAge = new Date();
+      minAge.setFullYear(minAge.getFullYear() - 5);
+      return date <= minAge;
+    }, 'Ngày sinh không hợp lệ hoặc chưa đủ 5 tuổi'),
 }).refine((data) => data.password === data.confirmPassword, {
   message: "Mật khẩu không khớp",
   path: ["confirmPassword"],
@@ -58,4 +69,8 @@ export const resetPasswordSchema = z.object({
 }).refine((data) => data.newPassword === data.confirmPassword, {
   message: "Mật khẩu xác nhận không khớp",
   path: ["confirmPassword"],
+});
+
+export const googleAuthSchema = z.object({
+  idToken: z.string().min(1, "idToken là bắt buộc"),
 });

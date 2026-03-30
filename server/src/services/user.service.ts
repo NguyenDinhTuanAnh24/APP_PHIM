@@ -1,5 +1,6 @@
 import { prisma } from '../utils/prisma';
 import bcrypt from 'bcryptjs';
+import { AppError } from '../utils/AppError';
 import { getTier, getNextTier, getProgressToNextTier } from '../utils/loyalty.util';
 import { 
   isBirthdayToday, 
@@ -52,20 +53,28 @@ export const getProfile = async (userId: string) => {
 };
 
 export const updateProfile = async (userId: string, data: { name?: string; phone?: string; birthday?: string }) => {
+  // Kiểm tra phone mới có bị trùng không
+  let normalizedPhone = data.phone;
   if (data.phone) {
-    const existingPhone = await prisma.user.findFirst({
-      where: { phone: data.phone, id: { not: userId } }
+    normalizedPhone = data.phone.replace(/[\s\-\.]/g, '');
+
+    const existing = await prisma.user.findFirst({
+      where: {
+        phone: normalizedPhone,
+        id:    { not: userId },  // ← loại trừ chính mình
+      }
     });
-    if (existingPhone) {
-      throw new Error('Số điện thoại đã được đăng ký cho tài khoản khác');
+
+    if (existing) {
+      throw new AppError('Số điện thoại này đã được sử dụng bởi tài khoản khác', 409);
     }
   }
 
   console.log('[UPDATE PROFILE] Received data:', data);
 
   const updatePayload: any = {
-    ...(data.name && { name: data.name }),
-    ...(data.phone && { phone: data.phone }),
+    ...(data.name && { name: data.name.trim() }),
+    ...(normalizedPhone && { phone: normalizedPhone }),
   };
 
   if (data.birthday) {
@@ -96,6 +105,10 @@ export const updateAvatar = async (userId: string, avatarUrl: string) => {
 export const changePassword = async (userId: string, data: { currentPassword: string; newPassword: string }) => {
   const user = await prisma.user.findUnique({ where: { id: userId } });
   if (!user) throw new Error('User not found');
+
+  if (!user.password_hash) {
+    throw new AppError("Tài khoản này đăng ký qua Google, vui lòng đăng nhập bằng Google.", 400);
+  }
 
   const isMatch = await bcrypt.compare(data.currentPassword, user.password_hash);
   if (!isMatch) {

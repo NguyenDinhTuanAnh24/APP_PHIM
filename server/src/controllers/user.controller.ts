@@ -9,11 +9,7 @@ import {
   getNextBirthday 
 } from '../utils/birthday.util';
 
-export const getProfile = async (
-  req: Request,
-  res: Response,
-  next: NextFunction
-): Promise<void> => {
+export const getProfile = async (req: Request, res: Response, next: NextFunction) => {
   try {
     const userId = req.user!.userId;
 
@@ -48,7 +44,7 @@ export const getProfile = async (
     }
 
     // ✅ Lấy điểm THẬT từ DB (không tính lại)
-    const realPoints = user.loyalty_points;
+    const realPoints = user.loyalty_points;  // đã sync ở Bước 1
     const realTier   = (user as any).loyalty_tier;
 
     // Tính tier info

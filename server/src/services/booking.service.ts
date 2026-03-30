@@ -9,6 +9,7 @@ import {
 import { generateQRToken, generateQRImage } from '../utils/qr.util';
 import { sendBookingConfirmation } from './email.service';
 import { AppError } from '../utils/AppError';
+import * as voucherService from './voucher.service';
 
 interface CreateBookingData {
   userId: string;
@@ -149,30 +150,16 @@ export const createBooking = async (data: CreateBookingData) => {
   // BƯỚC 4 - Áp dụng voucher và ưu đãi sinh nhật
   // 4.1. Tính voucher discount
   let voucherDiscount = 0;
+  let usedVoucherCode = null;
+
   if (data.voucherCode) {
-    const voucher = await prisma.voucher.findUnique({
-      where: { code: data.voucherCode }
-    });
-
-    if (voucher) {
-      if (voucher.expires_at > new Date() &&
-          voucher.used_count < voucher.usage_limit &&
-          subtotal >= voucher.min_amount) {
-        if (voucher.discount_type === 'PERCENT') {
-          voucherDiscount = Math.min(
-            Math.floor(subtotal * voucher.discount_value / 100),
-            voucher.max_discount || Infinity
-          );
-        } else {
-          voucherDiscount = Math.min(voucher.discount_value, subtotal);
-        }
-
-        await prisma.voucher.update({
-          where: { id: voucher.id },
-          data: { used_count: voucher.used_count + 1 }
-        });
-      }
-    }
+    const voucherResult = await voucherService.validateVoucher(
+      data.voucherCode,
+      subtotal,
+      data.userId
+    );
+    voucherDiscount = voucherResult.discount_amount;
+    usedVoucherCode = data.voucherCode;
   }
 
   // 4.2. Tính ưu đãi sinh nhật
@@ -227,6 +214,8 @@ export const createBooking = async (data: CreateBookingData) => {
         showtime_id: data.showtimeId,
         status: 'PENDING',
         total_amount: totalAmount,
+        discount_amount: totalDiscount,
+        voucher_code: usedVoucherCode,
         qr_code: qrToken,
         expires_at: new Date(Date.now() + 10 * 60 * 1000), // 10 minutes
       }
@@ -403,20 +392,44 @@ export const getUserBookings = async (userId: string) => {
           movie: {
             select: {
               title: true,
-              poster_url: true
+              poster_url: true,
+              duration: true,
             }
           },
           room: {
             include: {
               cinema: {
                 select: {
-                  name: true
+                  name: true,
+                  address: true,
                 }
               }
             }
           }
         }
-      }
+      },
+      booking_items: {
+        include: {
+          seat: {
+            select: {
+              row: true,
+              col: true,
+              type: true,
+            }
+          }
+        }
+      },
+      food_items: {
+        include: {
+          combo: {
+            select: {
+              name: true,
+              price: true,
+            }
+          }
+        }
+      },
+      payment: true,
     },
     orderBy: {
       created_at: 'desc'
@@ -521,6 +534,14 @@ export const confirmPayment = async (data: ConfirmPaymentData) => {
       },
     });
 
+    // 2.1. Cập nhật số lần dùng voucher
+    if (booking.voucher_code) {
+      await tx.voucher.update({
+        where: { code: booking.voucher_code },
+        data: { used_count: { increment: 1 } }
+      });
+    }
+
     // 3. Tích điểm và cập nhật hạng (Loyalty)
     const user = await tx.user.findUnique({
       where: { id: booking.user_id },
@@ -535,11 +556,11 @@ export const confirmPayment = async (data: ConfirmPaymentData) => {
       'Kim cương': 2.0,
     };
     const multiplier   = MULTIPLIERS[user?.loyalty_tier ?? 'Đồng'] ?? 1.0;
-    const basePoints   = Math.floor(booking.total_amount / 10000); // 10k per point base
+    const basePoints   = Math.floor(Number(booking.total_amount) / 10000);
     const earnedPoints = Math.floor(basePoints * multiplier);
 
     if (earnedPoints > 0) {
-      // 3.1 Cộng điểm vào User
+      // Cộng điểm
       const updatedUser = await tx.user.update({
         where: { id: booking.user_id },
         data: {
@@ -548,33 +569,32 @@ export const confirmPayment = async (data: ConfirmPaymentData) => {
         select: { loyalty_points: true }
       });
 
-      // 3.2 Tự động nâng cấp hạng (Tier Update)
+      // Cập nhật tier mới nếu đủ điểm
       const newPoints = updatedUser.loyalty_points;
       let newTier = 'Đồng';
-      if (newPoints >= 10000)      newTier = 'Kim cương';
-      else if (newPoints >= 5000)  newTier = 'Vàng';
-      else if (newPoints >= 1000)  newTier = 'Bạc';
+      if (newPoints >= 10000)     newTier = 'Kim cương';
+      else if (newPoints >= 5000) newTier = 'Vàng';
+      else if (newPoints >= 1000) newTier = 'Bạc';
 
       if (newTier !== user?.loyalty_tier) {
         await tx.user.update({
           where: { id: booking.user_id },
           data: { loyalty_tier: newTier }
         });
-        console.log(`[LOYALTY] User ${booking.user_id} đã lên hạng: ${newTier}`);
       }
 
-      // 3.3 Ghi log lịch sử điểm
+      // Ghi LoyaltyLog
       await (tx as any).loyaltyLog.create({
         data: {
-          user_id:     booking.user_id,
-          points:      earnedPoints,
-          type:        'EARN',
+          user_id:    booking.user_id,
+          points:     earnedPoints,
+          type:       'EARN',
           description: `Đặt vé phim - Tích ${earnedPoints} điểm`,
-          booking_id:  booking.id,
+          booking_id: booking.id,
         }
       });
 
-      console.log(`[LOYALTY] Cộng ${earnedPoints} điểm cho user: ${booking.user_id}`);
+      console.log('[LOYALTY] Cộng', earnedPoints, 'điểm cho user:', booking.user_id);
     }
 
     return booking;

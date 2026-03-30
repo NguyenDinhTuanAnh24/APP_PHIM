@@ -1,18 +1,54 @@
-import { Request, Response } from 'express';
-import { sendSupportToAdmin, sendSupportToUser } from '../utils/email.util';
+import { Request, Response, NextFunction } from 'express';
+import * as supportService from '../services/support.service';
 
-export const sendSupportRequest = async (req: Request, res: Response) => {
+export const createTicket = async (req: Request, res: Response, next: NextFunction) => {
   try {
-    const { name, email, phone, subject, message } = req.body;
+    const userId = req.user!.userId;
+    const { category, subject, message } = req.body;
 
-    // Send email to admin
-    await sendSupportToAdmin({ name, email, phone, subject, message });
+    const ticket = await supportService.createTicket({
+      userId,
+      category,
+      subject,
+      message,
+    });
 
-    // Send confirmation email to user
-    await sendSupportToUser(email, name);
+    res.status(201).json({
+      success: true,
+      message: 'Gửi yêu cầu hỗ trợ thành công',
+      data: ticket,
+    });
+  } catch (error) {
+    next(error);
+  }
+};
 
-    res.status(200).json({ success: true, message: "Gửi yêu cầu thành công" });
-  } catch (error: any) {
-    res.status(500).json({ success: false, message: error.message || "Đã xảy ra lỗi khi gửi yêu cầu hỗ trợ" });
+export const getMyTickets = async (req: Request, res: Response, next: NextFunction) => {
+  try {
+    const userId = req.user!.userId;
+    const tickets = await supportService.getMyTickets(userId);
+
+    res.status(200).json({
+      success: true,
+      data: tickets,
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+
+export const getTicketById = async (req: Request, res: Response, next: NextFunction) => {
+  try {
+    const userId = req.user!.userId;
+    const id = req.params.id as string;
+
+    const ticket = await supportService.getTicketById(id, userId);
+
+    res.status(200).json({
+      success: true,
+      data: ticket,
+    });
+  } catch (error) {
+    next(error);
   }
 };

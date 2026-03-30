@@ -8,6 +8,265 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model User {
+  id              String          @id @default(cuid())
+  email           String          @unique
+  phone           String?         @unique
+  password_hash   String?
+  name            String
+  avatar_url      String?
+  role            Role            @default(USER)
+  loyalty_points  Int             @default(0)
+  created_at      DateTime        @default(now())
+  loyalty_tier    String          @default("Đồng")
+  updated_at      DateTime        @default(now()) @updatedAt
+  date_of_birth   DateTime?
+  is_verified     Boolean         @default(false)
+  refresh_token   String?         @db.Text
+  ban_reason      String?
+  is_banned       Boolean         @default(false)
+  auth_provider   String          @default("EMAIL")
+  google_email    String?
+  google_id       String?         @unique
+  bookings        Booking[]
+  loyalty_logs    LoyaltyLog[]
+  support_tickets SupportTicket[]
+  point_redemptions PointRedemption[]
+  owned_vouchers    Voucher[]       @relation("VoucherOwner")
+
+  @@map("users")
+}
+
+model LoyaltyLog {
+  id          String   @id @default(cuid())
+  user_id     String
+  points      Int
+  type        String
+  description String
+  booking_id  String?
+  created_at  DateTime @default(now())
+  user        User     @relation(fields: [user_id], references: [id])
+
+  @@index([user_id], map: "loyalty_logs_user_id_fkey")
+  @@map("loyalty_logs")
+}
+
+model Movie {
+  id             String      @id @default(cuid())
+  tmdb_id        Int         @unique
+  title          String
+  original_title String
+  overview       String      @db.Text
+  poster_url     String
+  backdrop_url   String
+  trailer_key    String?
+  genres         String      @db.LongText
+  cast           String      @db.LongText
+  director       String
+  duration       Int
+  rating         Float
+  language       String
+  status         MovieStatus
+  release_date   DateTime
+  showtimes      Showtime[]
+
+  @@map("movies")
+}
+
+model Cinema {
+  id        String  @id @default(cuid())
+  name      String
+  address   String
+  city      String
+  lat       Float
+  lng       Float
+  image_url String?
+  rooms     Room[]
+
+  @@map("cinemas")
+}
+
+model Room {
+  id         String     @id @default(cuid())
+  cinema_id  String
+  name       String
+  type       RoomType
+  total_rows Int
+  total_cols Int
+  cinema     Cinema     @relation(fields: [cinema_id], references: [id])
+  seats      Seat[]
+  showtimes  Showtime[]
+
+  @@index([cinema_id], map: "rooms_cinema_id_fkey")
+  @@map("rooms")
+}
+
+model Seat {
+  id            String        @id @default(cuid())
+  room_id       String
+  row           String
+  col           Int
+  type          SeatType
+  booking_items BookingItem[]
+  room          Room          @relation(fields: [room_id], references: [id])
+
+  @@unique([room_id, row, col])
+  @@map("seats")
+}
+
+model Showtime {
+  id           String    @id @default(cuid())
+  movie_id     String
+  room_id      String
+  start_time   DateTime
+  end_time     DateTime
+  price        Int
+  vip_price    Int
+  couple_price Int
+  language     String
+  format       String
+  bookings     Booking[]
+  movie        Movie     @relation(fields: [movie_id], references: [id])
+  room         Room      @relation(fields: [room_id], references: [id])
+
+  @@index([movie_id], map: "showtimes_movie_id_fkey")
+  @@index([room_id], map: "showtimes_room_id_fkey")
+  @@map("showtimes")
+}
+
+model Booking {
+  id              String        @id @default(cuid())
+  user_id         String
+  showtime_id     String
+  status          BookingStatus @default(PENDING)
+  total_amount    Int
+  qr_code         String        @unique
+  qr_image_url    String?
+  paid_at         DateTime?
+  created_at      DateTime      @default(now())
+  expires_at      DateTime
+  discount_amount Int           @default(0)
+  voucher_code    String?
+  booking_items   BookingItem[]
+  showtime        Showtime      @relation(fields: [showtime_id], references: [id])
+  user            User          @relation(fields: [user_id], references: [id])
+  voucher         Voucher?      @relation(fields: [voucher_code], references: [code])
+  food_items      FoodItem[]
+  payment         Payment?
+
+  @@index([showtime_id], map: "bookings_showtime_id_fkey")
+  @@index([user_id], map: "bookings_user_id_fkey")
+  @@index([voucher_code], map: "bookings_voucher_code_fkey")
+  @@map("bookings")
+}
+
+model BookingItem {
+  id          String  @id @default(cuid())
+  booking_id  String
+  seat_id     String
+  price       Int
+  showtime_id String
+  booking     Booking @relation(fields: [booking_id], references: [id])
+  seat        Seat    @relation(fields: [seat_id], references: [id])
+
+  @@unique([booking_id, seat_id])
+  @@index([seat_id], map: "booking_items_seat_id_fkey")
+  @@map("booking_items")
+}
+
+model Payment {
+  id             String        @id @default(cuid())
+  booking_id     String        @unique
+  method         PaymentMethod
+  amount         Int
+  status         PaymentStatus @default(PENDING)
+  transaction_id String?
+  vnpay_data     String?       @db.Text
+  created_at     DateTime      @default(now())
+  booking        Booking       @relation(fields: [booking_id], references: [id])
+
+  @@map("payments")
+}
+
+model FoodCombo {
+  id          String     @id @default(cuid())
+  name        String
+  description String
+  price       Int
+  image_url   String
+  food_items  FoodItem[]
+
+  @@map("food_combos")
+}
+
+model FoodItem {
+  id         String    @id @default(cuid())
+  booking_id String
+  combo_id   String
+  quantity   Int
+  price      Int
+  booking    Booking   @relation(fields: [booking_id], references: [id])
+  combo      FoodCombo @relation(fields: [combo_id], references: [id])
+
+  @@index([booking_id], map: "food_items_booking_id_fkey")
+  @@index([combo_id], map: "food_items_combo_id_fkey")
+  @@map("food_items")
+}
+
+model Voucher {
+  id             String       @id @default(cuid())
+  code           String       @unique
+  discount_type  DiscountType
+  discount_value Int
+  min_amount     Int          @default(0)
+  max_discount   Int?
+  usage_limit    Int
+  used_count     Int          @default(0)
+  expires_at     DateTime
+  created_at     DateTime     @default(now())
+  description    String?
+  is_active      Boolean      @default(true)
+  source         String       @default("ADMIN")
+  owner_user_id  String?
+  bookings       Booking[]
+  point_redemptions PointRedemption[]
+  owner          User?        @relation("VoucherOwner", fields: [owner_user_id], references: [id])
+
+  @@index([owner_user_id])
+  @@map("vouchers")
+}
+
+model PointRedemption {
+  id           String   @id @default(cuid())
+  user_id      String
+  points_used  Int
+  voucher_id   String
+  created_at   DateTime @default(now())
+  user         User     @relation(fields: [user_id], references: [id])
+  voucher      Voucher  @relation(fields: [voucher_id], references: [id])
+
+  @@index([user_id])
+  @@index([voucher_id])
+  @@map("point_redemptions")
+}
+
+model SupportTicket {
+  id          String    @id @default(cuid())
+  user_id     String
+  category    String
+  subject     String
+  message     String    @db.Text
+  status      String    @default("PENDING")
+  admin_reply String?   @db.Text
+  replied_at  DateTime?
+  created_at  DateTime  @default(now())
+  updated_at  DateTime  @updatedAt
+  user        User      @relation(fields: [user_id], references: [id])
+
+  @@index([user_id], map: "support_tickets_user_id_fkey")
+  @@map("support_tickets")
+}
+
 enum Role {
   USER
   ADMIN
@@ -21,9 +280,8 @@ enum MovieStatus {
 enum RoomType {
   STANDARD
   IMAX
-  FOUR_DX @map("4DX")
+  FOUR_DX  @map("4DX")
 }
-
 
 enum SeatType {
   STANDARD
@@ -54,199 +312,4 @@ enum PaymentStatus {
 enum DiscountType {
   PERCENT
   FIXED
-}
-
-model User {
-  id             String       @id @default(cuid())
-  email          String       @unique
-  phone          String?      @unique
-  password_hash  String
-  name           String
-  avatar_url     String?
-  role           Role         @default(USER)
-  loyalty_points Int          @default(0)
-  date_of_birth  DateTime?
-  created_at     DateTime     @default(now())
-  updated_at     DateTime     @updatedAt @default(now())
-  bookings       Booking[]
-  loyalty_logs   LoyaltyLog[]
-
-  @@map("users")
-}
-
-model LoyaltyLog {
-  id          String   @id @default(cuid())
-  user_id     String
-  points      Int      // dương = cộng, âm = trừ
-  type        String   // 'EARN' | 'REDEEM' | 'EXPIRE'
-  description String
-  booking_id  String?
-  created_at  DateTime @default(now())
-  user        User     @relation(fields: [user_id], references: [id])
-
-  @@map("loyalty_logs")
-}
-
-model Movie {
-  id             String      @id @default(cuid())
-  tmdb_id        Int         @unique
-  title          String
-  original_title String
-  overview       String      @db.Text
-  poster_url     String
-  backdrop_url   String
-  trailer_key    String?
-  genres         Json
-  cast           Json
-  director       String
-  duration       Int
-  rating         Float
-  language       String
-  status         MovieStatus
-  release_date   DateTime
-  showtimes      Showtime[]
-
-  @@map("movies")
-}
-
-model Cinema {
-  id        String  @id @default(cuid())
-  name      String
-  address   String
-  city      String
-  lat       Float
-  lng       Float
-  image_url String?
-  rooms     Room[]
-
-  @@map("cinemas")
-}
-
-model Room {
-  id         String     @id @default(cuid())
-  cinema_id  String
-  cinema     Cinema     @relation(fields: [cinema_id], references: [id])
-  name       String
-  type       RoomType
-  total_rows Int
-  total_cols Int
-  seats      Seat[]
-  showtimes  Showtime[]
-
-  @@map("rooms")
-}
-
-model Seat {
-  id            String         @id @default(cuid())
-  room_id       String
-  room          Room           @relation(fields: [room_id], references: [id])
-  row           String
-  col           Int
-  type          SeatType
-  booking_items BookingItem[]
-
-  @@unique([room_id, row, col])
-  @@map("seats")
-}
-
-model Showtime {
-  id           String    @id @default(cuid())
-  movie_id     String
-  movie        Movie     @relation(fields: [movie_id], references: [id])
-  room_id      String
-  room         Room      @relation(fields: [room_id], references: [id])
-  start_time   DateTime
-  end_time     DateTime
-  price        Int
-  vip_price    Int
-  couple_price Int
-  language     String
-  format       String
-  bookings     Booking[]
-
-  @@map("showtimes")
-}
-
-model Booking {
-  id             String        @id @default(cuid())
-  user_id        String
-  user           User          @relation(fields: [user_id], references: [id])
-  showtime_id    String
-  showtime       Showtime      @relation(fields: [showtime_id], references: [id])
-  status         BookingStatus @default(PENDING)
-  total_amount   Int
-  qr_code        String        @unique
-  qr_image_url   String?
-  paid_at        DateTime?
-  created_at     DateTime      @default(now())
-  expires_at     DateTime
-  booking_items  BookingItem[]
-  payment        Payment?
-  food_items     FoodItem[]
-
-  @@map("bookings")
-}
-
-model BookingItem {
-  id          String   @id @default(cuid())
-  booking_id  String
-  booking     Booking  @relation(fields: [booking_id], references: [id])
-  seat_id     String
-  seat        Seat     @relation(fields: [seat_id], references: [id])
-  price       Int
-  showtime_id String
-  
-  @@unique([booking_id, seat_id])
-  @@map("booking_items")
-}
-
-model Payment {
-  id             String        @id @default(cuid())
-  booking_id     String        @unique
-  booking        Booking       @relation(fields: [booking_id], references: [id])
-  method         PaymentMethod
-  amount         Int
-  status         PaymentStatus @default(PENDING)
-  transaction_id String?
-  vnpay_data     String?       @db.Text
-  created_at     DateTime      @default(now())
-
-  @@map("payments")
-}
-
-model FoodCombo {
-  id          String     @id @default(cuid())
-  name        String
-  description String
-  price       Int
-  image_url   String
-  food_items  FoodItem[]
-
-  @@map("food_combos")
-}
-
-model FoodItem {
-  id         String    @id @default(cuid())
-  booking_id String
-  booking    Booking   @relation(fields: [booking_id], references: [id])
-  combo_id   String
-  combo      FoodCombo @relation(fields: [combo_id], references: [id])
-  quantity   Int
-  price      Int
-
-  @@map("food_items")
-}
-
-model Voucher {
-  id             String       @id @default(cuid())
-  code           String       @unique
-  discount_type  DiscountType
-  discount_value Int
-  min_amount     Int          @default(0)
-  max_discount   Int?
-  usage_limit    Int
-  used_count     Int          @default(0)
-  expires_at     DateTime
-
-  @@map("vouchers")
 }

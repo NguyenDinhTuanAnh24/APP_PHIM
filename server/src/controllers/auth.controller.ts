@@ -1,5 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
 import * as authService from '../services/auth.service';
+import * as googleAuthService from '../services/google-auth.service';
+import { AppError } from '../utils/AppError';
 
 const asyncHandler = (fn: (req: Request, res: Response, next: NextFunction) => Promise<any>) =>
   (req: Request, res: Response, next: NextFunction) => {
@@ -58,4 +60,30 @@ export const forgotPassword = asyncHandler(async (req: Request, res: Response) =
 export const resetPassword = asyncHandler(async (req: Request, res: Response) => {
   const result = await authService.resetPassword(req.body.email, req.body.otp, req.body.newPassword);
   res.status(200).json({ success: true, message: result.message, data: null });
+});
+
+export const googleLogin = asyncHandler(async (req: Request, res: Response) => {
+  const { idToken } = req.body;
+  if (!idToken) throw new AppError('idToken là bắt buộc', 400);
+
+  const result = await googleAuthService.googleSignIn(idToken);
+  res.status(200).json({ success: true, message: result.message, data: result });
+});
+
+export const linkGoogle = asyncHandler(async (req: Request, res: Response) => {
+  const { idToken } = req.body;
+  if (!idToken) throw new AppError('idToken là bắt buộc', 400);
+
+  const result = await googleAuthService.linkGoogleAccount((req as any).user!.userId, idToken);
+  res.status(200).json({ success: true, message: result.message, data: null });
+});
+
+export const unlinkGoogle = asyncHandler(async (req: Request, res: Response) => {
+  const result = await googleAuthService.unlinkGoogleAccount((req as any).user!.userId);
+  res.status(200).json({ success: true, message: result.message, data: null });
+});
+
+export const getAuthProviders = asyncHandler(async (req: Request, res: Response) => {
+  const result = await googleAuthService.getAuthProviders((req as any).user!.userId);
+  res.status(200).json({ success: true, message: 'Lấy trạng thái liên kết thành công', data: result });
 });

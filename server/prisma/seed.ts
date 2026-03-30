@@ -1,4 +1,4 @@
-import { PrismaClient, MovieStatus, RoomType, SeatType } from '@prisma/client';
+import { PrismaClient, MovieStatus, RoomType, SeatType, DiscountType } from '@prisma/client';
 
 const prisma = new PrismaClient();
 
@@ -228,6 +228,69 @@ async function main() {
   ];
 
   await prisma.foodCombo.createMany({ data: foodCombos });
+
+  console.log('Seeding Vouchers...');
+  const vouchers = [
+    {
+      code:           'WELCOME50',
+      discount_type:  DiscountType.FIXED,
+      discount_value: 50000,
+      min_amount:     100000,
+      max_discount:   null,
+      usage_limit:    1000,
+      description:    'Giảm 50.000đ cho đơn từ 100.000đ',
+      expires_at:     new Date('2026-12-31'),
+    },
+    {
+      code:           'SUMMER20',
+      discount_type:  DiscountType.PERCENT,
+      discount_value: 20,
+      min_amount:     150000,
+      max_discount:   100000,
+      usage_limit:    500,
+      description:    'Giảm 20% tối đa 100.000đ',
+      expires_at:     new Date('2026-12-31'),
+    },
+    {
+      code:           'VIP30',
+      discount_type:  DiscountType.PERCENT,
+      discount_value: 30,
+      min_amount:     200000,
+      max_discount:   150000,
+      usage_limit:    200,
+      description:    'Giảm 30% dành cho hạng Vàng trở lên',
+      expires_at:     new Date('2026-12-31'),
+    },
+    {
+      code:           'FREESHIP',
+      discount_type:  DiscountType.FIXED,
+      discount_value: 30000,
+      min_amount:     0,
+      max_discount:   null,
+      usage_limit:    2000,
+      description:    'Giảm 30.000đ không điều kiện',
+      expires_at:     new Date('2026-06-30'),
+    },
+    {
+      code:           'BIRTHDAY',
+      discount_type:  DiscountType.PERCENT,
+      discount_value: 15,
+      min_amount:     0,
+      max_discount:   200000,
+      usage_limit:    10000,
+      description:    'Quà sinh nhật giảm 15%',
+      expires_at:     new Date('2026-12-31'),
+    },
+  ];
+
+  for (const v of vouchers) {
+    await prisma.voucher.upsert({
+      where:  { code: v.code },
+      update: v,
+      create: v,
+    });
+    console.log('Seeded voucher:', v.code);
+  }
 
   console.log('Seed completed!');
 }

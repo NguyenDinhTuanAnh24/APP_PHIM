@@ -1,4 +1,5 @@
 import { Request, Response, NextFunction } from 'express';
+import { prisma } from '../utils/prisma';
 import { createBookingSchema } from '../validators/booking.validator';
 
 // Service imports
@@ -56,14 +57,80 @@ export const getBookingByIdController = async (req: Request, res: Response, next
   }
 };
 
-export const getUserBookingsController = async (req: Request, res: Response, next: NextFunction) => {
+export const getUserBookingsController = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+): Promise<void> => {
   try {
-    const result = await getUserBookings(req.user!.userId);
-    res.json({ success: true, data: result });
+    const userId = req.user!.userId;
+    console.log('[BOOKINGS/MY] userId:', userId);
+
+    const bookings = await prisma.booking.findMany({
+      where:   { user_id: userId },
+      orderBy: { created_at: 'desc' },
+      include: {
+        showtime: {
+          include: {
+            movie: {
+              select: {
+                title:       true,
+                poster_url:  true,
+                duration:    true,
+                backdrop_url: true,
+              }
+            },
+            room: {
+              include: {
+                cinema: {
+                  select: {
+                    name:    true,
+                    address: true,
+                    city:    true,
+                  }
+                }
+              }
+            }
+          }
+        },
+        booking_items: {
+          include: {
+            seat: {
+              select: {
+                row:  true,
+                col:  true,
+                type: true,
+              }
+            }
+          }
+        },
+        food_items: {
+          include: {
+            combo: {
+              select: {
+                name:  true,
+                price: true,
+              }
+            }
+          }
+        },
+        payment: true,
+      }
+    });
+
+    console.log('[BOOKINGS] Found:', bookings.length, 'bookings');
+
+    res.status(200).json({
+      success: true,
+      data:    bookings,
+      total:   bookings.length,
+    });
   } catch (error) {
+    console.error('[BOOKINGS] Error:', error);
     next(error);
   }
 };
+
 
 export const vnpayReturnController = async (req: Request, res: Response, next: NextFunction) => {
   try {

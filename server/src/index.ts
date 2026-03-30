@@ -10,6 +10,10 @@ import bookingRoutes from './routes/booking.route';
 import paymentRoutes from './routes/payment.route';
 import userRoutes from './routes/user.route';
 import supportRoutes from './routes/support.route';
+import voucherRoutes from './routes/voucher.route';
+import adminRoutes from './routes/admin.route';
+import pointRedemptionRoutes from './routes/point-redemption.route';
+
 import path from 'path';
 import { AppError } from './utils/AppError';
 import { initSyncIfEmpty } from './jobs/sync-movies.job';
@@ -42,6 +46,10 @@ app.use('/api/showtimes', showtimeRoutes);
 app.use('/api/bookings', bookingRoutes);
 app.use('/api/payments', paymentRoutes);
 app.use('/api/support', supportRoutes);
+app.use('/api/vouchers', voucherRoutes);
+app.use('/api/admin', adminRoutes);
+app.use('/api/points', pointRedemptionRoutes);
+
 
 // Bắt mọi request lỗi 404
 app.use((req: Request, res: Response) => {

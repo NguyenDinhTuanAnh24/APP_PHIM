@@ -78,6 +78,16 @@ export type FoodItem = $Result.DefaultSelection<Prisma.$FoodItemPayload>
  * 
  */
 export type Voucher = $Result.DefaultSelection<Prisma.$VoucherPayload>
+/**
+ * Model PointRedemption
+ * 
+ */
+export type PointRedemption = $Result.DefaultSelection<Prisma.$PointRedemptionPayload>
+/**
+ * Model SupportTicket
+ * 
+ */
+export type SupportTicket = $Result.DefaultSelection<Prisma.$SupportTicketPayload>
 
 /**
  * Enums
@@ -434,6 +444,26 @@ export class PrismaClient<
     * ```
     */
   get voucher(): Prisma.VoucherDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.pointRedemption`: Exposes CRUD operations for the **PointRedemption** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more PointRedemptions
+    * const pointRedemptions = await prisma.pointRedemption.findMany()
+    * ```
+    */
+  get pointRedemption(): Prisma.PointRedemptionDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.supportTicket`: Exposes CRUD operations for the **SupportTicket** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more SupportTickets
+    * const supportTickets = await prisma.supportTicket.findMany()
+    * ```
+    */
+  get supportTicket(): Prisma.SupportTicketDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -887,7 +917,9 @@ export namespace Prisma {
     Payment: 'Payment',
     FoodCombo: 'FoodCombo',
     FoodItem: 'FoodItem',
-    Voucher: 'Voucher'
+    Voucher: 'Voucher',
+    PointRedemption: 'PointRedemption',
+    SupportTicket: 'SupportTicket'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -906,7 +938,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "user" | "loyaltyLog" | "movie" | "cinema" | "room" | "seat" | "showtime" | "booking" | "bookingItem" | "payment" | "foodCombo" | "foodItem" | "voucher"
+      modelProps: "user" | "loyaltyLog" | "movie" | "cinema" | "room" | "seat" | "showtime" | "booking" | "bookingItem" | "payment" | "foodCombo" | "foodItem" | "voucher" | "pointRedemption" | "supportTicket"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -1768,6 +1800,138 @@ export namespace Prisma {
           }
         }
       }
+      PointRedemption: {
+        payload: Prisma.$PointRedemptionPayload<ExtArgs>
+        fields: Prisma.PointRedemptionFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.PointRedemptionFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PointRedemptionPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.PointRedemptionFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PointRedemptionPayload>
+          }
+          findFirst: {
+            args: Prisma.PointRedemptionFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PointRedemptionPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.PointRedemptionFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PointRedemptionPayload>
+          }
+          findMany: {
+            args: Prisma.PointRedemptionFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PointRedemptionPayload>[]
+          }
+          create: {
+            args: Prisma.PointRedemptionCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PointRedemptionPayload>
+          }
+          createMany: {
+            args: Prisma.PointRedemptionCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          delete: {
+            args: Prisma.PointRedemptionDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PointRedemptionPayload>
+          }
+          update: {
+            args: Prisma.PointRedemptionUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PointRedemptionPayload>
+          }
+          deleteMany: {
+            args: Prisma.PointRedemptionDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.PointRedemptionUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.PointRedemptionUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PointRedemptionPayload>
+          }
+          aggregate: {
+            args: Prisma.PointRedemptionAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregatePointRedemption>
+          }
+          groupBy: {
+            args: Prisma.PointRedemptionGroupByArgs<ExtArgs>
+            result: $Utils.Optional<PointRedemptionGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.PointRedemptionCountArgs<ExtArgs>
+            result: $Utils.Optional<PointRedemptionCountAggregateOutputType> | number
+          }
+        }
+      }
+      SupportTicket: {
+        payload: Prisma.$SupportTicketPayload<ExtArgs>
+        fields: Prisma.SupportTicketFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.SupportTicketFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SupportTicketPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.SupportTicketFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SupportTicketPayload>
+          }
+          findFirst: {
+            args: Prisma.SupportTicketFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SupportTicketPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.SupportTicketFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SupportTicketPayload>
+          }
+          findMany: {
+            args: Prisma.SupportTicketFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SupportTicketPayload>[]
+          }
+          create: {
+            args: Prisma.SupportTicketCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SupportTicketPayload>
+          }
+          createMany: {
+            args: Prisma.SupportTicketCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          delete: {
+            args: Prisma.SupportTicketDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SupportTicketPayload>
+          }
+          update: {
+            args: Prisma.SupportTicketUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SupportTicketPayload>
+          }
+          deleteMany: {
+            args: Prisma.SupportTicketDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.SupportTicketUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.SupportTicketUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SupportTicketPayload>
+          }
+          aggregate: {
+            args: Prisma.SupportTicketAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateSupportTicket>
+          }
+          groupBy: {
+            args: Prisma.SupportTicketGroupByArgs<ExtArgs>
+            result: $Utils.Optional<SupportTicketGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.SupportTicketCountArgs<ExtArgs>
+            result: $Utils.Optional<SupportTicketCountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -1877,6 +2041,8 @@ export namespace Prisma {
     foodCombo?: FoodComboOmit
     foodItem?: FoodItemOmit
     voucher?: VoucherOmit
+    pointRedemption?: PointRedemptionOmit
+    supportTicket?: SupportTicketOmit
   }
 
   /* Types for Logging */
@@ -1959,11 +2125,17 @@ export namespace Prisma {
   export type UserCountOutputType = {
     bookings: number
     loyalty_logs: number
+    support_tickets: number
+    point_redemptions: number
+    owned_vouchers: number
   }
 
   export type UserCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     bookings?: boolean | UserCountOutputTypeCountBookingsArgs
     loyalty_logs?: boolean | UserCountOutputTypeCountLoyalty_logsArgs
+    support_tickets?: boolean | UserCountOutputTypeCountSupport_ticketsArgs
+    point_redemptions?: boolean | UserCountOutputTypeCountPoint_redemptionsArgs
+    owned_vouchers?: boolean | UserCountOutputTypeCountOwned_vouchersArgs
   }
 
   // Custom InputTypes
@@ -1989,6 +2161,27 @@ export namespace Prisma {
    */
   export type UserCountOutputTypeCountLoyalty_logsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: LoyaltyLogWhereInput
+  }
+
+  /**
+   * UserCountOutputType without action
+   */
+  export type UserCountOutputTypeCountSupport_ticketsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: SupportTicketWhereInput
+  }
+
+  /**
+   * UserCountOutputType without action
+   */
+  export type UserCountOutputTypeCountPoint_redemptionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: PointRedemptionWhereInput
+  }
+
+  /**
+   * UserCountOutputType without action
+   */
+  export type UserCountOutputTypeCountOwned_vouchersArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: VoucherWhereInput
   }
 
 
@@ -2228,6 +2421,46 @@ export namespace Prisma {
 
 
   /**
+   * Count Type VoucherCountOutputType
+   */
+
+  export type VoucherCountOutputType = {
+    bookings: number
+    point_redemptions: number
+  }
+
+  export type VoucherCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    bookings?: boolean | VoucherCountOutputTypeCountBookingsArgs
+    point_redemptions?: boolean | VoucherCountOutputTypeCountPoint_redemptionsArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * VoucherCountOutputType without action
+   */
+  export type VoucherCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the VoucherCountOutputType
+     */
+    select?: VoucherCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * VoucherCountOutputType without action
+   */
+  export type VoucherCountOutputTypeCountBookingsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: BookingWhereInput
+  }
+
+  /**
+   * VoucherCountOutputType without action
+   */
+  export type VoucherCountOutputTypeCountPoint_redemptionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: PointRedemptionWhereInput
+  }
+
+
+  /**
    * Models
    */
 
@@ -2260,12 +2493,17 @@ export namespace Prisma {
     avatar_url: string | null
     role: $Enums.Role | null
     loyalty_points: number | null
-    loyalty_tier: string | null
-    refresh_token: string | null
-    is_verified: boolean | null
-    date_of_birth: Date | null
     created_at: Date | null
+    loyalty_tier: string | null
     updated_at: Date | null
+    date_of_birth: Date | null
+    is_verified: boolean | null
+    refresh_token: string | null
+    ban_reason: string | null
+    is_banned: boolean | null
+    auth_provider: string | null
+    google_email: string | null
+    google_id: string | null
   }
 
   export type UserMaxAggregateOutputType = {
@@ -2277,12 +2515,17 @@ export namespace Prisma {
     avatar_url: string | null
     role: $Enums.Role | null
     loyalty_points: number | null
-    loyalty_tier: string | null
-    refresh_token: string | null
-    is_verified: boolean | null
-    date_of_birth: Date | null
     created_at: Date | null
+    loyalty_tier: string | null
     updated_at: Date | null
+    date_of_birth: Date | null
+    is_verified: boolean | null
+    refresh_token: string | null
+    ban_reason: string | null
+    is_banned: boolean | null
+    auth_provider: string | null
+    google_email: string | null
+    google_id: string | null
   }
 
   export type UserCountAggregateOutputType = {
@@ -2294,12 +2537,17 @@ export namespace Prisma {
     avatar_url: number
     role: number
     loyalty_points: number
-    loyalty_tier: number
-    refresh_token: number
-    is_verified: number
-    date_of_birth: number
     created_at: number
+    loyalty_tier: number
     updated_at: number
+    date_of_birth: number
+    is_verified: number
+    refresh_token: number
+    ban_reason: number
+    is_banned: number
+    auth_provider: number
+    google_email: number
+    google_id: number
     _all: number
   }
 
@@ -2321,12 +2569,17 @@ export namespace Prisma {
     avatar_url?: true
     role?: true
     loyalty_points?: true
-    loyalty_tier?: true
-    refresh_token?: true
-    is_verified?: true
-    date_of_birth?: true
     created_at?: true
+    loyalty_tier?: true
     updated_at?: true
+    date_of_birth?: true
+    is_verified?: true
+    refresh_token?: true
+    ban_reason?: true
+    is_banned?: true
+    auth_provider?: true
+    google_email?: true
+    google_id?: true
   }
 
   export type UserMaxAggregateInputType = {
@@ -2338,12 +2591,17 @@ export namespace Prisma {
     avatar_url?: true
     role?: true
     loyalty_points?: true
-    loyalty_tier?: true
-    refresh_token?: true
-    is_verified?: true
-    date_of_birth?: true
     created_at?: true
+    loyalty_tier?: true
     updated_at?: true
+    date_of_birth?: true
+    is_verified?: true
+    refresh_token?: true
+    ban_reason?: true
+    is_banned?: true
+    auth_provider?: true
+    google_email?: true
+    google_id?: true
   }
 
   export type UserCountAggregateInputType = {
@@ -2355,12 +2613,17 @@ export namespace Prisma {
     avatar_url?: true
     role?: true
     loyalty_points?: true
-    loyalty_tier?: true
-    refresh_token?: true
-    is_verified?: true
-    date_of_birth?: true
     created_at?: true
+    loyalty_tier?: true
     updated_at?: true
+    date_of_birth?: true
+    is_verified?: true
+    refresh_token?: true
+    ban_reason?: true
+    is_banned?: true
+    auth_provider?: true
+    google_email?: true
+    google_id?: true
     _all?: true
   }
 
@@ -2454,17 +2717,22 @@ export namespace Prisma {
     id: string
     email: string
     phone: string | null
-    password_hash: string
+    password_hash: string | null
     name: string
     avatar_url: string | null
     role: $Enums.Role
     loyalty_points: number
-    loyalty_tier: string
-    refresh_token: string | null
-    is_verified: boolean
-    date_of_birth: Date | null
     created_at: Date
+    loyalty_tier: string
     updated_at: Date
+    date_of_birth: Date | null
+    is_verified: boolean
+    refresh_token: string | null
+    ban_reason: string | null
+    is_banned: boolean
+    auth_provider: string
+    google_email: string | null
+    google_id: string | null
     _count: UserCountAggregateOutputType | null
     _avg: UserAvgAggregateOutputType | null
     _sum: UserSumAggregateOutputType | null
@@ -2495,14 +2763,22 @@ export namespace Prisma {
     avatar_url?: boolean
     role?: boolean
     loyalty_points?: boolean
-    loyalty_tier?: boolean
-    refresh_token?: boolean
-    is_verified?: boolean
-    date_of_birth?: boolean
     created_at?: boolean
+    loyalty_tier?: boolean
     updated_at?: boolean
+    date_of_birth?: boolean
+    is_verified?: boolean
+    refresh_token?: boolean
+    ban_reason?: boolean
+    is_banned?: boolean
+    auth_provider?: boolean
+    google_email?: boolean
+    google_id?: boolean
     bookings?: boolean | User$bookingsArgs<ExtArgs>
     loyalty_logs?: boolean | User$loyalty_logsArgs<ExtArgs>
+    support_tickets?: boolean | User$support_ticketsArgs<ExtArgs>
+    point_redemptions?: boolean | User$point_redemptionsArgs<ExtArgs>
+    owned_vouchers?: boolean | User$owned_vouchersArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["user"]>
 
@@ -2517,18 +2793,26 @@ export namespace Prisma {
     avatar_url?: boolean
     role?: boolean
     loyalty_points?: boolean
-    loyalty_tier?: boolean
-    refresh_token?: boolean
-    is_verified?: boolean
-    date_of_birth?: boolean
     created_at?: boolean
+    loyalty_tier?: boolean
     updated_at?: boolean
+    date_of_birth?: boolean
+    is_verified?: boolean
+    refresh_token?: boolean
+    ban_reason?: boolean
+    is_banned?: boolean
+    auth_provider?: boolean
+    google_email?: boolean
+    google_id?: boolean
   }
 
-  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "email" | "phone" | "password_hash" | "name" | "avatar_url" | "role" | "loyalty_points" | "loyalty_tier" | "refresh_token" | "is_verified" | "date_of_birth" | "created_at" | "updated_at", ExtArgs["result"]["user"]>
+  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "email" | "phone" | "password_hash" | "name" | "avatar_url" | "role" | "loyalty_points" | "created_at" | "loyalty_tier" | "updated_at" | "date_of_birth" | "is_verified" | "refresh_token" | "ban_reason" | "is_banned" | "auth_provider" | "google_email" | "google_id", ExtArgs["result"]["user"]>
   export type UserInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     bookings?: boolean | User$bookingsArgs<ExtArgs>
     loyalty_logs?: boolean | User$loyalty_logsArgs<ExtArgs>
+    support_tickets?: boolean | User$support_ticketsArgs<ExtArgs>
+    point_redemptions?: boolean | User$point_redemptionsArgs<ExtArgs>
+    owned_vouchers?: boolean | User$owned_vouchersArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }
 
@@ -2537,22 +2821,30 @@ export namespace Prisma {
     objects: {
       bookings: Prisma.$BookingPayload<ExtArgs>[]
       loyalty_logs: Prisma.$LoyaltyLogPayload<ExtArgs>[]
+      support_tickets: Prisma.$SupportTicketPayload<ExtArgs>[]
+      point_redemptions: Prisma.$PointRedemptionPayload<ExtArgs>[]
+      owned_vouchers: Prisma.$VoucherPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
       email: string
       phone: string | null
-      password_hash: string
+      password_hash: string | null
       name: string
       avatar_url: string | null
       role: $Enums.Role
       loyalty_points: number
-      loyalty_tier: string
-      refresh_token: string | null
-      is_verified: boolean
-      date_of_birth: Date | null
       created_at: Date
+      loyalty_tier: string
       updated_at: Date
+      date_of_birth: Date | null
+      is_verified: boolean
+      refresh_token: string | null
+      ban_reason: string | null
+      is_banned: boolean
+      auth_provider: string
+      google_email: string | null
+      google_id: string | null
     }, ExtArgs["result"]["user"]>
     composites: {}
   }
@@ -2895,6 +3187,9 @@ export namespace Prisma {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     bookings<T extends User$bookingsArgs<ExtArgs> = {}>(args?: Subset<T, User$bookingsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BookingPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     loyalty_logs<T extends User$loyalty_logsArgs<ExtArgs> = {}>(args?: Subset<T, User$loyalty_logsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LoyaltyLogPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    support_tickets<T extends User$support_ticketsArgs<ExtArgs> = {}>(args?: Subset<T, User$support_ticketsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SupportTicketPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    point_redemptions<T extends User$point_redemptionsArgs<ExtArgs> = {}>(args?: Subset<T, User$point_redemptionsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PointRedemptionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    owned_vouchers<T extends User$owned_vouchersArgs<ExtArgs> = {}>(args?: Subset<T, User$owned_vouchersArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$VoucherPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2932,12 +3227,17 @@ export namespace Prisma {
     readonly avatar_url: FieldRef<"User", 'String'>
     readonly role: FieldRef<"User", 'Role'>
     readonly loyalty_points: FieldRef<"User", 'Int'>
-    readonly loyalty_tier: FieldRef<"User", 'String'>
-    readonly refresh_token: FieldRef<"User", 'String'>
-    readonly is_verified: FieldRef<"User", 'Boolean'>
-    readonly date_of_birth: FieldRef<"User", 'DateTime'>
     readonly created_at: FieldRef<"User", 'DateTime'>
+    readonly loyalty_tier: FieldRef<"User", 'String'>
     readonly updated_at: FieldRef<"User", 'DateTime'>
+    readonly date_of_birth: FieldRef<"User", 'DateTime'>
+    readonly is_verified: FieldRef<"User", 'Boolean'>
+    readonly refresh_token: FieldRef<"User", 'String'>
+    readonly ban_reason: FieldRef<"User", 'String'>
+    readonly is_banned: FieldRef<"User", 'Boolean'>
+    readonly auth_provider: FieldRef<"User", 'String'>
+    readonly google_email: FieldRef<"User", 'String'>
+    readonly google_id: FieldRef<"User", 'String'>
   }
     
 
@@ -3326,6 +3626,78 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: LoyaltyLogScalarFieldEnum | LoyaltyLogScalarFieldEnum[]
+  }
+
+  /**
+   * User.support_tickets
+   */
+  export type User$support_ticketsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SupportTicket
+     */
+    select?: SupportTicketSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SupportTicket
+     */
+    omit?: SupportTicketOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SupportTicketInclude<ExtArgs> | null
+    where?: SupportTicketWhereInput
+    orderBy?: SupportTicketOrderByWithRelationInput | SupportTicketOrderByWithRelationInput[]
+    cursor?: SupportTicketWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: SupportTicketScalarFieldEnum | SupportTicketScalarFieldEnum[]
+  }
+
+  /**
+   * User.point_redemptions
+   */
+  export type User$point_redemptionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PointRedemption
+     */
+    select?: PointRedemptionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PointRedemption
+     */
+    omit?: PointRedemptionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PointRedemptionInclude<ExtArgs> | null
+    where?: PointRedemptionWhereInput
+    orderBy?: PointRedemptionOrderByWithRelationInput | PointRedemptionOrderByWithRelationInput[]
+    cursor?: PointRedemptionWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: PointRedemptionScalarFieldEnum | PointRedemptionScalarFieldEnum[]
+  }
+
+  /**
+   * User.owned_vouchers
+   */
+  export type User$owned_vouchersArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Voucher
+     */
+    select?: VoucherSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Voucher
+     */
+    omit?: VoucherOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: VoucherInclude<ExtArgs> | null
+    where?: VoucherWhereInput
+    orderBy?: VoucherOrderByWithRelationInput | VoucherOrderByWithRelationInput[]
+    cursor?: VoucherWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: VoucherScalarFieldEnum | VoucherScalarFieldEnum[]
   }
 
   /**
@@ -4365,6 +4737,8 @@ export namespace Prisma {
     poster_url: string | null
     backdrop_url: string | null
     trailer_key: string | null
+    genres: string | null
+    cast: string | null
     director: string | null
     duration: number | null
     rating: number | null
@@ -4382,6 +4756,8 @@ export namespace Prisma {
     poster_url: string | null
     backdrop_url: string | null
     trailer_key: string | null
+    genres: string | null
+    cast: string | null
     director: string | null
     duration: number | null
     rating: number | null
@@ -4432,6 +4808,8 @@ export namespace Prisma {
     poster_url?: true
     backdrop_url?: true
     trailer_key?: true
+    genres?: true
+    cast?: true
     director?: true
     duration?: true
     rating?: true
@@ -4449,6 +4827,8 @@ export namespace Prisma {
     poster_url?: true
     backdrop_url?: true
     trailer_key?: true
+    genres?: true
+    cast?: true
     director?: true
     duration?: true
     rating?: true
@@ -4572,8 +4952,8 @@ export namespace Prisma {
     poster_url: string
     backdrop_url: string
     trailer_key: string | null
-    genres: JsonValue
-    cast: JsonValue
+    genres: string
+    cast: string
     director: string
     duration: number
     rating: number
@@ -4663,8 +5043,8 @@ export namespace Prisma {
       poster_url: string
       backdrop_url: string
       trailer_key: string | null
-      genres: Prisma.JsonValue
-      cast: Prisma.JsonValue
+      genres: string
+      cast: string
       director: string
       duration: number
       rating: number
@@ -5049,8 +5429,8 @@ export namespace Prisma {
     readonly poster_url: FieldRef<"Movie", 'String'>
     readonly backdrop_url: FieldRef<"Movie", 'String'>
     readonly trailer_key: FieldRef<"Movie", 'String'>
-    readonly genres: FieldRef<"Movie", 'Json'>
-    readonly cast: FieldRef<"Movie", 'Json'>
+    readonly genres: FieldRef<"Movie", 'String'>
+    readonly cast: FieldRef<"Movie", 'String'>
     readonly director: FieldRef<"Movie", 'String'>
     readonly duration: FieldRef<"Movie", 'Int'>
     readonly rating: FieldRef<"Movie", 'Float'>
@@ -7691,8 +8071,8 @@ export namespace Prisma {
     row?: boolean
     col?: boolean
     type?: boolean
-    room?: boolean | RoomDefaultArgs<ExtArgs>
     booking_items?: boolean | Seat$booking_itemsArgs<ExtArgs>
+    room?: boolean | RoomDefaultArgs<ExtArgs>
     _count?: boolean | SeatCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["seat"]>
 
@@ -7708,16 +8088,16 @@ export namespace Prisma {
 
   export type SeatOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "room_id" | "row" | "col" | "type", ExtArgs["result"]["seat"]>
   export type SeatInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    room?: boolean | RoomDefaultArgs<ExtArgs>
     booking_items?: boolean | Seat$booking_itemsArgs<ExtArgs>
+    room?: boolean | RoomDefaultArgs<ExtArgs>
     _count?: boolean | SeatCountOutputTypeDefaultArgs<ExtArgs>
   }
 
   export type $SeatPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Seat"
     objects: {
-      room: Prisma.$RoomPayload<ExtArgs>
       booking_items: Prisma.$BookingItemPayload<ExtArgs>[]
+      room: Prisma.$RoomPayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -8065,8 +8445,8 @@ export namespace Prisma {
    */
   export interface Prisma__SeatClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    room<T extends RoomDefaultArgs<ExtArgs> = {}>(args?: Subset<T, RoomDefaultArgs<ExtArgs>>): Prisma__RoomClient<$Result.GetResult<Prisma.$RoomPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     booking_items<T extends Seat$booking_itemsArgs<ExtArgs> = {}>(args?: Subset<T, Seat$booking_itemsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BookingItemPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    room<T extends RoomDefaultArgs<ExtArgs> = {}>(args?: Subset<T, RoomDefaultArgs<ExtArgs>>): Prisma__RoomClient<$Result.GetResult<Prisma.$RoomPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -8732,9 +9112,9 @@ export namespace Prisma {
     couple_price?: boolean
     language?: boolean
     format?: boolean
+    bookings?: boolean | Showtime$bookingsArgs<ExtArgs>
     movie?: boolean | MovieDefaultArgs<ExtArgs>
     room?: boolean | RoomDefaultArgs<ExtArgs>
-    bookings?: boolean | Showtime$bookingsArgs<ExtArgs>
     _count?: boolean | ShowtimeCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["showtime"]>
 
@@ -8755,18 +9135,18 @@ export namespace Prisma {
 
   export type ShowtimeOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "movie_id" | "room_id" | "start_time" | "end_time" | "price" | "vip_price" | "couple_price" | "language" | "format", ExtArgs["result"]["showtime"]>
   export type ShowtimeInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    bookings?: boolean | Showtime$bookingsArgs<ExtArgs>
     movie?: boolean | MovieDefaultArgs<ExtArgs>
     room?: boolean | RoomDefaultArgs<ExtArgs>
-    bookings?: boolean | Showtime$bookingsArgs<ExtArgs>
     _count?: boolean | ShowtimeCountOutputTypeDefaultArgs<ExtArgs>
   }
 
   export type $ShowtimePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Showtime"
     objects: {
+      bookings: Prisma.$BookingPayload<ExtArgs>[]
       movie: Prisma.$MoviePayload<ExtArgs>
       room: Prisma.$RoomPayload<ExtArgs>
-      bookings: Prisma.$BookingPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -9119,9 +9499,9 @@ export namespace Prisma {
    */
   export interface Prisma__ShowtimeClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
+    bookings<T extends Showtime$bookingsArgs<ExtArgs> = {}>(args?: Subset<T, Showtime$bookingsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BookingPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     movie<T extends MovieDefaultArgs<ExtArgs> = {}>(args?: Subset<T, MovieDefaultArgs<ExtArgs>>): Prisma__MovieClient<$Result.GetResult<Prisma.$MoviePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     room<T extends RoomDefaultArgs<ExtArgs> = {}>(args?: Subset<T, RoomDefaultArgs<ExtArgs>>): Prisma__RoomClient<$Result.GetResult<Prisma.$RoomPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-    bookings<T extends Showtime$bookingsArgs<ExtArgs> = {}>(args?: Subset<T, Showtime$bookingsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BookingPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -9560,10 +9940,12 @@ export namespace Prisma {
 
   export type BookingAvgAggregateOutputType = {
     total_amount: number | null
+    discount_amount: number | null
   }
 
   export type BookingSumAggregateOutputType = {
     total_amount: number | null
+    discount_amount: number | null
   }
 
   export type BookingMinAggregateOutputType = {
@@ -9577,6 +9959,8 @@ export namespace Prisma {
     paid_at: Date | null
     created_at: Date | null
     expires_at: Date | null
+    discount_amount: number | null
+    voucher_code: string | null
   }
 
   export type BookingMaxAggregateOutputType = {
@@ -9590,6 +9974,8 @@ export namespace Prisma {
     paid_at: Date | null
     created_at: Date | null
     expires_at: Date | null
+    discount_amount: number | null
+    voucher_code: string | null
   }
 
   export type BookingCountAggregateOutputType = {
@@ -9603,16 +9989,20 @@ export namespace Prisma {
     paid_at: number
     created_at: number
     expires_at: number
+    discount_amount: number
+    voucher_code: number
     _all: number
   }
 
 
   export type BookingAvgAggregateInputType = {
     total_amount?: true
+    discount_amount?: true
   }
 
   export type BookingSumAggregateInputType = {
     total_amount?: true
+    discount_amount?: true
   }
 
   export type BookingMinAggregateInputType = {
@@ -9626,6 +10016,8 @@ export namespace Prisma {
     paid_at?: true
     created_at?: true
     expires_at?: true
+    discount_amount?: true
+    voucher_code?: true
   }
 
   export type BookingMaxAggregateInputType = {
@@ -9639,6 +10031,8 @@ export namespace Prisma {
     paid_at?: true
     created_at?: true
     expires_at?: true
+    discount_amount?: true
+    voucher_code?: true
   }
 
   export type BookingCountAggregateInputType = {
@@ -9652,6 +10046,8 @@ export namespace Prisma {
     paid_at?: true
     created_at?: true
     expires_at?: true
+    discount_amount?: true
+    voucher_code?: true
     _all?: true
   }
 
@@ -9752,6 +10148,8 @@ export namespace Prisma {
     paid_at: Date | null
     created_at: Date
     expires_at: Date
+    discount_amount: number
+    voucher_code: string | null
     _count: BookingCountAggregateOutputType | null
     _avg: BookingAvgAggregateOutputType | null
     _sum: BookingSumAggregateOutputType | null
@@ -9784,11 +10182,14 @@ export namespace Prisma {
     paid_at?: boolean
     created_at?: boolean
     expires_at?: boolean
-    user?: boolean | UserDefaultArgs<ExtArgs>
-    showtime?: boolean | ShowtimeDefaultArgs<ExtArgs>
+    discount_amount?: boolean
+    voucher_code?: boolean
     booking_items?: boolean | Booking$booking_itemsArgs<ExtArgs>
-    payment?: boolean | Booking$paymentArgs<ExtArgs>
+    showtime?: boolean | ShowtimeDefaultArgs<ExtArgs>
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    voucher?: boolean | Booking$voucherArgs<ExtArgs>
     food_items?: boolean | Booking$food_itemsArgs<ExtArgs>
+    payment?: boolean | Booking$paymentArgs<ExtArgs>
     _count?: boolean | BookingCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["booking"]>
 
@@ -9805,26 +10206,30 @@ export namespace Prisma {
     paid_at?: boolean
     created_at?: boolean
     expires_at?: boolean
+    discount_amount?: boolean
+    voucher_code?: boolean
   }
 
-  export type BookingOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "user_id" | "showtime_id" | "status" | "total_amount" | "qr_code" | "qr_image_url" | "paid_at" | "created_at" | "expires_at", ExtArgs["result"]["booking"]>
+  export type BookingOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "user_id" | "showtime_id" | "status" | "total_amount" | "qr_code" | "qr_image_url" | "paid_at" | "created_at" | "expires_at" | "discount_amount" | "voucher_code", ExtArgs["result"]["booking"]>
   export type BookingInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    user?: boolean | UserDefaultArgs<ExtArgs>
-    showtime?: boolean | ShowtimeDefaultArgs<ExtArgs>
     booking_items?: boolean | Booking$booking_itemsArgs<ExtArgs>
-    payment?: boolean | Booking$paymentArgs<ExtArgs>
+    showtime?: boolean | ShowtimeDefaultArgs<ExtArgs>
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    voucher?: boolean | Booking$voucherArgs<ExtArgs>
     food_items?: boolean | Booking$food_itemsArgs<ExtArgs>
+    payment?: boolean | Booking$paymentArgs<ExtArgs>
     _count?: boolean | BookingCountOutputTypeDefaultArgs<ExtArgs>
   }
 
   export type $BookingPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Booking"
     objects: {
-      user: Prisma.$UserPayload<ExtArgs>
-      showtime: Prisma.$ShowtimePayload<ExtArgs>
       booking_items: Prisma.$BookingItemPayload<ExtArgs>[]
-      payment: Prisma.$PaymentPayload<ExtArgs> | null
+      showtime: Prisma.$ShowtimePayload<ExtArgs>
+      user: Prisma.$UserPayload<ExtArgs>
+      voucher: Prisma.$VoucherPayload<ExtArgs> | null
       food_items: Prisma.$FoodItemPayload<ExtArgs>[]
+      payment: Prisma.$PaymentPayload<ExtArgs> | null
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -9837,6 +10242,8 @@ export namespace Prisma {
       paid_at: Date | null
       created_at: Date
       expires_at: Date
+      discount_amount: number
+      voucher_code: string | null
     }, ExtArgs["result"]["booking"]>
     composites: {}
   }
@@ -10177,11 +10584,12 @@ export namespace Prisma {
    */
   export interface Prisma__BookingClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-    showtime<T extends ShowtimeDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ShowtimeDefaultArgs<ExtArgs>>): Prisma__ShowtimeClient<$Result.GetResult<Prisma.$ShowtimePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     booking_items<T extends Booking$booking_itemsArgs<ExtArgs> = {}>(args?: Subset<T, Booking$booking_itemsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BookingItemPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    payment<T extends Booking$paymentArgs<ExtArgs> = {}>(args?: Subset<T, Booking$paymentArgs<ExtArgs>>): Prisma__PaymentClient<$Result.GetResult<Prisma.$PaymentPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    showtime<T extends ShowtimeDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ShowtimeDefaultArgs<ExtArgs>>): Prisma__ShowtimeClient<$Result.GetResult<Prisma.$ShowtimePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    voucher<T extends Booking$voucherArgs<ExtArgs> = {}>(args?: Subset<T, Booking$voucherArgs<ExtArgs>>): Prisma__VoucherClient<$Result.GetResult<Prisma.$VoucherPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     food_items<T extends Booking$food_itemsArgs<ExtArgs> = {}>(args?: Subset<T, Booking$food_itemsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FoodItemPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    payment<T extends Booking$paymentArgs<ExtArgs> = {}>(args?: Subset<T, Booking$paymentArgs<ExtArgs>>): Prisma__PaymentClient<$Result.GetResult<Prisma.$PaymentPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -10221,6 +10629,8 @@ export namespace Prisma {
     readonly paid_at: FieldRef<"Booking", 'DateTime'>
     readonly created_at: FieldRef<"Booking", 'DateTime'>
     readonly expires_at: FieldRef<"Booking", 'DateTime'>
+    readonly discount_amount: FieldRef<"Booking", 'Int'>
+    readonly voucher_code: FieldRef<"Booking", 'String'>
   }
     
 
@@ -10588,22 +10998,22 @@ export namespace Prisma {
   }
 
   /**
-   * Booking.payment
+   * Booking.voucher
    */
-  export type Booking$paymentArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type Booking$voucherArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Payment
+     * Select specific fields to fetch from the Voucher
      */
-    select?: PaymentSelect<ExtArgs> | null
+    select?: VoucherSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Payment
+     * Omit specific fields from the Voucher
      */
-    omit?: PaymentOmit<ExtArgs> | null
+    omit?: VoucherOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: PaymentInclude<ExtArgs> | null
-    where?: PaymentWhereInput
+    include?: VoucherInclude<ExtArgs> | null
+    where?: VoucherWhereInput
   }
 
   /**
@@ -10628,6 +11038,25 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: FoodItemScalarFieldEnum | FoodItemScalarFieldEnum[]
+  }
+
+  /**
+   * Booking.payment
+   */
+  export type Booking$paymentArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Payment
+     */
+    select?: PaymentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Payment
+     */
+    omit?: PaymentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PaymentInclude<ExtArgs> | null
+    where?: PaymentWhereInput
   }
 
   /**
@@ -14610,6 +15039,11 @@ export namespace Prisma {
     usage_limit: number | null
     used_count: number | null
     expires_at: Date | null
+    created_at: Date | null
+    description: string | null
+    is_active: boolean | null
+    source: string | null
+    owner_user_id: string | null
   }
 
   export type VoucherMaxAggregateOutputType = {
@@ -14622,6 +15056,11 @@ export namespace Prisma {
     usage_limit: number | null
     used_count: number | null
     expires_at: Date | null
+    created_at: Date | null
+    description: string | null
+    is_active: boolean | null
+    source: string | null
+    owner_user_id: string | null
   }
 
   export type VoucherCountAggregateOutputType = {
@@ -14634,6 +15073,11 @@ export namespace Prisma {
     usage_limit: number
     used_count: number
     expires_at: number
+    created_at: number
+    description: number
+    is_active: number
+    source: number
+    owner_user_id: number
     _all: number
   }
 
@@ -14664,6 +15108,11 @@ export namespace Prisma {
     usage_limit?: true
     used_count?: true
     expires_at?: true
+    created_at?: true
+    description?: true
+    is_active?: true
+    source?: true
+    owner_user_id?: true
   }
 
   export type VoucherMaxAggregateInputType = {
@@ -14676,6 +15125,11 @@ export namespace Prisma {
     usage_limit?: true
     used_count?: true
     expires_at?: true
+    created_at?: true
+    description?: true
+    is_active?: true
+    source?: true
+    owner_user_id?: true
   }
 
   export type VoucherCountAggregateInputType = {
@@ -14688,6 +15142,11 @@ export namespace Prisma {
     usage_limit?: true
     used_count?: true
     expires_at?: true
+    created_at?: true
+    description?: true
+    is_active?: true
+    source?: true
+    owner_user_id?: true
     _all?: true
   }
 
@@ -14787,6 +15246,11 @@ export namespace Prisma {
     usage_limit: number
     used_count: number
     expires_at: Date
+    created_at: Date
+    description: string | null
+    is_active: boolean
+    source: string
+    owner_user_id: string | null
     _count: VoucherCountAggregateOutputType | null
     _avg: VoucherAvgAggregateOutputType | null
     _sum: VoucherSumAggregateOutputType | null
@@ -14818,6 +15282,15 @@ export namespace Prisma {
     usage_limit?: boolean
     used_count?: boolean
     expires_at?: boolean
+    created_at?: boolean
+    description?: boolean
+    is_active?: boolean
+    source?: boolean
+    owner_user_id?: boolean
+    bookings?: boolean | Voucher$bookingsArgs<ExtArgs>
+    point_redemptions?: boolean | Voucher$point_redemptionsArgs<ExtArgs>
+    owner?: boolean | Voucher$ownerArgs<ExtArgs>
+    _count?: boolean | VoucherCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["voucher"]>
 
 
@@ -14832,13 +15305,28 @@ export namespace Prisma {
     usage_limit?: boolean
     used_count?: boolean
     expires_at?: boolean
+    created_at?: boolean
+    description?: boolean
+    is_active?: boolean
+    source?: boolean
+    owner_user_id?: boolean
   }
 
-  export type VoucherOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "code" | "discount_type" | "discount_value" | "min_amount" | "max_discount" | "usage_limit" | "used_count" | "expires_at", ExtArgs["result"]["voucher"]>
+  export type VoucherOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "code" | "discount_type" | "discount_value" | "min_amount" | "max_discount" | "usage_limit" | "used_count" | "expires_at" | "created_at" | "description" | "is_active" | "source" | "owner_user_id", ExtArgs["result"]["voucher"]>
+  export type VoucherInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    bookings?: boolean | Voucher$bookingsArgs<ExtArgs>
+    point_redemptions?: boolean | Voucher$point_redemptionsArgs<ExtArgs>
+    owner?: boolean | Voucher$ownerArgs<ExtArgs>
+    _count?: boolean | VoucherCountOutputTypeDefaultArgs<ExtArgs>
+  }
 
   export type $VoucherPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Voucher"
-    objects: {}
+    objects: {
+      bookings: Prisma.$BookingPayload<ExtArgs>[]
+      point_redemptions: Prisma.$PointRedemptionPayload<ExtArgs>[]
+      owner: Prisma.$UserPayload<ExtArgs> | null
+    }
     scalars: $Extensions.GetPayloadResult<{
       id: string
       code: string
@@ -14849,6 +15337,11 @@ export namespace Prisma {
       usage_limit: number
       used_count: number
       expires_at: Date
+      created_at: Date
+      description: string | null
+      is_active: boolean
+      source: string
+      owner_user_id: string | null
     }, ExtArgs["result"]["voucher"]>
     composites: {}
   }
@@ -15189,6 +15682,9 @@ export namespace Prisma {
    */
   export interface Prisma__VoucherClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
+    bookings<T extends Voucher$bookingsArgs<ExtArgs> = {}>(args?: Subset<T, Voucher$bookingsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BookingPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    point_redemptions<T extends Voucher$point_redemptionsArgs<ExtArgs> = {}>(args?: Subset<T, Voucher$point_redemptionsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PointRedemptionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    owner<T extends Voucher$ownerArgs<ExtArgs> = {}>(args?: Subset<T, Voucher$ownerArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -15227,6 +15723,11 @@ export namespace Prisma {
     readonly usage_limit: FieldRef<"Voucher", 'Int'>
     readonly used_count: FieldRef<"Voucher", 'Int'>
     readonly expires_at: FieldRef<"Voucher", 'DateTime'>
+    readonly created_at: FieldRef<"Voucher", 'DateTime'>
+    readonly description: FieldRef<"Voucher", 'String'>
+    readonly is_active: FieldRef<"Voucher", 'Boolean'>
+    readonly source: FieldRef<"Voucher", 'String'>
+    readonly owner_user_id: FieldRef<"Voucher", 'String'>
   }
     
 
@@ -15243,6 +15744,10 @@ export namespace Prisma {
      * Omit specific fields from the Voucher
      */
     omit?: VoucherOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: VoucherInclude<ExtArgs> | null
     /**
      * Filter, which Voucher to fetch.
      */
@@ -15262,6 +15767,10 @@ export namespace Prisma {
      */
     omit?: VoucherOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: VoucherInclude<ExtArgs> | null
+    /**
      * Filter, which Voucher to fetch.
      */
     where: VoucherWhereUniqueInput
@@ -15279,6 +15788,10 @@ export namespace Prisma {
      * Omit specific fields from the Voucher
      */
     omit?: VoucherOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: VoucherInclude<ExtArgs> | null
     /**
      * Filter, which Voucher to fetch.
      */
@@ -15328,6 +15841,10 @@ export namespace Prisma {
      */
     omit?: VoucherOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: VoucherInclude<ExtArgs> | null
+    /**
      * Filter, which Voucher to fetch.
      */
     where?: VoucherWhereInput
@@ -15376,6 +15893,10 @@ export namespace Prisma {
      */
     omit?: VoucherOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: VoucherInclude<ExtArgs> | null
+    /**
      * Filter, which Vouchers to fetch.
      */
     where?: VoucherWhereInput
@@ -15419,6 +15940,10 @@ export namespace Prisma {
      */
     omit?: VoucherOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: VoucherInclude<ExtArgs> | null
+    /**
      * The data needed to create a Voucher.
      */
     data: XOR<VoucherCreateInput, VoucherUncheckedCreateInput>
@@ -15447,6 +15972,10 @@ export namespace Prisma {
      * Omit specific fields from the Voucher
      */
     omit?: VoucherOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: VoucherInclude<ExtArgs> | null
     /**
      * The data needed to update a Voucher.
      */
@@ -15488,6 +16017,10 @@ export namespace Prisma {
      */
     omit?: VoucherOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: VoucherInclude<ExtArgs> | null
+    /**
      * The filter to search for the Voucher to update in case it exists.
      */
     where: VoucherWhereUniqueInput
@@ -15514,6 +16047,10 @@ export namespace Prisma {
      */
     omit?: VoucherOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: VoucherInclude<ExtArgs> | null
+    /**
      * Filter which Voucher to delete.
      */
     where: VoucherWhereUniqueInput
@@ -15534,6 +16071,73 @@ export namespace Prisma {
   }
 
   /**
+   * Voucher.bookings
+   */
+  export type Voucher$bookingsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Booking
+     */
+    select?: BookingSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Booking
+     */
+    omit?: BookingOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BookingInclude<ExtArgs> | null
+    where?: BookingWhereInput
+    orderBy?: BookingOrderByWithRelationInput | BookingOrderByWithRelationInput[]
+    cursor?: BookingWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: BookingScalarFieldEnum | BookingScalarFieldEnum[]
+  }
+
+  /**
+   * Voucher.point_redemptions
+   */
+  export type Voucher$point_redemptionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PointRedemption
+     */
+    select?: PointRedemptionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PointRedemption
+     */
+    omit?: PointRedemptionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PointRedemptionInclude<ExtArgs> | null
+    where?: PointRedemptionWhereInput
+    orderBy?: PointRedemptionOrderByWithRelationInput | PointRedemptionOrderByWithRelationInput[]
+    cursor?: PointRedemptionWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: PointRedemptionScalarFieldEnum | PointRedemptionScalarFieldEnum[]
+  }
+
+  /**
+   * Voucher.owner
+   */
+  export type Voucher$ownerArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the User
+     */
+    select?: UserSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the User
+     */
+    omit?: UserOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserInclude<ExtArgs> | null
+    where?: UserWhereInput
+  }
+
+  /**
    * Voucher without action
    */
   export type VoucherDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -15545,6 +16149,1961 @@ export namespace Prisma {
      * Omit specific fields from the Voucher
      */
     omit?: VoucherOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: VoucherInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model PointRedemption
+   */
+
+  export type AggregatePointRedemption = {
+    _count: PointRedemptionCountAggregateOutputType | null
+    _avg: PointRedemptionAvgAggregateOutputType | null
+    _sum: PointRedemptionSumAggregateOutputType | null
+    _min: PointRedemptionMinAggregateOutputType | null
+    _max: PointRedemptionMaxAggregateOutputType | null
+  }
+
+  export type PointRedemptionAvgAggregateOutputType = {
+    points_used: number | null
+  }
+
+  export type PointRedemptionSumAggregateOutputType = {
+    points_used: number | null
+  }
+
+  export type PointRedemptionMinAggregateOutputType = {
+    id: string | null
+    user_id: string | null
+    points_used: number | null
+    voucher_id: string | null
+    created_at: Date | null
+  }
+
+  export type PointRedemptionMaxAggregateOutputType = {
+    id: string | null
+    user_id: string | null
+    points_used: number | null
+    voucher_id: string | null
+    created_at: Date | null
+  }
+
+  export type PointRedemptionCountAggregateOutputType = {
+    id: number
+    user_id: number
+    points_used: number
+    voucher_id: number
+    created_at: number
+    _all: number
+  }
+
+
+  export type PointRedemptionAvgAggregateInputType = {
+    points_used?: true
+  }
+
+  export type PointRedemptionSumAggregateInputType = {
+    points_used?: true
+  }
+
+  export type PointRedemptionMinAggregateInputType = {
+    id?: true
+    user_id?: true
+    points_used?: true
+    voucher_id?: true
+    created_at?: true
+  }
+
+  export type PointRedemptionMaxAggregateInputType = {
+    id?: true
+    user_id?: true
+    points_used?: true
+    voucher_id?: true
+    created_at?: true
+  }
+
+  export type PointRedemptionCountAggregateInputType = {
+    id?: true
+    user_id?: true
+    points_used?: true
+    voucher_id?: true
+    created_at?: true
+    _all?: true
+  }
+
+  export type PointRedemptionAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which PointRedemption to aggregate.
+     */
+    where?: PointRedemptionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of PointRedemptions to fetch.
+     */
+    orderBy?: PointRedemptionOrderByWithRelationInput | PointRedemptionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: PointRedemptionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` PointRedemptions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` PointRedemptions.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned PointRedemptions
+    **/
+    _count?: true | PointRedemptionCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: PointRedemptionAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: PointRedemptionSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: PointRedemptionMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: PointRedemptionMaxAggregateInputType
+  }
+
+  export type GetPointRedemptionAggregateType<T extends PointRedemptionAggregateArgs> = {
+        [P in keyof T & keyof AggregatePointRedemption]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregatePointRedemption[P]>
+      : GetScalarType<T[P], AggregatePointRedemption[P]>
+  }
+
+
+
+
+  export type PointRedemptionGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: PointRedemptionWhereInput
+    orderBy?: PointRedemptionOrderByWithAggregationInput | PointRedemptionOrderByWithAggregationInput[]
+    by: PointRedemptionScalarFieldEnum[] | PointRedemptionScalarFieldEnum
+    having?: PointRedemptionScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: PointRedemptionCountAggregateInputType | true
+    _avg?: PointRedemptionAvgAggregateInputType
+    _sum?: PointRedemptionSumAggregateInputType
+    _min?: PointRedemptionMinAggregateInputType
+    _max?: PointRedemptionMaxAggregateInputType
+  }
+
+  export type PointRedemptionGroupByOutputType = {
+    id: string
+    user_id: string
+    points_used: number
+    voucher_id: string
+    created_at: Date
+    _count: PointRedemptionCountAggregateOutputType | null
+    _avg: PointRedemptionAvgAggregateOutputType | null
+    _sum: PointRedemptionSumAggregateOutputType | null
+    _min: PointRedemptionMinAggregateOutputType | null
+    _max: PointRedemptionMaxAggregateOutputType | null
+  }
+
+  type GetPointRedemptionGroupByPayload<T extends PointRedemptionGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<PointRedemptionGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof PointRedemptionGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], PointRedemptionGroupByOutputType[P]>
+            : GetScalarType<T[P], PointRedemptionGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type PointRedemptionSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    user_id?: boolean
+    points_used?: boolean
+    voucher_id?: boolean
+    created_at?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    voucher?: boolean | VoucherDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["pointRedemption"]>
+
+
+
+  export type PointRedemptionSelectScalar = {
+    id?: boolean
+    user_id?: boolean
+    points_used?: boolean
+    voucher_id?: boolean
+    created_at?: boolean
+  }
+
+  export type PointRedemptionOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "user_id" | "points_used" | "voucher_id" | "created_at", ExtArgs["result"]["pointRedemption"]>
+  export type PointRedemptionInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    voucher?: boolean | VoucherDefaultArgs<ExtArgs>
+  }
+
+  export type $PointRedemptionPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "PointRedemption"
+    objects: {
+      user: Prisma.$UserPayload<ExtArgs>
+      voucher: Prisma.$VoucherPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      user_id: string
+      points_used: number
+      voucher_id: string
+      created_at: Date
+    }, ExtArgs["result"]["pointRedemption"]>
+    composites: {}
+  }
+
+  type PointRedemptionGetPayload<S extends boolean | null | undefined | PointRedemptionDefaultArgs> = $Result.GetResult<Prisma.$PointRedemptionPayload, S>
+
+  type PointRedemptionCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<PointRedemptionFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: PointRedemptionCountAggregateInputType | true
+    }
+
+  export interface PointRedemptionDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['PointRedemption'], meta: { name: 'PointRedemption' } }
+    /**
+     * Find zero or one PointRedemption that matches the filter.
+     * @param {PointRedemptionFindUniqueArgs} args - Arguments to find a PointRedemption
+     * @example
+     * // Get one PointRedemption
+     * const pointRedemption = await prisma.pointRedemption.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends PointRedemptionFindUniqueArgs>(args: SelectSubset<T, PointRedemptionFindUniqueArgs<ExtArgs>>): Prisma__PointRedemptionClient<$Result.GetResult<Prisma.$PointRedemptionPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one PointRedemption that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {PointRedemptionFindUniqueOrThrowArgs} args - Arguments to find a PointRedemption
+     * @example
+     * // Get one PointRedemption
+     * const pointRedemption = await prisma.pointRedemption.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends PointRedemptionFindUniqueOrThrowArgs>(args: SelectSubset<T, PointRedemptionFindUniqueOrThrowArgs<ExtArgs>>): Prisma__PointRedemptionClient<$Result.GetResult<Prisma.$PointRedemptionPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first PointRedemption that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PointRedemptionFindFirstArgs} args - Arguments to find a PointRedemption
+     * @example
+     * // Get one PointRedemption
+     * const pointRedemption = await prisma.pointRedemption.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends PointRedemptionFindFirstArgs>(args?: SelectSubset<T, PointRedemptionFindFirstArgs<ExtArgs>>): Prisma__PointRedemptionClient<$Result.GetResult<Prisma.$PointRedemptionPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first PointRedemption that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PointRedemptionFindFirstOrThrowArgs} args - Arguments to find a PointRedemption
+     * @example
+     * // Get one PointRedemption
+     * const pointRedemption = await prisma.pointRedemption.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends PointRedemptionFindFirstOrThrowArgs>(args?: SelectSubset<T, PointRedemptionFindFirstOrThrowArgs<ExtArgs>>): Prisma__PointRedemptionClient<$Result.GetResult<Prisma.$PointRedemptionPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more PointRedemptions that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PointRedemptionFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all PointRedemptions
+     * const pointRedemptions = await prisma.pointRedemption.findMany()
+     * 
+     * // Get first 10 PointRedemptions
+     * const pointRedemptions = await prisma.pointRedemption.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const pointRedemptionWithIdOnly = await prisma.pointRedemption.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends PointRedemptionFindManyArgs>(args?: SelectSubset<T, PointRedemptionFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PointRedemptionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a PointRedemption.
+     * @param {PointRedemptionCreateArgs} args - Arguments to create a PointRedemption.
+     * @example
+     * // Create one PointRedemption
+     * const PointRedemption = await prisma.pointRedemption.create({
+     *   data: {
+     *     // ... data to create a PointRedemption
+     *   }
+     * })
+     * 
+     */
+    create<T extends PointRedemptionCreateArgs>(args: SelectSubset<T, PointRedemptionCreateArgs<ExtArgs>>): Prisma__PointRedemptionClient<$Result.GetResult<Prisma.$PointRedemptionPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many PointRedemptions.
+     * @param {PointRedemptionCreateManyArgs} args - Arguments to create many PointRedemptions.
+     * @example
+     * // Create many PointRedemptions
+     * const pointRedemption = await prisma.pointRedemption.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends PointRedemptionCreateManyArgs>(args?: SelectSubset<T, PointRedemptionCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a PointRedemption.
+     * @param {PointRedemptionDeleteArgs} args - Arguments to delete one PointRedemption.
+     * @example
+     * // Delete one PointRedemption
+     * const PointRedemption = await prisma.pointRedemption.delete({
+     *   where: {
+     *     // ... filter to delete one PointRedemption
+     *   }
+     * })
+     * 
+     */
+    delete<T extends PointRedemptionDeleteArgs>(args: SelectSubset<T, PointRedemptionDeleteArgs<ExtArgs>>): Prisma__PointRedemptionClient<$Result.GetResult<Prisma.$PointRedemptionPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one PointRedemption.
+     * @param {PointRedemptionUpdateArgs} args - Arguments to update one PointRedemption.
+     * @example
+     * // Update one PointRedemption
+     * const pointRedemption = await prisma.pointRedemption.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends PointRedemptionUpdateArgs>(args: SelectSubset<T, PointRedemptionUpdateArgs<ExtArgs>>): Prisma__PointRedemptionClient<$Result.GetResult<Prisma.$PointRedemptionPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more PointRedemptions.
+     * @param {PointRedemptionDeleteManyArgs} args - Arguments to filter PointRedemptions to delete.
+     * @example
+     * // Delete a few PointRedemptions
+     * const { count } = await prisma.pointRedemption.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends PointRedemptionDeleteManyArgs>(args?: SelectSubset<T, PointRedemptionDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more PointRedemptions.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PointRedemptionUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many PointRedemptions
+     * const pointRedemption = await prisma.pointRedemption.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends PointRedemptionUpdateManyArgs>(args: SelectSubset<T, PointRedemptionUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one PointRedemption.
+     * @param {PointRedemptionUpsertArgs} args - Arguments to update or create a PointRedemption.
+     * @example
+     * // Update or create a PointRedemption
+     * const pointRedemption = await prisma.pointRedemption.upsert({
+     *   create: {
+     *     // ... data to create a PointRedemption
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the PointRedemption we want to update
+     *   }
+     * })
+     */
+    upsert<T extends PointRedemptionUpsertArgs>(args: SelectSubset<T, PointRedemptionUpsertArgs<ExtArgs>>): Prisma__PointRedemptionClient<$Result.GetResult<Prisma.$PointRedemptionPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of PointRedemptions.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PointRedemptionCountArgs} args - Arguments to filter PointRedemptions to count.
+     * @example
+     * // Count the number of PointRedemptions
+     * const count = await prisma.pointRedemption.count({
+     *   where: {
+     *     // ... the filter for the PointRedemptions we want to count
+     *   }
+     * })
+    **/
+    count<T extends PointRedemptionCountArgs>(
+      args?: Subset<T, PointRedemptionCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], PointRedemptionCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a PointRedemption.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PointRedemptionAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends PointRedemptionAggregateArgs>(args: Subset<T, PointRedemptionAggregateArgs>): Prisma.PrismaPromise<GetPointRedemptionAggregateType<T>>
+
+    /**
+     * Group by PointRedemption.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PointRedemptionGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends PointRedemptionGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: PointRedemptionGroupByArgs['orderBy'] }
+        : { orderBy?: PointRedemptionGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, PointRedemptionGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetPointRedemptionGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the PointRedemption model
+   */
+  readonly fields: PointRedemptionFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for PointRedemption.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__PointRedemptionClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    voucher<T extends VoucherDefaultArgs<ExtArgs> = {}>(args?: Subset<T, VoucherDefaultArgs<ExtArgs>>): Prisma__VoucherClient<$Result.GetResult<Prisma.$VoucherPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the PointRedemption model
+   */
+  interface PointRedemptionFieldRefs {
+    readonly id: FieldRef<"PointRedemption", 'String'>
+    readonly user_id: FieldRef<"PointRedemption", 'String'>
+    readonly points_used: FieldRef<"PointRedemption", 'Int'>
+    readonly voucher_id: FieldRef<"PointRedemption", 'String'>
+    readonly created_at: FieldRef<"PointRedemption", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * PointRedemption findUnique
+   */
+  export type PointRedemptionFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PointRedemption
+     */
+    select?: PointRedemptionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PointRedemption
+     */
+    omit?: PointRedemptionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PointRedemptionInclude<ExtArgs> | null
+    /**
+     * Filter, which PointRedemption to fetch.
+     */
+    where: PointRedemptionWhereUniqueInput
+  }
+
+  /**
+   * PointRedemption findUniqueOrThrow
+   */
+  export type PointRedemptionFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PointRedemption
+     */
+    select?: PointRedemptionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PointRedemption
+     */
+    omit?: PointRedemptionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PointRedemptionInclude<ExtArgs> | null
+    /**
+     * Filter, which PointRedemption to fetch.
+     */
+    where: PointRedemptionWhereUniqueInput
+  }
+
+  /**
+   * PointRedemption findFirst
+   */
+  export type PointRedemptionFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PointRedemption
+     */
+    select?: PointRedemptionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PointRedemption
+     */
+    omit?: PointRedemptionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PointRedemptionInclude<ExtArgs> | null
+    /**
+     * Filter, which PointRedemption to fetch.
+     */
+    where?: PointRedemptionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of PointRedemptions to fetch.
+     */
+    orderBy?: PointRedemptionOrderByWithRelationInput | PointRedemptionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for PointRedemptions.
+     */
+    cursor?: PointRedemptionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` PointRedemptions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` PointRedemptions.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of PointRedemptions.
+     */
+    distinct?: PointRedemptionScalarFieldEnum | PointRedemptionScalarFieldEnum[]
+  }
+
+  /**
+   * PointRedemption findFirstOrThrow
+   */
+  export type PointRedemptionFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PointRedemption
+     */
+    select?: PointRedemptionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PointRedemption
+     */
+    omit?: PointRedemptionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PointRedemptionInclude<ExtArgs> | null
+    /**
+     * Filter, which PointRedemption to fetch.
+     */
+    where?: PointRedemptionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of PointRedemptions to fetch.
+     */
+    orderBy?: PointRedemptionOrderByWithRelationInput | PointRedemptionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for PointRedemptions.
+     */
+    cursor?: PointRedemptionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` PointRedemptions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` PointRedemptions.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of PointRedemptions.
+     */
+    distinct?: PointRedemptionScalarFieldEnum | PointRedemptionScalarFieldEnum[]
+  }
+
+  /**
+   * PointRedemption findMany
+   */
+  export type PointRedemptionFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PointRedemption
+     */
+    select?: PointRedemptionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PointRedemption
+     */
+    omit?: PointRedemptionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PointRedemptionInclude<ExtArgs> | null
+    /**
+     * Filter, which PointRedemptions to fetch.
+     */
+    where?: PointRedemptionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of PointRedemptions to fetch.
+     */
+    orderBy?: PointRedemptionOrderByWithRelationInput | PointRedemptionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing PointRedemptions.
+     */
+    cursor?: PointRedemptionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` PointRedemptions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` PointRedemptions.
+     */
+    skip?: number
+    distinct?: PointRedemptionScalarFieldEnum | PointRedemptionScalarFieldEnum[]
+  }
+
+  /**
+   * PointRedemption create
+   */
+  export type PointRedemptionCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PointRedemption
+     */
+    select?: PointRedemptionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PointRedemption
+     */
+    omit?: PointRedemptionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PointRedemptionInclude<ExtArgs> | null
+    /**
+     * The data needed to create a PointRedemption.
+     */
+    data: XOR<PointRedemptionCreateInput, PointRedemptionUncheckedCreateInput>
+  }
+
+  /**
+   * PointRedemption createMany
+   */
+  export type PointRedemptionCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many PointRedemptions.
+     */
+    data: PointRedemptionCreateManyInput | PointRedemptionCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * PointRedemption update
+   */
+  export type PointRedemptionUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PointRedemption
+     */
+    select?: PointRedemptionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PointRedemption
+     */
+    omit?: PointRedemptionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PointRedemptionInclude<ExtArgs> | null
+    /**
+     * The data needed to update a PointRedemption.
+     */
+    data: XOR<PointRedemptionUpdateInput, PointRedemptionUncheckedUpdateInput>
+    /**
+     * Choose, which PointRedemption to update.
+     */
+    where: PointRedemptionWhereUniqueInput
+  }
+
+  /**
+   * PointRedemption updateMany
+   */
+  export type PointRedemptionUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update PointRedemptions.
+     */
+    data: XOR<PointRedemptionUpdateManyMutationInput, PointRedemptionUncheckedUpdateManyInput>
+    /**
+     * Filter which PointRedemptions to update
+     */
+    where?: PointRedemptionWhereInput
+    /**
+     * Limit how many PointRedemptions to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * PointRedemption upsert
+   */
+  export type PointRedemptionUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PointRedemption
+     */
+    select?: PointRedemptionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PointRedemption
+     */
+    omit?: PointRedemptionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PointRedemptionInclude<ExtArgs> | null
+    /**
+     * The filter to search for the PointRedemption to update in case it exists.
+     */
+    where: PointRedemptionWhereUniqueInput
+    /**
+     * In case the PointRedemption found by the `where` argument doesn't exist, create a new PointRedemption with this data.
+     */
+    create: XOR<PointRedemptionCreateInput, PointRedemptionUncheckedCreateInput>
+    /**
+     * In case the PointRedemption was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<PointRedemptionUpdateInput, PointRedemptionUncheckedUpdateInput>
+  }
+
+  /**
+   * PointRedemption delete
+   */
+  export type PointRedemptionDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PointRedemption
+     */
+    select?: PointRedemptionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PointRedemption
+     */
+    omit?: PointRedemptionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PointRedemptionInclude<ExtArgs> | null
+    /**
+     * Filter which PointRedemption to delete.
+     */
+    where: PointRedemptionWhereUniqueInput
+  }
+
+  /**
+   * PointRedemption deleteMany
+   */
+  export type PointRedemptionDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which PointRedemptions to delete
+     */
+    where?: PointRedemptionWhereInput
+    /**
+     * Limit how many PointRedemptions to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * PointRedemption without action
+   */
+  export type PointRedemptionDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PointRedemption
+     */
+    select?: PointRedemptionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PointRedemption
+     */
+    omit?: PointRedemptionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PointRedemptionInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model SupportTicket
+   */
+
+  export type AggregateSupportTicket = {
+    _count: SupportTicketCountAggregateOutputType | null
+    _min: SupportTicketMinAggregateOutputType | null
+    _max: SupportTicketMaxAggregateOutputType | null
+  }
+
+  export type SupportTicketMinAggregateOutputType = {
+    id: string | null
+    user_id: string | null
+    category: string | null
+    subject: string | null
+    message: string | null
+    status: string | null
+    admin_reply: string | null
+    replied_at: Date | null
+    created_at: Date | null
+    updated_at: Date | null
+  }
+
+  export type SupportTicketMaxAggregateOutputType = {
+    id: string | null
+    user_id: string | null
+    category: string | null
+    subject: string | null
+    message: string | null
+    status: string | null
+    admin_reply: string | null
+    replied_at: Date | null
+    created_at: Date | null
+    updated_at: Date | null
+  }
+
+  export type SupportTicketCountAggregateOutputType = {
+    id: number
+    user_id: number
+    category: number
+    subject: number
+    message: number
+    status: number
+    admin_reply: number
+    replied_at: number
+    created_at: number
+    updated_at: number
+    _all: number
+  }
+
+
+  export type SupportTicketMinAggregateInputType = {
+    id?: true
+    user_id?: true
+    category?: true
+    subject?: true
+    message?: true
+    status?: true
+    admin_reply?: true
+    replied_at?: true
+    created_at?: true
+    updated_at?: true
+  }
+
+  export type SupportTicketMaxAggregateInputType = {
+    id?: true
+    user_id?: true
+    category?: true
+    subject?: true
+    message?: true
+    status?: true
+    admin_reply?: true
+    replied_at?: true
+    created_at?: true
+    updated_at?: true
+  }
+
+  export type SupportTicketCountAggregateInputType = {
+    id?: true
+    user_id?: true
+    category?: true
+    subject?: true
+    message?: true
+    status?: true
+    admin_reply?: true
+    replied_at?: true
+    created_at?: true
+    updated_at?: true
+    _all?: true
+  }
+
+  export type SupportTicketAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which SupportTicket to aggregate.
+     */
+    where?: SupportTicketWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of SupportTickets to fetch.
+     */
+    orderBy?: SupportTicketOrderByWithRelationInput | SupportTicketOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: SupportTicketWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` SupportTickets from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` SupportTickets.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned SupportTickets
+    **/
+    _count?: true | SupportTicketCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: SupportTicketMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: SupportTicketMaxAggregateInputType
+  }
+
+  export type GetSupportTicketAggregateType<T extends SupportTicketAggregateArgs> = {
+        [P in keyof T & keyof AggregateSupportTicket]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateSupportTicket[P]>
+      : GetScalarType<T[P], AggregateSupportTicket[P]>
+  }
+
+
+
+
+  export type SupportTicketGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: SupportTicketWhereInput
+    orderBy?: SupportTicketOrderByWithAggregationInput | SupportTicketOrderByWithAggregationInput[]
+    by: SupportTicketScalarFieldEnum[] | SupportTicketScalarFieldEnum
+    having?: SupportTicketScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: SupportTicketCountAggregateInputType | true
+    _min?: SupportTicketMinAggregateInputType
+    _max?: SupportTicketMaxAggregateInputType
+  }
+
+  export type SupportTicketGroupByOutputType = {
+    id: string
+    user_id: string
+    category: string
+    subject: string
+    message: string
+    status: string
+    admin_reply: string | null
+    replied_at: Date | null
+    created_at: Date
+    updated_at: Date
+    _count: SupportTicketCountAggregateOutputType | null
+    _min: SupportTicketMinAggregateOutputType | null
+    _max: SupportTicketMaxAggregateOutputType | null
+  }
+
+  type GetSupportTicketGroupByPayload<T extends SupportTicketGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<SupportTicketGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof SupportTicketGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], SupportTicketGroupByOutputType[P]>
+            : GetScalarType<T[P], SupportTicketGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type SupportTicketSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    user_id?: boolean
+    category?: boolean
+    subject?: boolean
+    message?: boolean
+    status?: boolean
+    admin_reply?: boolean
+    replied_at?: boolean
+    created_at?: boolean
+    updated_at?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["supportTicket"]>
+
+
+
+  export type SupportTicketSelectScalar = {
+    id?: boolean
+    user_id?: boolean
+    category?: boolean
+    subject?: boolean
+    message?: boolean
+    status?: boolean
+    admin_reply?: boolean
+    replied_at?: boolean
+    created_at?: boolean
+    updated_at?: boolean
+  }
+
+  export type SupportTicketOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "user_id" | "category" | "subject" | "message" | "status" | "admin_reply" | "replied_at" | "created_at" | "updated_at", ExtArgs["result"]["supportTicket"]>
+  export type SupportTicketInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }
+
+  export type $SupportTicketPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "SupportTicket"
+    objects: {
+      user: Prisma.$UserPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      user_id: string
+      category: string
+      subject: string
+      message: string
+      status: string
+      admin_reply: string | null
+      replied_at: Date | null
+      created_at: Date
+      updated_at: Date
+    }, ExtArgs["result"]["supportTicket"]>
+    composites: {}
+  }
+
+  type SupportTicketGetPayload<S extends boolean | null | undefined | SupportTicketDefaultArgs> = $Result.GetResult<Prisma.$SupportTicketPayload, S>
+
+  type SupportTicketCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<SupportTicketFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: SupportTicketCountAggregateInputType | true
+    }
+
+  export interface SupportTicketDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['SupportTicket'], meta: { name: 'SupportTicket' } }
+    /**
+     * Find zero or one SupportTicket that matches the filter.
+     * @param {SupportTicketFindUniqueArgs} args - Arguments to find a SupportTicket
+     * @example
+     * // Get one SupportTicket
+     * const supportTicket = await prisma.supportTicket.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends SupportTicketFindUniqueArgs>(args: SelectSubset<T, SupportTicketFindUniqueArgs<ExtArgs>>): Prisma__SupportTicketClient<$Result.GetResult<Prisma.$SupportTicketPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one SupportTicket that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {SupportTicketFindUniqueOrThrowArgs} args - Arguments to find a SupportTicket
+     * @example
+     * // Get one SupportTicket
+     * const supportTicket = await prisma.supportTicket.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends SupportTicketFindUniqueOrThrowArgs>(args: SelectSubset<T, SupportTicketFindUniqueOrThrowArgs<ExtArgs>>): Prisma__SupportTicketClient<$Result.GetResult<Prisma.$SupportTicketPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first SupportTicket that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SupportTicketFindFirstArgs} args - Arguments to find a SupportTicket
+     * @example
+     * // Get one SupportTicket
+     * const supportTicket = await prisma.supportTicket.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends SupportTicketFindFirstArgs>(args?: SelectSubset<T, SupportTicketFindFirstArgs<ExtArgs>>): Prisma__SupportTicketClient<$Result.GetResult<Prisma.$SupportTicketPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first SupportTicket that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SupportTicketFindFirstOrThrowArgs} args - Arguments to find a SupportTicket
+     * @example
+     * // Get one SupportTicket
+     * const supportTicket = await prisma.supportTicket.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends SupportTicketFindFirstOrThrowArgs>(args?: SelectSubset<T, SupportTicketFindFirstOrThrowArgs<ExtArgs>>): Prisma__SupportTicketClient<$Result.GetResult<Prisma.$SupportTicketPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more SupportTickets that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SupportTicketFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all SupportTickets
+     * const supportTickets = await prisma.supportTicket.findMany()
+     * 
+     * // Get first 10 SupportTickets
+     * const supportTickets = await prisma.supportTicket.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const supportTicketWithIdOnly = await prisma.supportTicket.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends SupportTicketFindManyArgs>(args?: SelectSubset<T, SupportTicketFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SupportTicketPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a SupportTicket.
+     * @param {SupportTicketCreateArgs} args - Arguments to create a SupportTicket.
+     * @example
+     * // Create one SupportTicket
+     * const SupportTicket = await prisma.supportTicket.create({
+     *   data: {
+     *     // ... data to create a SupportTicket
+     *   }
+     * })
+     * 
+     */
+    create<T extends SupportTicketCreateArgs>(args: SelectSubset<T, SupportTicketCreateArgs<ExtArgs>>): Prisma__SupportTicketClient<$Result.GetResult<Prisma.$SupportTicketPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many SupportTickets.
+     * @param {SupportTicketCreateManyArgs} args - Arguments to create many SupportTickets.
+     * @example
+     * // Create many SupportTickets
+     * const supportTicket = await prisma.supportTicket.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends SupportTicketCreateManyArgs>(args?: SelectSubset<T, SupportTicketCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a SupportTicket.
+     * @param {SupportTicketDeleteArgs} args - Arguments to delete one SupportTicket.
+     * @example
+     * // Delete one SupportTicket
+     * const SupportTicket = await prisma.supportTicket.delete({
+     *   where: {
+     *     // ... filter to delete one SupportTicket
+     *   }
+     * })
+     * 
+     */
+    delete<T extends SupportTicketDeleteArgs>(args: SelectSubset<T, SupportTicketDeleteArgs<ExtArgs>>): Prisma__SupportTicketClient<$Result.GetResult<Prisma.$SupportTicketPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one SupportTicket.
+     * @param {SupportTicketUpdateArgs} args - Arguments to update one SupportTicket.
+     * @example
+     * // Update one SupportTicket
+     * const supportTicket = await prisma.supportTicket.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends SupportTicketUpdateArgs>(args: SelectSubset<T, SupportTicketUpdateArgs<ExtArgs>>): Prisma__SupportTicketClient<$Result.GetResult<Prisma.$SupportTicketPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more SupportTickets.
+     * @param {SupportTicketDeleteManyArgs} args - Arguments to filter SupportTickets to delete.
+     * @example
+     * // Delete a few SupportTickets
+     * const { count } = await prisma.supportTicket.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends SupportTicketDeleteManyArgs>(args?: SelectSubset<T, SupportTicketDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more SupportTickets.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SupportTicketUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many SupportTickets
+     * const supportTicket = await prisma.supportTicket.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends SupportTicketUpdateManyArgs>(args: SelectSubset<T, SupportTicketUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one SupportTicket.
+     * @param {SupportTicketUpsertArgs} args - Arguments to update or create a SupportTicket.
+     * @example
+     * // Update or create a SupportTicket
+     * const supportTicket = await prisma.supportTicket.upsert({
+     *   create: {
+     *     // ... data to create a SupportTicket
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the SupportTicket we want to update
+     *   }
+     * })
+     */
+    upsert<T extends SupportTicketUpsertArgs>(args: SelectSubset<T, SupportTicketUpsertArgs<ExtArgs>>): Prisma__SupportTicketClient<$Result.GetResult<Prisma.$SupportTicketPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of SupportTickets.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SupportTicketCountArgs} args - Arguments to filter SupportTickets to count.
+     * @example
+     * // Count the number of SupportTickets
+     * const count = await prisma.supportTicket.count({
+     *   where: {
+     *     // ... the filter for the SupportTickets we want to count
+     *   }
+     * })
+    **/
+    count<T extends SupportTicketCountArgs>(
+      args?: Subset<T, SupportTicketCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], SupportTicketCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a SupportTicket.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SupportTicketAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends SupportTicketAggregateArgs>(args: Subset<T, SupportTicketAggregateArgs>): Prisma.PrismaPromise<GetSupportTicketAggregateType<T>>
+
+    /**
+     * Group by SupportTicket.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SupportTicketGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends SupportTicketGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: SupportTicketGroupByArgs['orderBy'] }
+        : { orderBy?: SupportTicketGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, SupportTicketGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetSupportTicketGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the SupportTicket model
+   */
+  readonly fields: SupportTicketFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for SupportTicket.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__SupportTicketClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the SupportTicket model
+   */
+  interface SupportTicketFieldRefs {
+    readonly id: FieldRef<"SupportTicket", 'String'>
+    readonly user_id: FieldRef<"SupportTicket", 'String'>
+    readonly category: FieldRef<"SupportTicket", 'String'>
+    readonly subject: FieldRef<"SupportTicket", 'String'>
+    readonly message: FieldRef<"SupportTicket", 'String'>
+    readonly status: FieldRef<"SupportTicket", 'String'>
+    readonly admin_reply: FieldRef<"SupportTicket", 'String'>
+    readonly replied_at: FieldRef<"SupportTicket", 'DateTime'>
+    readonly created_at: FieldRef<"SupportTicket", 'DateTime'>
+    readonly updated_at: FieldRef<"SupportTicket", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * SupportTicket findUnique
+   */
+  export type SupportTicketFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SupportTicket
+     */
+    select?: SupportTicketSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SupportTicket
+     */
+    omit?: SupportTicketOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SupportTicketInclude<ExtArgs> | null
+    /**
+     * Filter, which SupportTicket to fetch.
+     */
+    where: SupportTicketWhereUniqueInput
+  }
+
+  /**
+   * SupportTicket findUniqueOrThrow
+   */
+  export type SupportTicketFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SupportTicket
+     */
+    select?: SupportTicketSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SupportTicket
+     */
+    omit?: SupportTicketOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SupportTicketInclude<ExtArgs> | null
+    /**
+     * Filter, which SupportTicket to fetch.
+     */
+    where: SupportTicketWhereUniqueInput
+  }
+
+  /**
+   * SupportTicket findFirst
+   */
+  export type SupportTicketFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SupportTicket
+     */
+    select?: SupportTicketSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SupportTicket
+     */
+    omit?: SupportTicketOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SupportTicketInclude<ExtArgs> | null
+    /**
+     * Filter, which SupportTicket to fetch.
+     */
+    where?: SupportTicketWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of SupportTickets to fetch.
+     */
+    orderBy?: SupportTicketOrderByWithRelationInput | SupportTicketOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for SupportTickets.
+     */
+    cursor?: SupportTicketWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` SupportTickets from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` SupportTickets.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of SupportTickets.
+     */
+    distinct?: SupportTicketScalarFieldEnum | SupportTicketScalarFieldEnum[]
+  }
+
+  /**
+   * SupportTicket findFirstOrThrow
+   */
+  export type SupportTicketFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SupportTicket
+     */
+    select?: SupportTicketSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SupportTicket
+     */
+    omit?: SupportTicketOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SupportTicketInclude<ExtArgs> | null
+    /**
+     * Filter, which SupportTicket to fetch.
+     */
+    where?: SupportTicketWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of SupportTickets to fetch.
+     */
+    orderBy?: SupportTicketOrderByWithRelationInput | SupportTicketOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for SupportTickets.
+     */
+    cursor?: SupportTicketWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` SupportTickets from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` SupportTickets.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of SupportTickets.
+     */
+    distinct?: SupportTicketScalarFieldEnum | SupportTicketScalarFieldEnum[]
+  }
+
+  /**
+   * SupportTicket findMany
+   */
+  export type SupportTicketFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SupportTicket
+     */
+    select?: SupportTicketSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SupportTicket
+     */
+    omit?: SupportTicketOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SupportTicketInclude<ExtArgs> | null
+    /**
+     * Filter, which SupportTickets to fetch.
+     */
+    where?: SupportTicketWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of SupportTickets to fetch.
+     */
+    orderBy?: SupportTicketOrderByWithRelationInput | SupportTicketOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing SupportTickets.
+     */
+    cursor?: SupportTicketWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` SupportTickets from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` SupportTickets.
+     */
+    skip?: number
+    distinct?: SupportTicketScalarFieldEnum | SupportTicketScalarFieldEnum[]
+  }
+
+  /**
+   * SupportTicket create
+   */
+  export type SupportTicketCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SupportTicket
+     */
+    select?: SupportTicketSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SupportTicket
+     */
+    omit?: SupportTicketOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SupportTicketInclude<ExtArgs> | null
+    /**
+     * The data needed to create a SupportTicket.
+     */
+    data: XOR<SupportTicketCreateInput, SupportTicketUncheckedCreateInput>
+  }
+
+  /**
+   * SupportTicket createMany
+   */
+  export type SupportTicketCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many SupportTickets.
+     */
+    data: SupportTicketCreateManyInput | SupportTicketCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * SupportTicket update
+   */
+  export type SupportTicketUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SupportTicket
+     */
+    select?: SupportTicketSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SupportTicket
+     */
+    omit?: SupportTicketOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SupportTicketInclude<ExtArgs> | null
+    /**
+     * The data needed to update a SupportTicket.
+     */
+    data: XOR<SupportTicketUpdateInput, SupportTicketUncheckedUpdateInput>
+    /**
+     * Choose, which SupportTicket to update.
+     */
+    where: SupportTicketWhereUniqueInput
+  }
+
+  /**
+   * SupportTicket updateMany
+   */
+  export type SupportTicketUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update SupportTickets.
+     */
+    data: XOR<SupportTicketUpdateManyMutationInput, SupportTicketUncheckedUpdateManyInput>
+    /**
+     * Filter which SupportTickets to update
+     */
+    where?: SupportTicketWhereInput
+    /**
+     * Limit how many SupportTickets to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * SupportTicket upsert
+   */
+  export type SupportTicketUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SupportTicket
+     */
+    select?: SupportTicketSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SupportTicket
+     */
+    omit?: SupportTicketOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SupportTicketInclude<ExtArgs> | null
+    /**
+     * The filter to search for the SupportTicket to update in case it exists.
+     */
+    where: SupportTicketWhereUniqueInput
+    /**
+     * In case the SupportTicket found by the `where` argument doesn't exist, create a new SupportTicket with this data.
+     */
+    create: XOR<SupportTicketCreateInput, SupportTicketUncheckedCreateInput>
+    /**
+     * In case the SupportTicket was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<SupportTicketUpdateInput, SupportTicketUncheckedUpdateInput>
+  }
+
+  /**
+   * SupportTicket delete
+   */
+  export type SupportTicketDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SupportTicket
+     */
+    select?: SupportTicketSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SupportTicket
+     */
+    omit?: SupportTicketOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SupportTicketInclude<ExtArgs> | null
+    /**
+     * Filter which SupportTicket to delete.
+     */
+    where: SupportTicketWhereUniqueInput
+  }
+
+  /**
+   * SupportTicket deleteMany
+   */
+  export type SupportTicketDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which SupportTickets to delete
+     */
+    where?: SupportTicketWhereInput
+    /**
+     * Limit how many SupportTickets to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * SupportTicket without action
+   */
+  export type SupportTicketDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SupportTicket
+     */
+    select?: SupportTicketSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SupportTicket
+     */
+    omit?: SupportTicketOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SupportTicketInclude<ExtArgs> | null
   }
 
 
@@ -15571,12 +18130,17 @@ export namespace Prisma {
     avatar_url: 'avatar_url',
     role: 'role',
     loyalty_points: 'loyalty_points',
-    loyalty_tier: 'loyalty_tier',
-    refresh_token: 'refresh_token',
-    is_verified: 'is_verified',
-    date_of_birth: 'date_of_birth',
     created_at: 'created_at',
-    updated_at: 'updated_at'
+    loyalty_tier: 'loyalty_tier',
+    updated_at: 'updated_at',
+    date_of_birth: 'date_of_birth',
+    is_verified: 'is_verified',
+    refresh_token: 'refresh_token',
+    ban_reason: 'ban_reason',
+    is_banned: 'is_banned',
+    auth_provider: 'auth_provider',
+    google_email: 'google_email',
+    google_id: 'google_id'
   };
 
   export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
@@ -15679,7 +18243,9 @@ export namespace Prisma {
     qr_image_url: 'qr_image_url',
     paid_at: 'paid_at',
     created_at: 'created_at',
-    expires_at: 'expires_at'
+    expires_at: 'expires_at',
+    discount_amount: 'discount_amount',
+    voucher_code: 'voucher_code'
   };
 
   export type BookingScalarFieldEnum = (typeof BookingScalarFieldEnum)[keyof typeof BookingScalarFieldEnum]
@@ -15741,10 +18307,42 @@ export namespace Prisma {
     max_discount: 'max_discount',
     usage_limit: 'usage_limit',
     used_count: 'used_count',
-    expires_at: 'expires_at'
+    expires_at: 'expires_at',
+    created_at: 'created_at',
+    description: 'description',
+    is_active: 'is_active',
+    source: 'source',
+    owner_user_id: 'owner_user_id'
   };
 
   export type VoucherScalarFieldEnum = (typeof VoucherScalarFieldEnum)[keyof typeof VoucherScalarFieldEnum]
+
+
+  export const PointRedemptionScalarFieldEnum: {
+    id: 'id',
+    user_id: 'user_id',
+    points_used: 'points_used',
+    voucher_id: 'voucher_id',
+    created_at: 'created_at'
+  };
+
+  export type PointRedemptionScalarFieldEnum = (typeof PointRedemptionScalarFieldEnum)[keyof typeof PointRedemptionScalarFieldEnum]
+
+
+  export const SupportTicketScalarFieldEnum: {
+    id: 'id',
+    user_id: 'user_id',
+    category: 'category',
+    subject: 'subject',
+    message: 'message',
+    status: 'status',
+    admin_reply: 'admin_reply',
+    replied_at: 'replied_at',
+    created_at: 'created_at',
+    updated_at: 'updated_at'
+  };
+
+  export type SupportTicketScalarFieldEnum = (typeof SupportTicketScalarFieldEnum)[keyof typeof SupportTicketScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -15753,13 +18351,6 @@ export namespace Prisma {
   };
 
   export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder]
-
-
-  export const JsonNullValueInput: {
-    JsonNull: typeof JsonNull
-  };
-
-  export type JsonNullValueInput = (typeof JsonNullValueInput)[keyof typeof JsonNullValueInput]
 
 
   export const NullsOrder: {
@@ -15778,7 +18369,11 @@ export namespace Prisma {
     name: 'name',
     avatar_url: 'avatar_url',
     loyalty_tier: 'loyalty_tier',
-    refresh_token: 'refresh_token'
+    refresh_token: 'refresh_token',
+    ban_reason: 'ban_reason',
+    auth_provider: 'auth_provider',
+    google_email: 'google_email',
+    google_id: 'google_id'
   };
 
   export type UserOrderByRelevanceFieldEnum = (typeof UserOrderByRelevanceFieldEnum)[keyof typeof UserOrderByRelevanceFieldEnum]
@@ -15795,23 +18390,6 @@ export namespace Prisma {
   export type LoyaltyLogOrderByRelevanceFieldEnum = (typeof LoyaltyLogOrderByRelevanceFieldEnum)[keyof typeof LoyaltyLogOrderByRelevanceFieldEnum]
 
 
-  export const JsonNullValueFilter: {
-    DbNull: typeof DbNull,
-    JsonNull: typeof JsonNull,
-    AnyNull: typeof AnyNull
-  };
-
-  export type JsonNullValueFilter = (typeof JsonNullValueFilter)[keyof typeof JsonNullValueFilter]
-
-
-  export const QueryMode: {
-    default: 'default',
-    insensitive: 'insensitive'
-  };
-
-  export type QueryMode = (typeof QueryMode)[keyof typeof QueryMode]
-
-
   export const MovieOrderByRelevanceFieldEnum: {
     id: 'id',
     title: 'title',
@@ -15820,6 +18398,8 @@ export namespace Prisma {
     poster_url: 'poster_url',
     backdrop_url: 'backdrop_url',
     trailer_key: 'trailer_key',
+    genres: 'genres',
+    cast: 'cast',
     director: 'director',
     language: 'language'
   };
@@ -15872,7 +18452,8 @@ export namespace Prisma {
     user_id: 'user_id',
     showtime_id: 'showtime_id',
     qr_code: 'qr_code',
-    qr_image_url: 'qr_image_url'
+    qr_image_url: 'qr_image_url',
+    voucher_code: 'voucher_code'
   };
 
   export type BookingOrderByRelevanceFieldEnum = (typeof BookingOrderByRelevanceFieldEnum)[keyof typeof BookingOrderByRelevanceFieldEnum]
@@ -15919,10 +18500,35 @@ export namespace Prisma {
 
   export const VoucherOrderByRelevanceFieldEnum: {
     id: 'id',
-    code: 'code'
+    code: 'code',
+    description: 'description',
+    source: 'source',
+    owner_user_id: 'owner_user_id'
   };
 
   export type VoucherOrderByRelevanceFieldEnum = (typeof VoucherOrderByRelevanceFieldEnum)[keyof typeof VoucherOrderByRelevanceFieldEnum]
+
+
+  export const PointRedemptionOrderByRelevanceFieldEnum: {
+    id: 'id',
+    user_id: 'user_id',
+    voucher_id: 'voucher_id'
+  };
+
+  export type PointRedemptionOrderByRelevanceFieldEnum = (typeof PointRedemptionOrderByRelevanceFieldEnum)[keyof typeof PointRedemptionOrderByRelevanceFieldEnum]
+
+
+  export const SupportTicketOrderByRelevanceFieldEnum: {
+    id: 'id',
+    user_id: 'user_id',
+    category: 'category',
+    subject: 'subject',
+    message: 'message',
+    status: 'status',
+    admin_reply: 'admin_reply'
+  };
+
+  export type SupportTicketOrderByRelevanceFieldEnum = (typeof SupportTicketOrderByRelevanceFieldEnum)[keyof typeof SupportTicketOrderByRelevanceFieldEnum]
 
 
   /**
@@ -15952,13 +18558,6 @@ export namespace Prisma {
 
 
   /**
-   * Reference to a field of type 'Boolean'
-   */
-  export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
-    
-
-
-  /**
    * Reference to a field of type 'DateTime'
    */
   export type DateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime'>
@@ -15966,16 +18565,9 @@ export namespace Prisma {
 
 
   /**
-   * Reference to a field of type 'Json'
+   * Reference to a field of type 'Boolean'
    */
-  export type JsonFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Json'>
-    
-
-
-  /**
-   * Reference to a field of type 'QueryMode'
-   */
-  export type EnumQueryModeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'QueryMode'>
+  export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
     
 
 
@@ -16045,38 +18637,54 @@ export namespace Prisma {
     id?: StringFilter<"User"> | string
     email?: StringFilter<"User"> | string
     phone?: StringNullableFilter<"User"> | string | null
-    password_hash?: StringFilter<"User"> | string
+    password_hash?: StringNullableFilter<"User"> | string | null
     name?: StringFilter<"User"> | string
     avatar_url?: StringNullableFilter<"User"> | string | null
     role?: EnumRoleFilter<"User"> | $Enums.Role
     loyalty_points?: IntFilter<"User"> | number
-    loyalty_tier?: StringFilter<"User"> | string
-    refresh_token?: StringNullableFilter<"User"> | string | null
-    is_verified?: BoolFilter<"User"> | boolean
-    date_of_birth?: DateTimeNullableFilter<"User"> | Date | string | null
     created_at?: DateTimeFilter<"User"> | Date | string
+    loyalty_tier?: StringFilter<"User"> | string
     updated_at?: DateTimeFilter<"User"> | Date | string
+    date_of_birth?: DateTimeNullableFilter<"User"> | Date | string | null
+    is_verified?: BoolFilter<"User"> | boolean
+    refresh_token?: StringNullableFilter<"User"> | string | null
+    ban_reason?: StringNullableFilter<"User"> | string | null
+    is_banned?: BoolFilter<"User"> | boolean
+    auth_provider?: StringFilter<"User"> | string
+    google_email?: StringNullableFilter<"User"> | string | null
+    google_id?: StringNullableFilter<"User"> | string | null
     bookings?: BookingListRelationFilter
     loyalty_logs?: LoyaltyLogListRelationFilter
+    support_tickets?: SupportTicketListRelationFilter
+    point_redemptions?: PointRedemptionListRelationFilter
+    owned_vouchers?: VoucherListRelationFilter
   }
 
   export type UserOrderByWithRelationInput = {
     id?: SortOrder
     email?: SortOrder
     phone?: SortOrderInput | SortOrder
-    password_hash?: SortOrder
+    password_hash?: SortOrderInput | SortOrder
     name?: SortOrder
     avatar_url?: SortOrderInput | SortOrder
     role?: SortOrder
     loyalty_points?: SortOrder
-    loyalty_tier?: SortOrder
-    refresh_token?: SortOrderInput | SortOrder
-    is_verified?: SortOrder
-    date_of_birth?: SortOrderInput | SortOrder
     created_at?: SortOrder
+    loyalty_tier?: SortOrder
     updated_at?: SortOrder
+    date_of_birth?: SortOrderInput | SortOrder
+    is_verified?: SortOrder
+    refresh_token?: SortOrderInput | SortOrder
+    ban_reason?: SortOrderInput | SortOrder
+    is_banned?: SortOrder
+    auth_provider?: SortOrder
+    google_email?: SortOrderInput | SortOrder
+    google_id?: SortOrderInput | SortOrder
     bookings?: BookingOrderByRelationAggregateInput
     loyalty_logs?: LoyaltyLogOrderByRelationAggregateInput
+    support_tickets?: SupportTicketOrderByRelationAggregateInput
+    point_redemptions?: PointRedemptionOrderByRelationAggregateInput
+    owned_vouchers?: VoucherOrderByRelationAggregateInput
     _relevance?: UserOrderByRelevanceInput
   }
 
@@ -16084,39 +18692,52 @@ export namespace Prisma {
     id?: string
     email?: string
     phone?: string
+    google_id?: string
     AND?: UserWhereInput | UserWhereInput[]
     OR?: UserWhereInput[]
     NOT?: UserWhereInput | UserWhereInput[]
-    password_hash?: StringFilter<"User"> | string
+    password_hash?: StringNullableFilter<"User"> | string | null
     name?: StringFilter<"User"> | string
     avatar_url?: StringNullableFilter<"User"> | string | null
     role?: EnumRoleFilter<"User"> | $Enums.Role
     loyalty_points?: IntFilter<"User"> | number
-    loyalty_tier?: StringFilter<"User"> | string
-    refresh_token?: StringNullableFilter<"User"> | string | null
-    is_verified?: BoolFilter<"User"> | boolean
-    date_of_birth?: DateTimeNullableFilter<"User"> | Date | string | null
     created_at?: DateTimeFilter<"User"> | Date | string
+    loyalty_tier?: StringFilter<"User"> | string
     updated_at?: DateTimeFilter<"User"> | Date | string
+    date_of_birth?: DateTimeNullableFilter<"User"> | Date | string | null
+    is_verified?: BoolFilter<"User"> | boolean
+    refresh_token?: StringNullableFilter<"User"> | string | null
+    ban_reason?: StringNullableFilter<"User"> | string | null
+    is_banned?: BoolFilter<"User"> | boolean
+    auth_provider?: StringFilter<"User"> | string
+    google_email?: StringNullableFilter<"User"> | string | null
     bookings?: BookingListRelationFilter
     loyalty_logs?: LoyaltyLogListRelationFilter
-  }, "id" | "email" | "phone">
+    support_tickets?: SupportTicketListRelationFilter
+    point_redemptions?: PointRedemptionListRelationFilter
+    owned_vouchers?: VoucherListRelationFilter
+  }, "id" | "email" | "phone" | "google_id">
 
   export type UserOrderByWithAggregationInput = {
     id?: SortOrder
     email?: SortOrder
     phone?: SortOrderInput | SortOrder
-    password_hash?: SortOrder
+    password_hash?: SortOrderInput | SortOrder
     name?: SortOrder
     avatar_url?: SortOrderInput | SortOrder
     role?: SortOrder
     loyalty_points?: SortOrder
-    loyalty_tier?: SortOrder
-    refresh_token?: SortOrderInput | SortOrder
-    is_verified?: SortOrder
-    date_of_birth?: SortOrderInput | SortOrder
     created_at?: SortOrder
+    loyalty_tier?: SortOrder
     updated_at?: SortOrder
+    date_of_birth?: SortOrderInput | SortOrder
+    is_verified?: SortOrder
+    refresh_token?: SortOrderInput | SortOrder
+    ban_reason?: SortOrderInput | SortOrder
+    is_banned?: SortOrder
+    auth_provider?: SortOrder
+    google_email?: SortOrderInput | SortOrder
+    google_id?: SortOrderInput | SortOrder
     _count?: UserCountOrderByAggregateInput
     _avg?: UserAvgOrderByAggregateInput
     _max?: UserMaxOrderByAggregateInput
@@ -16131,17 +18752,22 @@ export namespace Prisma {
     id?: StringWithAggregatesFilter<"User"> | string
     email?: StringWithAggregatesFilter<"User"> | string
     phone?: StringNullableWithAggregatesFilter<"User"> | string | null
-    password_hash?: StringWithAggregatesFilter<"User"> | string
+    password_hash?: StringNullableWithAggregatesFilter<"User"> | string | null
     name?: StringWithAggregatesFilter<"User"> | string
     avatar_url?: StringNullableWithAggregatesFilter<"User"> | string | null
     role?: EnumRoleWithAggregatesFilter<"User"> | $Enums.Role
     loyalty_points?: IntWithAggregatesFilter<"User"> | number
-    loyalty_tier?: StringWithAggregatesFilter<"User"> | string
-    refresh_token?: StringNullableWithAggregatesFilter<"User"> | string | null
-    is_verified?: BoolWithAggregatesFilter<"User"> | boolean
-    date_of_birth?: DateTimeNullableWithAggregatesFilter<"User"> | Date | string | null
     created_at?: DateTimeWithAggregatesFilter<"User"> | Date | string
+    loyalty_tier?: StringWithAggregatesFilter<"User"> | string
     updated_at?: DateTimeWithAggregatesFilter<"User"> | Date | string
+    date_of_birth?: DateTimeNullableWithAggregatesFilter<"User"> | Date | string | null
+    is_verified?: BoolWithAggregatesFilter<"User"> | boolean
+    refresh_token?: StringNullableWithAggregatesFilter<"User"> | string | null
+    ban_reason?: StringNullableWithAggregatesFilter<"User"> | string | null
+    is_banned?: BoolWithAggregatesFilter<"User"> | boolean
+    auth_provider?: StringWithAggregatesFilter<"User"> | string
+    google_email?: StringNullableWithAggregatesFilter<"User"> | string | null
+    google_id?: StringNullableWithAggregatesFilter<"User"> | string | null
   }
 
   export type LoyaltyLogWhereInput = {
@@ -16224,8 +18850,8 @@ export namespace Prisma {
     poster_url?: StringFilter<"Movie"> | string
     backdrop_url?: StringFilter<"Movie"> | string
     trailer_key?: StringNullableFilter<"Movie"> | string | null
-    genres?: JsonFilter<"Movie">
-    cast?: JsonFilter<"Movie">
+    genres?: StringFilter<"Movie"> | string
+    cast?: StringFilter<"Movie"> | string
     director?: StringFilter<"Movie"> | string
     duration?: IntFilter<"Movie"> | number
     rating?: FloatFilter<"Movie"> | number
@@ -16268,8 +18894,8 @@ export namespace Prisma {
     poster_url?: StringFilter<"Movie"> | string
     backdrop_url?: StringFilter<"Movie"> | string
     trailer_key?: StringNullableFilter<"Movie"> | string | null
-    genres?: JsonFilter<"Movie">
-    cast?: JsonFilter<"Movie">
+    genres?: StringFilter<"Movie"> | string
+    cast?: StringFilter<"Movie"> | string
     director?: StringFilter<"Movie"> | string
     duration?: IntFilter<"Movie"> | number
     rating?: FloatFilter<"Movie"> | number
@@ -16315,8 +18941,8 @@ export namespace Prisma {
     poster_url?: StringWithAggregatesFilter<"Movie"> | string
     backdrop_url?: StringWithAggregatesFilter<"Movie"> | string
     trailer_key?: StringNullableWithAggregatesFilter<"Movie"> | string | null
-    genres?: JsonWithAggregatesFilter<"Movie">
-    cast?: JsonWithAggregatesFilter<"Movie">
+    genres?: StringWithAggregatesFilter<"Movie"> | string
+    cast?: StringWithAggregatesFilter<"Movie"> | string
     director?: StringWithAggregatesFilter<"Movie"> | string
     duration?: IntWithAggregatesFilter<"Movie"> | number
     rating?: FloatWithAggregatesFilter<"Movie"> | number
@@ -16471,8 +19097,8 @@ export namespace Prisma {
     row?: StringFilter<"Seat"> | string
     col?: IntFilter<"Seat"> | number
     type?: EnumSeatTypeFilter<"Seat"> | $Enums.SeatType
-    room?: XOR<RoomScalarRelationFilter, RoomWhereInput>
     booking_items?: BookingItemListRelationFilter
+    room?: XOR<RoomScalarRelationFilter, RoomWhereInput>
   }
 
   export type SeatOrderByWithRelationInput = {
@@ -16481,8 +19107,8 @@ export namespace Prisma {
     row?: SortOrder
     col?: SortOrder
     type?: SortOrder
-    room?: RoomOrderByWithRelationInput
     booking_items?: BookingItemOrderByRelationAggregateInput
+    room?: RoomOrderByWithRelationInput
     _relevance?: SeatOrderByRelevanceInput
   }
 
@@ -16496,8 +19122,8 @@ export namespace Prisma {
     row?: StringFilter<"Seat"> | string
     col?: IntFilter<"Seat"> | number
     type?: EnumSeatTypeFilter<"Seat"> | $Enums.SeatType
-    room?: XOR<RoomScalarRelationFilter, RoomWhereInput>
     booking_items?: BookingItemListRelationFilter
+    room?: XOR<RoomScalarRelationFilter, RoomWhereInput>
   }, "id" | "room_id_row_col">
 
   export type SeatOrderByWithAggregationInput = {
@@ -16538,9 +19164,9 @@ export namespace Prisma {
     couple_price?: IntFilter<"Showtime"> | number
     language?: StringFilter<"Showtime"> | string
     format?: StringFilter<"Showtime"> | string
+    bookings?: BookingListRelationFilter
     movie?: XOR<MovieScalarRelationFilter, MovieWhereInput>
     room?: XOR<RoomScalarRelationFilter, RoomWhereInput>
-    bookings?: BookingListRelationFilter
   }
 
   export type ShowtimeOrderByWithRelationInput = {
@@ -16554,9 +19180,9 @@ export namespace Prisma {
     couple_price?: SortOrder
     language?: SortOrder
     format?: SortOrder
+    bookings?: BookingOrderByRelationAggregateInput
     movie?: MovieOrderByWithRelationInput
     room?: RoomOrderByWithRelationInput
-    bookings?: BookingOrderByRelationAggregateInput
     _relevance?: ShowtimeOrderByRelevanceInput
   }
 
@@ -16574,9 +19200,9 @@ export namespace Prisma {
     couple_price?: IntFilter<"Showtime"> | number
     language?: StringFilter<"Showtime"> | string
     format?: StringFilter<"Showtime"> | string
+    bookings?: BookingListRelationFilter
     movie?: XOR<MovieScalarRelationFilter, MovieWhereInput>
     room?: XOR<RoomScalarRelationFilter, RoomWhereInput>
-    bookings?: BookingListRelationFilter
   }, "id">
 
   export type ShowtimeOrderByWithAggregationInput = {
@@ -16627,11 +19253,14 @@ export namespace Prisma {
     paid_at?: DateTimeNullableFilter<"Booking"> | Date | string | null
     created_at?: DateTimeFilter<"Booking"> | Date | string
     expires_at?: DateTimeFilter<"Booking"> | Date | string
-    user?: XOR<UserScalarRelationFilter, UserWhereInput>
-    showtime?: XOR<ShowtimeScalarRelationFilter, ShowtimeWhereInput>
+    discount_amount?: IntFilter<"Booking"> | number
+    voucher_code?: StringNullableFilter<"Booking"> | string | null
     booking_items?: BookingItemListRelationFilter
-    payment?: XOR<PaymentNullableScalarRelationFilter, PaymentWhereInput> | null
+    showtime?: XOR<ShowtimeScalarRelationFilter, ShowtimeWhereInput>
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+    voucher?: XOR<VoucherNullableScalarRelationFilter, VoucherWhereInput> | null
     food_items?: FoodItemListRelationFilter
+    payment?: XOR<PaymentNullableScalarRelationFilter, PaymentWhereInput> | null
   }
 
   export type BookingOrderByWithRelationInput = {
@@ -16645,11 +19274,14 @@ export namespace Prisma {
     paid_at?: SortOrderInput | SortOrder
     created_at?: SortOrder
     expires_at?: SortOrder
-    user?: UserOrderByWithRelationInput
-    showtime?: ShowtimeOrderByWithRelationInput
+    discount_amount?: SortOrder
+    voucher_code?: SortOrderInput | SortOrder
     booking_items?: BookingItemOrderByRelationAggregateInput
-    payment?: PaymentOrderByWithRelationInput
+    showtime?: ShowtimeOrderByWithRelationInput
+    user?: UserOrderByWithRelationInput
+    voucher?: VoucherOrderByWithRelationInput
     food_items?: FoodItemOrderByRelationAggregateInput
+    payment?: PaymentOrderByWithRelationInput
     _relevance?: BookingOrderByRelevanceInput
   }
 
@@ -16667,11 +19299,14 @@ export namespace Prisma {
     paid_at?: DateTimeNullableFilter<"Booking"> | Date | string | null
     created_at?: DateTimeFilter<"Booking"> | Date | string
     expires_at?: DateTimeFilter<"Booking"> | Date | string
-    user?: XOR<UserScalarRelationFilter, UserWhereInput>
-    showtime?: XOR<ShowtimeScalarRelationFilter, ShowtimeWhereInput>
+    discount_amount?: IntFilter<"Booking"> | number
+    voucher_code?: StringNullableFilter<"Booking"> | string | null
     booking_items?: BookingItemListRelationFilter
-    payment?: XOR<PaymentNullableScalarRelationFilter, PaymentWhereInput> | null
+    showtime?: XOR<ShowtimeScalarRelationFilter, ShowtimeWhereInput>
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+    voucher?: XOR<VoucherNullableScalarRelationFilter, VoucherWhereInput> | null
     food_items?: FoodItemListRelationFilter
+    payment?: XOR<PaymentNullableScalarRelationFilter, PaymentWhereInput> | null
   }, "id" | "qr_code">
 
   export type BookingOrderByWithAggregationInput = {
@@ -16685,6 +19320,8 @@ export namespace Prisma {
     paid_at?: SortOrderInput | SortOrder
     created_at?: SortOrder
     expires_at?: SortOrder
+    discount_amount?: SortOrder
+    voucher_code?: SortOrderInput | SortOrder
     _count?: BookingCountOrderByAggregateInput
     _avg?: BookingAvgOrderByAggregateInput
     _max?: BookingMaxOrderByAggregateInput
@@ -16706,6 +19343,8 @@ export namespace Prisma {
     paid_at?: DateTimeNullableWithAggregatesFilter<"Booking"> | Date | string | null
     created_at?: DateTimeWithAggregatesFilter<"Booking"> | Date | string
     expires_at?: DateTimeWithAggregatesFilter<"Booking"> | Date | string
+    discount_amount?: IntWithAggregatesFilter<"Booking"> | number
+    voucher_code?: StringNullableWithAggregatesFilter<"Booking"> | string | null
   }
 
   export type BookingItemWhereInput = {
@@ -16975,6 +19614,14 @@ export namespace Prisma {
     usage_limit?: IntFilter<"Voucher"> | number
     used_count?: IntFilter<"Voucher"> | number
     expires_at?: DateTimeFilter<"Voucher"> | Date | string
+    created_at?: DateTimeFilter<"Voucher"> | Date | string
+    description?: StringNullableFilter<"Voucher"> | string | null
+    is_active?: BoolFilter<"Voucher"> | boolean
+    source?: StringFilter<"Voucher"> | string
+    owner_user_id?: StringNullableFilter<"Voucher"> | string | null
+    bookings?: BookingListRelationFilter
+    point_redemptions?: PointRedemptionListRelationFilter
+    owner?: XOR<UserNullableScalarRelationFilter, UserWhereInput> | null
   }
 
   export type VoucherOrderByWithRelationInput = {
@@ -16987,6 +19634,14 @@ export namespace Prisma {
     usage_limit?: SortOrder
     used_count?: SortOrder
     expires_at?: SortOrder
+    created_at?: SortOrder
+    description?: SortOrderInput | SortOrder
+    is_active?: SortOrder
+    source?: SortOrder
+    owner_user_id?: SortOrderInput | SortOrder
+    bookings?: BookingOrderByRelationAggregateInput
+    point_redemptions?: PointRedemptionOrderByRelationAggregateInput
+    owner?: UserOrderByWithRelationInput
     _relevance?: VoucherOrderByRelevanceInput
   }
 
@@ -17003,6 +19658,14 @@ export namespace Prisma {
     usage_limit?: IntFilter<"Voucher"> | number
     used_count?: IntFilter<"Voucher"> | number
     expires_at?: DateTimeFilter<"Voucher"> | Date | string
+    created_at?: DateTimeFilter<"Voucher"> | Date | string
+    description?: StringNullableFilter<"Voucher"> | string | null
+    is_active?: BoolFilter<"Voucher"> | boolean
+    source?: StringFilter<"Voucher"> | string
+    owner_user_id?: StringNullableFilter<"Voucher"> | string | null
+    bookings?: BookingListRelationFilter
+    point_redemptions?: PointRedemptionListRelationFilter
+    owner?: XOR<UserNullableScalarRelationFilter, UserWhereInput> | null
   }, "id" | "code">
 
   export type VoucherOrderByWithAggregationInput = {
@@ -17015,6 +19678,11 @@ export namespace Prisma {
     usage_limit?: SortOrder
     used_count?: SortOrder
     expires_at?: SortOrder
+    created_at?: SortOrder
+    description?: SortOrderInput | SortOrder
+    is_active?: SortOrder
+    source?: SortOrder
+    owner_user_id?: SortOrderInput | SortOrder
     _count?: VoucherCountOrderByAggregateInput
     _avg?: VoucherAvgOrderByAggregateInput
     _max?: VoucherMaxOrderByAggregateInput
@@ -17035,133 +19703,327 @@ export namespace Prisma {
     usage_limit?: IntWithAggregatesFilter<"Voucher"> | number
     used_count?: IntWithAggregatesFilter<"Voucher"> | number
     expires_at?: DateTimeWithAggregatesFilter<"Voucher"> | Date | string
+    created_at?: DateTimeWithAggregatesFilter<"Voucher"> | Date | string
+    description?: StringNullableWithAggregatesFilter<"Voucher"> | string | null
+    is_active?: BoolWithAggregatesFilter<"Voucher"> | boolean
+    source?: StringWithAggregatesFilter<"Voucher"> | string
+    owner_user_id?: StringNullableWithAggregatesFilter<"Voucher"> | string | null
+  }
+
+  export type PointRedemptionWhereInput = {
+    AND?: PointRedemptionWhereInput | PointRedemptionWhereInput[]
+    OR?: PointRedemptionWhereInput[]
+    NOT?: PointRedemptionWhereInput | PointRedemptionWhereInput[]
+    id?: StringFilter<"PointRedemption"> | string
+    user_id?: StringFilter<"PointRedemption"> | string
+    points_used?: IntFilter<"PointRedemption"> | number
+    voucher_id?: StringFilter<"PointRedemption"> | string
+    created_at?: DateTimeFilter<"PointRedemption"> | Date | string
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+    voucher?: XOR<VoucherScalarRelationFilter, VoucherWhereInput>
+  }
+
+  export type PointRedemptionOrderByWithRelationInput = {
+    id?: SortOrder
+    user_id?: SortOrder
+    points_used?: SortOrder
+    voucher_id?: SortOrder
+    created_at?: SortOrder
+    user?: UserOrderByWithRelationInput
+    voucher?: VoucherOrderByWithRelationInput
+    _relevance?: PointRedemptionOrderByRelevanceInput
+  }
+
+  export type PointRedemptionWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: PointRedemptionWhereInput | PointRedemptionWhereInput[]
+    OR?: PointRedemptionWhereInput[]
+    NOT?: PointRedemptionWhereInput | PointRedemptionWhereInput[]
+    user_id?: StringFilter<"PointRedemption"> | string
+    points_used?: IntFilter<"PointRedemption"> | number
+    voucher_id?: StringFilter<"PointRedemption"> | string
+    created_at?: DateTimeFilter<"PointRedemption"> | Date | string
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+    voucher?: XOR<VoucherScalarRelationFilter, VoucherWhereInput>
+  }, "id">
+
+  export type PointRedemptionOrderByWithAggregationInput = {
+    id?: SortOrder
+    user_id?: SortOrder
+    points_used?: SortOrder
+    voucher_id?: SortOrder
+    created_at?: SortOrder
+    _count?: PointRedemptionCountOrderByAggregateInput
+    _avg?: PointRedemptionAvgOrderByAggregateInput
+    _max?: PointRedemptionMaxOrderByAggregateInput
+    _min?: PointRedemptionMinOrderByAggregateInput
+    _sum?: PointRedemptionSumOrderByAggregateInput
+  }
+
+  export type PointRedemptionScalarWhereWithAggregatesInput = {
+    AND?: PointRedemptionScalarWhereWithAggregatesInput | PointRedemptionScalarWhereWithAggregatesInput[]
+    OR?: PointRedemptionScalarWhereWithAggregatesInput[]
+    NOT?: PointRedemptionScalarWhereWithAggregatesInput | PointRedemptionScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"PointRedemption"> | string
+    user_id?: StringWithAggregatesFilter<"PointRedemption"> | string
+    points_used?: IntWithAggregatesFilter<"PointRedemption"> | number
+    voucher_id?: StringWithAggregatesFilter<"PointRedemption"> | string
+    created_at?: DateTimeWithAggregatesFilter<"PointRedemption"> | Date | string
+  }
+
+  export type SupportTicketWhereInput = {
+    AND?: SupportTicketWhereInput | SupportTicketWhereInput[]
+    OR?: SupportTicketWhereInput[]
+    NOT?: SupportTicketWhereInput | SupportTicketWhereInput[]
+    id?: StringFilter<"SupportTicket"> | string
+    user_id?: StringFilter<"SupportTicket"> | string
+    category?: StringFilter<"SupportTicket"> | string
+    subject?: StringFilter<"SupportTicket"> | string
+    message?: StringFilter<"SupportTicket"> | string
+    status?: StringFilter<"SupportTicket"> | string
+    admin_reply?: StringNullableFilter<"SupportTicket"> | string | null
+    replied_at?: DateTimeNullableFilter<"SupportTicket"> | Date | string | null
+    created_at?: DateTimeFilter<"SupportTicket"> | Date | string
+    updated_at?: DateTimeFilter<"SupportTicket"> | Date | string
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+  }
+
+  export type SupportTicketOrderByWithRelationInput = {
+    id?: SortOrder
+    user_id?: SortOrder
+    category?: SortOrder
+    subject?: SortOrder
+    message?: SortOrder
+    status?: SortOrder
+    admin_reply?: SortOrderInput | SortOrder
+    replied_at?: SortOrderInput | SortOrder
+    created_at?: SortOrder
+    updated_at?: SortOrder
+    user?: UserOrderByWithRelationInput
+    _relevance?: SupportTicketOrderByRelevanceInput
+  }
+
+  export type SupportTicketWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: SupportTicketWhereInput | SupportTicketWhereInput[]
+    OR?: SupportTicketWhereInput[]
+    NOT?: SupportTicketWhereInput | SupportTicketWhereInput[]
+    user_id?: StringFilter<"SupportTicket"> | string
+    category?: StringFilter<"SupportTicket"> | string
+    subject?: StringFilter<"SupportTicket"> | string
+    message?: StringFilter<"SupportTicket"> | string
+    status?: StringFilter<"SupportTicket"> | string
+    admin_reply?: StringNullableFilter<"SupportTicket"> | string | null
+    replied_at?: DateTimeNullableFilter<"SupportTicket"> | Date | string | null
+    created_at?: DateTimeFilter<"SupportTicket"> | Date | string
+    updated_at?: DateTimeFilter<"SupportTicket"> | Date | string
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+  }, "id">
+
+  export type SupportTicketOrderByWithAggregationInput = {
+    id?: SortOrder
+    user_id?: SortOrder
+    category?: SortOrder
+    subject?: SortOrder
+    message?: SortOrder
+    status?: SortOrder
+    admin_reply?: SortOrderInput | SortOrder
+    replied_at?: SortOrderInput | SortOrder
+    created_at?: SortOrder
+    updated_at?: SortOrder
+    _count?: SupportTicketCountOrderByAggregateInput
+    _max?: SupportTicketMaxOrderByAggregateInput
+    _min?: SupportTicketMinOrderByAggregateInput
+  }
+
+  export type SupportTicketScalarWhereWithAggregatesInput = {
+    AND?: SupportTicketScalarWhereWithAggregatesInput | SupportTicketScalarWhereWithAggregatesInput[]
+    OR?: SupportTicketScalarWhereWithAggregatesInput[]
+    NOT?: SupportTicketScalarWhereWithAggregatesInput | SupportTicketScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"SupportTicket"> | string
+    user_id?: StringWithAggregatesFilter<"SupportTicket"> | string
+    category?: StringWithAggregatesFilter<"SupportTicket"> | string
+    subject?: StringWithAggregatesFilter<"SupportTicket"> | string
+    message?: StringWithAggregatesFilter<"SupportTicket"> | string
+    status?: StringWithAggregatesFilter<"SupportTicket"> | string
+    admin_reply?: StringNullableWithAggregatesFilter<"SupportTicket"> | string | null
+    replied_at?: DateTimeNullableWithAggregatesFilter<"SupportTicket"> | Date | string | null
+    created_at?: DateTimeWithAggregatesFilter<"SupportTicket"> | Date | string
+    updated_at?: DateTimeWithAggregatesFilter<"SupportTicket"> | Date | string
   }
 
   export type UserCreateInput = {
     id?: string
     email: string
     phone?: string | null
-    password_hash: string
+    password_hash?: string | null
     name: string
     avatar_url?: string | null
     role?: $Enums.Role
     loyalty_points?: number
-    loyalty_tier?: string
-    refresh_token?: string | null
-    is_verified?: boolean
-    date_of_birth?: Date | string | null
     created_at?: Date | string
+    loyalty_tier?: string
     updated_at?: Date | string
+    date_of_birth?: Date | string | null
+    is_verified?: boolean
+    refresh_token?: string | null
+    ban_reason?: string | null
+    is_banned?: boolean
+    auth_provider?: string
+    google_email?: string | null
+    google_id?: string | null
     bookings?: BookingCreateNestedManyWithoutUserInput
     loyalty_logs?: LoyaltyLogCreateNestedManyWithoutUserInput
+    support_tickets?: SupportTicketCreateNestedManyWithoutUserInput
+    point_redemptions?: PointRedemptionCreateNestedManyWithoutUserInput
+    owned_vouchers?: VoucherCreateNestedManyWithoutOwnerInput
   }
 
   export type UserUncheckedCreateInput = {
     id?: string
     email: string
     phone?: string | null
-    password_hash: string
+    password_hash?: string | null
     name: string
     avatar_url?: string | null
     role?: $Enums.Role
     loyalty_points?: number
-    loyalty_tier?: string
-    refresh_token?: string | null
-    is_verified?: boolean
-    date_of_birth?: Date | string | null
     created_at?: Date | string
+    loyalty_tier?: string
     updated_at?: Date | string
+    date_of_birth?: Date | string | null
+    is_verified?: boolean
+    refresh_token?: string | null
+    ban_reason?: string | null
+    is_banned?: boolean
+    auth_provider?: string
+    google_email?: string | null
+    google_id?: string | null
     bookings?: BookingUncheckedCreateNestedManyWithoutUserInput
     loyalty_logs?: LoyaltyLogUncheckedCreateNestedManyWithoutUserInput
+    support_tickets?: SupportTicketUncheckedCreateNestedManyWithoutUserInput
+    point_redemptions?: PointRedemptionUncheckedCreateNestedManyWithoutUserInput
+    owned_vouchers?: VoucherUncheckedCreateNestedManyWithoutOwnerInput
   }
 
   export type UserUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     phone?: NullableStringFieldUpdateOperationsInput | string | null
-    password_hash?: StringFieldUpdateOperationsInput | string
+    password_hash?: NullableStringFieldUpdateOperationsInput | string | null
     name?: StringFieldUpdateOperationsInput | string
     avatar_url?: NullableStringFieldUpdateOperationsInput | string | null
     role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
     loyalty_points?: IntFieldUpdateOperationsInput | number
-    loyalty_tier?: StringFieldUpdateOperationsInput | string
-    refresh_token?: NullableStringFieldUpdateOperationsInput | string | null
-    is_verified?: BoolFieldUpdateOperationsInput | boolean
-    date_of_birth?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    loyalty_tier?: StringFieldUpdateOperationsInput | string
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    date_of_birth?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    is_verified?: BoolFieldUpdateOperationsInput | boolean
+    refresh_token?: NullableStringFieldUpdateOperationsInput | string | null
+    ban_reason?: NullableStringFieldUpdateOperationsInput | string | null
+    is_banned?: BoolFieldUpdateOperationsInput | boolean
+    auth_provider?: StringFieldUpdateOperationsInput | string
+    google_email?: NullableStringFieldUpdateOperationsInput | string | null
+    google_id?: NullableStringFieldUpdateOperationsInput | string | null
     bookings?: BookingUpdateManyWithoutUserNestedInput
     loyalty_logs?: LoyaltyLogUpdateManyWithoutUserNestedInput
+    support_tickets?: SupportTicketUpdateManyWithoutUserNestedInput
+    point_redemptions?: PointRedemptionUpdateManyWithoutUserNestedInput
+    owned_vouchers?: VoucherUpdateManyWithoutOwnerNestedInput
   }
 
   export type UserUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     phone?: NullableStringFieldUpdateOperationsInput | string | null
-    password_hash?: StringFieldUpdateOperationsInput | string
+    password_hash?: NullableStringFieldUpdateOperationsInput | string | null
     name?: StringFieldUpdateOperationsInput | string
     avatar_url?: NullableStringFieldUpdateOperationsInput | string | null
     role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
     loyalty_points?: IntFieldUpdateOperationsInput | number
-    loyalty_tier?: StringFieldUpdateOperationsInput | string
-    refresh_token?: NullableStringFieldUpdateOperationsInput | string | null
-    is_verified?: BoolFieldUpdateOperationsInput | boolean
-    date_of_birth?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    loyalty_tier?: StringFieldUpdateOperationsInput | string
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    date_of_birth?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    is_verified?: BoolFieldUpdateOperationsInput | boolean
+    refresh_token?: NullableStringFieldUpdateOperationsInput | string | null
+    ban_reason?: NullableStringFieldUpdateOperationsInput | string | null
+    is_banned?: BoolFieldUpdateOperationsInput | boolean
+    auth_provider?: StringFieldUpdateOperationsInput | string
+    google_email?: NullableStringFieldUpdateOperationsInput | string | null
+    google_id?: NullableStringFieldUpdateOperationsInput | string | null
     bookings?: BookingUncheckedUpdateManyWithoutUserNestedInput
     loyalty_logs?: LoyaltyLogUncheckedUpdateManyWithoutUserNestedInput
+    support_tickets?: SupportTicketUncheckedUpdateManyWithoutUserNestedInput
+    point_redemptions?: PointRedemptionUncheckedUpdateManyWithoutUserNestedInput
+    owned_vouchers?: VoucherUncheckedUpdateManyWithoutOwnerNestedInput
   }
 
   export type UserCreateManyInput = {
     id?: string
     email: string
     phone?: string | null
-    password_hash: string
+    password_hash?: string | null
     name: string
     avatar_url?: string | null
     role?: $Enums.Role
     loyalty_points?: number
-    loyalty_tier?: string
-    refresh_token?: string | null
-    is_verified?: boolean
-    date_of_birth?: Date | string | null
     created_at?: Date | string
+    loyalty_tier?: string
     updated_at?: Date | string
+    date_of_birth?: Date | string | null
+    is_verified?: boolean
+    refresh_token?: string | null
+    ban_reason?: string | null
+    is_banned?: boolean
+    auth_provider?: string
+    google_email?: string | null
+    google_id?: string | null
   }
 
   export type UserUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     phone?: NullableStringFieldUpdateOperationsInput | string | null
-    password_hash?: StringFieldUpdateOperationsInput | string
+    password_hash?: NullableStringFieldUpdateOperationsInput | string | null
     name?: StringFieldUpdateOperationsInput | string
     avatar_url?: NullableStringFieldUpdateOperationsInput | string | null
     role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
     loyalty_points?: IntFieldUpdateOperationsInput | number
-    loyalty_tier?: StringFieldUpdateOperationsInput | string
-    refresh_token?: NullableStringFieldUpdateOperationsInput | string | null
-    is_verified?: BoolFieldUpdateOperationsInput | boolean
-    date_of_birth?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    loyalty_tier?: StringFieldUpdateOperationsInput | string
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    date_of_birth?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    is_verified?: BoolFieldUpdateOperationsInput | boolean
+    refresh_token?: NullableStringFieldUpdateOperationsInput | string | null
+    ban_reason?: NullableStringFieldUpdateOperationsInput | string | null
+    is_banned?: BoolFieldUpdateOperationsInput | boolean
+    auth_provider?: StringFieldUpdateOperationsInput | string
+    google_email?: NullableStringFieldUpdateOperationsInput | string | null
+    google_id?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type UserUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     phone?: NullableStringFieldUpdateOperationsInput | string | null
-    password_hash?: StringFieldUpdateOperationsInput | string
+    password_hash?: NullableStringFieldUpdateOperationsInput | string | null
     name?: StringFieldUpdateOperationsInput | string
     avatar_url?: NullableStringFieldUpdateOperationsInput | string | null
     role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
     loyalty_points?: IntFieldUpdateOperationsInput | number
-    loyalty_tier?: StringFieldUpdateOperationsInput | string
-    refresh_token?: NullableStringFieldUpdateOperationsInput | string | null
-    is_verified?: BoolFieldUpdateOperationsInput | boolean
-    date_of_birth?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    loyalty_tier?: StringFieldUpdateOperationsInput | string
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    date_of_birth?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    is_verified?: BoolFieldUpdateOperationsInput | boolean
+    refresh_token?: NullableStringFieldUpdateOperationsInput | string | null
+    ban_reason?: NullableStringFieldUpdateOperationsInput | string | null
+    is_banned?: BoolFieldUpdateOperationsInput | boolean
+    auth_provider?: StringFieldUpdateOperationsInput | string
+    google_email?: NullableStringFieldUpdateOperationsInput | string | null
+    google_id?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type LoyaltyLogCreateInput = {
@@ -17242,8 +20104,8 @@ export namespace Prisma {
     poster_url: string
     backdrop_url: string
     trailer_key?: string | null
-    genres: JsonNullValueInput | InputJsonValue
-    cast: JsonNullValueInput | InputJsonValue
+    genres: string
+    cast: string
     director: string
     duration: number
     rating: number
@@ -17262,8 +20124,8 @@ export namespace Prisma {
     poster_url: string
     backdrop_url: string
     trailer_key?: string | null
-    genres: JsonNullValueInput | InputJsonValue
-    cast: JsonNullValueInput | InputJsonValue
+    genres: string
+    cast: string
     director: string
     duration: number
     rating: number
@@ -17282,8 +20144,8 @@ export namespace Prisma {
     poster_url?: StringFieldUpdateOperationsInput | string
     backdrop_url?: StringFieldUpdateOperationsInput | string
     trailer_key?: NullableStringFieldUpdateOperationsInput | string | null
-    genres?: JsonNullValueInput | InputJsonValue
-    cast?: JsonNullValueInput | InputJsonValue
+    genres?: StringFieldUpdateOperationsInput | string
+    cast?: StringFieldUpdateOperationsInput | string
     director?: StringFieldUpdateOperationsInput | string
     duration?: IntFieldUpdateOperationsInput | number
     rating?: FloatFieldUpdateOperationsInput | number
@@ -17302,8 +20164,8 @@ export namespace Prisma {
     poster_url?: StringFieldUpdateOperationsInput | string
     backdrop_url?: StringFieldUpdateOperationsInput | string
     trailer_key?: NullableStringFieldUpdateOperationsInput | string | null
-    genres?: JsonNullValueInput | InputJsonValue
-    cast?: JsonNullValueInput | InputJsonValue
+    genres?: StringFieldUpdateOperationsInput | string
+    cast?: StringFieldUpdateOperationsInput | string
     director?: StringFieldUpdateOperationsInput | string
     duration?: IntFieldUpdateOperationsInput | number
     rating?: FloatFieldUpdateOperationsInput | number
@@ -17322,8 +20184,8 @@ export namespace Prisma {
     poster_url: string
     backdrop_url: string
     trailer_key?: string | null
-    genres: JsonNullValueInput | InputJsonValue
-    cast: JsonNullValueInput | InputJsonValue
+    genres: string
+    cast: string
     director: string
     duration: number
     rating: number
@@ -17341,8 +20203,8 @@ export namespace Prisma {
     poster_url?: StringFieldUpdateOperationsInput | string
     backdrop_url?: StringFieldUpdateOperationsInput | string
     trailer_key?: NullableStringFieldUpdateOperationsInput | string | null
-    genres?: JsonNullValueInput | InputJsonValue
-    cast?: JsonNullValueInput | InputJsonValue
+    genres?: StringFieldUpdateOperationsInput | string
+    cast?: StringFieldUpdateOperationsInput | string
     director?: StringFieldUpdateOperationsInput | string
     duration?: IntFieldUpdateOperationsInput | number
     rating?: FloatFieldUpdateOperationsInput | number
@@ -17360,8 +20222,8 @@ export namespace Prisma {
     poster_url?: StringFieldUpdateOperationsInput | string
     backdrop_url?: StringFieldUpdateOperationsInput | string
     trailer_key?: NullableStringFieldUpdateOperationsInput | string | null
-    genres?: JsonNullValueInput | InputJsonValue
-    cast?: JsonNullValueInput | InputJsonValue
+    genres?: StringFieldUpdateOperationsInput | string
+    cast?: StringFieldUpdateOperationsInput | string
     director?: StringFieldUpdateOperationsInput | string
     duration?: IntFieldUpdateOperationsInput | number
     rating?: FloatFieldUpdateOperationsInput | number
@@ -17519,8 +20381,8 @@ export namespace Prisma {
     row: string
     col: number
     type: $Enums.SeatType
-    room: RoomCreateNestedOneWithoutSeatsInput
     booking_items?: BookingItemCreateNestedManyWithoutSeatInput
+    room: RoomCreateNestedOneWithoutSeatsInput
   }
 
   export type SeatUncheckedCreateInput = {
@@ -17537,8 +20399,8 @@ export namespace Prisma {
     row?: StringFieldUpdateOperationsInput | string
     col?: IntFieldUpdateOperationsInput | number
     type?: EnumSeatTypeFieldUpdateOperationsInput | $Enums.SeatType
-    room?: RoomUpdateOneRequiredWithoutSeatsNestedInput
     booking_items?: BookingItemUpdateManyWithoutSeatNestedInput
+    room?: RoomUpdateOneRequiredWithoutSeatsNestedInput
   }
 
   export type SeatUncheckedUpdateInput = {
@@ -17582,9 +20444,9 @@ export namespace Prisma {
     couple_price: number
     language: string
     format: string
+    bookings?: BookingCreateNestedManyWithoutShowtimeInput
     movie: MovieCreateNestedOneWithoutShowtimesInput
     room: RoomCreateNestedOneWithoutShowtimesInput
-    bookings?: BookingCreateNestedManyWithoutShowtimeInput
   }
 
   export type ShowtimeUncheckedCreateInput = {
@@ -17610,9 +20472,9 @@ export namespace Prisma {
     couple_price?: IntFieldUpdateOperationsInput | number
     language?: StringFieldUpdateOperationsInput | string
     format?: StringFieldUpdateOperationsInput | string
+    bookings?: BookingUpdateManyWithoutShowtimeNestedInput
     movie?: MovieUpdateOneRequiredWithoutShowtimesNestedInput
     room?: RoomUpdateOneRequiredWithoutShowtimesNestedInput
-    bookings?: BookingUpdateManyWithoutShowtimeNestedInput
   }
 
   export type ShowtimeUncheckedUpdateInput = {
@@ -17675,11 +20537,13 @@ export namespace Prisma {
     paid_at?: Date | string | null
     created_at?: Date | string
     expires_at: Date | string
-    user: UserCreateNestedOneWithoutBookingsInput
-    showtime: ShowtimeCreateNestedOneWithoutBookingsInput
+    discount_amount?: number
     booking_items?: BookingItemCreateNestedManyWithoutBookingInput
-    payment?: PaymentCreateNestedOneWithoutBookingInput
+    showtime: ShowtimeCreateNestedOneWithoutBookingsInput
+    user: UserCreateNestedOneWithoutBookingsInput
+    voucher?: VoucherCreateNestedOneWithoutBookingsInput
     food_items?: FoodItemCreateNestedManyWithoutBookingInput
+    payment?: PaymentCreateNestedOneWithoutBookingInput
   }
 
   export type BookingUncheckedCreateInput = {
@@ -17693,9 +20557,11 @@ export namespace Prisma {
     paid_at?: Date | string | null
     created_at?: Date | string
     expires_at: Date | string
+    discount_amount?: number
+    voucher_code?: string | null
     booking_items?: BookingItemUncheckedCreateNestedManyWithoutBookingInput
-    payment?: PaymentUncheckedCreateNestedOneWithoutBookingInput
     food_items?: FoodItemUncheckedCreateNestedManyWithoutBookingInput
+    payment?: PaymentUncheckedCreateNestedOneWithoutBookingInput
   }
 
   export type BookingUpdateInput = {
@@ -17707,11 +20573,13 @@ export namespace Prisma {
     paid_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     expires_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    user?: UserUpdateOneRequiredWithoutBookingsNestedInput
-    showtime?: ShowtimeUpdateOneRequiredWithoutBookingsNestedInput
+    discount_amount?: IntFieldUpdateOperationsInput | number
     booking_items?: BookingItemUpdateManyWithoutBookingNestedInput
-    payment?: PaymentUpdateOneWithoutBookingNestedInput
+    showtime?: ShowtimeUpdateOneRequiredWithoutBookingsNestedInput
+    user?: UserUpdateOneRequiredWithoutBookingsNestedInput
+    voucher?: VoucherUpdateOneWithoutBookingsNestedInput
     food_items?: FoodItemUpdateManyWithoutBookingNestedInput
+    payment?: PaymentUpdateOneWithoutBookingNestedInput
   }
 
   export type BookingUncheckedUpdateInput = {
@@ -17725,9 +20593,11 @@ export namespace Prisma {
     paid_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     expires_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    discount_amount?: IntFieldUpdateOperationsInput | number
+    voucher_code?: NullableStringFieldUpdateOperationsInput | string | null
     booking_items?: BookingItemUncheckedUpdateManyWithoutBookingNestedInput
-    payment?: PaymentUncheckedUpdateOneWithoutBookingNestedInput
     food_items?: FoodItemUncheckedUpdateManyWithoutBookingNestedInput
+    payment?: PaymentUncheckedUpdateOneWithoutBookingNestedInput
   }
 
   export type BookingCreateManyInput = {
@@ -17741,6 +20611,8 @@ export namespace Prisma {
     paid_at?: Date | string | null
     created_at?: Date | string
     expires_at: Date | string
+    discount_amount?: number
+    voucher_code?: string | null
   }
 
   export type BookingUpdateManyMutationInput = {
@@ -17752,6 +20624,7 @@ export namespace Prisma {
     paid_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     expires_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    discount_amount?: IntFieldUpdateOperationsInput | number
   }
 
   export type BookingUncheckedUpdateManyInput = {
@@ -17765,6 +20638,8 @@ export namespace Prisma {
     paid_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     expires_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    discount_amount?: IntFieldUpdateOperationsInput | number
+    voucher_code?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type BookingItemCreateInput = {
@@ -18021,6 +20896,13 @@ export namespace Prisma {
     usage_limit: number
     used_count?: number
     expires_at: Date | string
+    created_at?: Date | string
+    description?: string | null
+    is_active?: boolean
+    source?: string
+    bookings?: BookingCreateNestedManyWithoutVoucherInput
+    point_redemptions?: PointRedemptionCreateNestedManyWithoutVoucherInput
+    owner?: UserCreateNestedOneWithoutOwned_vouchersInput
   }
 
   export type VoucherUncheckedCreateInput = {
@@ -18033,6 +20915,13 @@ export namespace Prisma {
     usage_limit: number
     used_count?: number
     expires_at: Date | string
+    created_at?: Date | string
+    description?: string | null
+    is_active?: boolean
+    source?: string
+    owner_user_id?: string | null
+    bookings?: BookingUncheckedCreateNestedManyWithoutVoucherInput
+    point_redemptions?: PointRedemptionUncheckedCreateNestedManyWithoutVoucherInput
   }
 
   export type VoucherUpdateInput = {
@@ -18045,6 +20934,13 @@ export namespace Prisma {
     usage_limit?: IntFieldUpdateOperationsInput | number
     used_count?: IntFieldUpdateOperationsInput | number
     expires_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    is_active?: BoolFieldUpdateOperationsInput | boolean
+    source?: StringFieldUpdateOperationsInput | string
+    bookings?: BookingUpdateManyWithoutVoucherNestedInput
+    point_redemptions?: PointRedemptionUpdateManyWithoutVoucherNestedInput
+    owner?: UserUpdateOneWithoutOwned_vouchersNestedInput
   }
 
   export type VoucherUncheckedUpdateInput = {
@@ -18057,6 +20953,13 @@ export namespace Prisma {
     usage_limit?: IntFieldUpdateOperationsInput | number
     used_count?: IntFieldUpdateOperationsInput | number
     expires_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    is_active?: BoolFieldUpdateOperationsInput | boolean
+    source?: StringFieldUpdateOperationsInput | string
+    owner_user_id?: NullableStringFieldUpdateOperationsInput | string | null
+    bookings?: BookingUncheckedUpdateManyWithoutVoucherNestedInput
+    point_redemptions?: PointRedemptionUncheckedUpdateManyWithoutVoucherNestedInput
   }
 
   export type VoucherCreateManyInput = {
@@ -18069,6 +20972,11 @@ export namespace Prisma {
     usage_limit: number
     used_count?: number
     expires_at: Date | string
+    created_at?: Date | string
+    description?: string | null
+    is_active?: boolean
+    source?: string
+    owner_user_id?: string | null
   }
 
   export type VoucherUpdateManyMutationInput = {
@@ -18081,6 +20989,10 @@ export namespace Prisma {
     usage_limit?: IntFieldUpdateOperationsInput | number
     used_count?: IntFieldUpdateOperationsInput | number
     expires_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    is_active?: BoolFieldUpdateOperationsInput | boolean
+    source?: StringFieldUpdateOperationsInput | string
   }
 
   export type VoucherUncheckedUpdateManyInput = {
@@ -18093,6 +21005,155 @@ export namespace Prisma {
     usage_limit?: IntFieldUpdateOperationsInput | number
     used_count?: IntFieldUpdateOperationsInput | number
     expires_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    is_active?: BoolFieldUpdateOperationsInput | boolean
+    source?: StringFieldUpdateOperationsInput | string
+    owner_user_id?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type PointRedemptionCreateInput = {
+    id?: string
+    points_used: number
+    created_at?: Date | string
+    user: UserCreateNestedOneWithoutPoint_redemptionsInput
+    voucher: VoucherCreateNestedOneWithoutPoint_redemptionsInput
+  }
+
+  export type PointRedemptionUncheckedCreateInput = {
+    id?: string
+    user_id: string
+    points_used: number
+    voucher_id: string
+    created_at?: Date | string
+  }
+
+  export type PointRedemptionUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    points_used?: IntFieldUpdateOperationsInput | number
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    user?: UserUpdateOneRequiredWithoutPoint_redemptionsNestedInput
+    voucher?: VoucherUpdateOneRequiredWithoutPoint_redemptionsNestedInput
+  }
+
+  export type PointRedemptionUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    user_id?: StringFieldUpdateOperationsInput | string
+    points_used?: IntFieldUpdateOperationsInput | number
+    voucher_id?: StringFieldUpdateOperationsInput | string
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type PointRedemptionCreateManyInput = {
+    id?: string
+    user_id: string
+    points_used: number
+    voucher_id: string
+    created_at?: Date | string
+  }
+
+  export type PointRedemptionUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    points_used?: IntFieldUpdateOperationsInput | number
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type PointRedemptionUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    user_id?: StringFieldUpdateOperationsInput | string
+    points_used?: IntFieldUpdateOperationsInput | number
+    voucher_id?: StringFieldUpdateOperationsInput | string
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type SupportTicketCreateInput = {
+    id?: string
+    category: string
+    subject: string
+    message: string
+    status?: string
+    admin_reply?: string | null
+    replied_at?: Date | string | null
+    created_at?: Date | string
+    updated_at?: Date | string
+    user: UserCreateNestedOneWithoutSupport_ticketsInput
+  }
+
+  export type SupportTicketUncheckedCreateInput = {
+    id?: string
+    user_id: string
+    category: string
+    subject: string
+    message: string
+    status?: string
+    admin_reply?: string | null
+    replied_at?: Date | string | null
+    created_at?: Date | string
+    updated_at?: Date | string
+  }
+
+  export type SupportTicketUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    category?: StringFieldUpdateOperationsInput | string
+    subject?: StringFieldUpdateOperationsInput | string
+    message?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    admin_reply?: NullableStringFieldUpdateOperationsInput | string | null
+    replied_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    user?: UserUpdateOneRequiredWithoutSupport_ticketsNestedInput
+  }
+
+  export type SupportTicketUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    user_id?: StringFieldUpdateOperationsInput | string
+    category?: StringFieldUpdateOperationsInput | string
+    subject?: StringFieldUpdateOperationsInput | string
+    message?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    admin_reply?: NullableStringFieldUpdateOperationsInput | string | null
+    replied_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type SupportTicketCreateManyInput = {
+    id?: string
+    user_id: string
+    category: string
+    subject: string
+    message: string
+    status?: string
+    admin_reply?: string | null
+    replied_at?: Date | string | null
+    created_at?: Date | string
+    updated_at?: Date | string
+  }
+
+  export type SupportTicketUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    category?: StringFieldUpdateOperationsInput | string
+    subject?: StringFieldUpdateOperationsInput | string
+    message?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    admin_reply?: NullableStringFieldUpdateOperationsInput | string | null
+    replied_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type SupportTicketUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    user_id?: StringFieldUpdateOperationsInput | string
+    category?: StringFieldUpdateOperationsInput | string
+    subject?: StringFieldUpdateOperationsInput | string
+    message?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    admin_reply?: NullableStringFieldUpdateOperationsInput | string | null
+    replied_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type StringFilter<$PrismaModel = never> = {
@@ -18143,9 +21204,15 @@ export namespace Prisma {
     not?: NestedIntFilter<$PrismaModel> | number
   }
 
-  export type BoolFilter<$PrismaModel = never> = {
-    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
-    not?: NestedBoolFilter<$PrismaModel> | boolean
+  export type DateTimeFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[]
+    notIn?: Date[] | string[]
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeFilter<$PrismaModel> | Date | string
   }
 
   export type DateTimeNullableFilter<$PrismaModel = never> = {
@@ -18159,15 +21226,9 @@ export namespace Prisma {
     not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
   }
 
-  export type DateTimeFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    in?: Date[] | string[]
-    notIn?: Date[] | string[]
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeFilter<$PrismaModel> | Date | string
+  export type BoolFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolFilter<$PrismaModel> | boolean
   }
 
   export type BookingListRelationFilter = {
@@ -18182,6 +21243,24 @@ export namespace Prisma {
     none?: LoyaltyLogWhereInput
   }
 
+  export type SupportTicketListRelationFilter = {
+    every?: SupportTicketWhereInput
+    some?: SupportTicketWhereInput
+    none?: SupportTicketWhereInput
+  }
+
+  export type PointRedemptionListRelationFilter = {
+    every?: PointRedemptionWhereInput
+    some?: PointRedemptionWhereInput
+    none?: PointRedemptionWhereInput
+  }
+
+  export type VoucherListRelationFilter = {
+    every?: VoucherWhereInput
+    some?: VoucherWhereInput
+    none?: VoucherWhereInput
+  }
+
   export type SortOrderInput = {
     sort: SortOrder
     nulls?: NullsOrder
@@ -18192,6 +21271,18 @@ export namespace Prisma {
   }
 
   export type LoyaltyLogOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type SupportTicketOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type PointRedemptionOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type VoucherOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -18210,12 +21301,17 @@ export namespace Prisma {
     avatar_url?: SortOrder
     role?: SortOrder
     loyalty_points?: SortOrder
-    loyalty_tier?: SortOrder
-    refresh_token?: SortOrder
-    is_verified?: SortOrder
-    date_of_birth?: SortOrder
     created_at?: SortOrder
+    loyalty_tier?: SortOrder
     updated_at?: SortOrder
+    date_of_birth?: SortOrder
+    is_verified?: SortOrder
+    refresh_token?: SortOrder
+    ban_reason?: SortOrder
+    is_banned?: SortOrder
+    auth_provider?: SortOrder
+    google_email?: SortOrder
+    google_id?: SortOrder
   }
 
   export type UserAvgOrderByAggregateInput = {
@@ -18231,12 +21327,17 @@ export namespace Prisma {
     avatar_url?: SortOrder
     role?: SortOrder
     loyalty_points?: SortOrder
-    loyalty_tier?: SortOrder
-    refresh_token?: SortOrder
-    is_verified?: SortOrder
-    date_of_birth?: SortOrder
     created_at?: SortOrder
+    loyalty_tier?: SortOrder
     updated_at?: SortOrder
+    date_of_birth?: SortOrder
+    is_verified?: SortOrder
+    refresh_token?: SortOrder
+    ban_reason?: SortOrder
+    is_banned?: SortOrder
+    auth_provider?: SortOrder
+    google_email?: SortOrder
+    google_id?: SortOrder
   }
 
   export type UserMinOrderByAggregateInput = {
@@ -18248,12 +21349,17 @@ export namespace Prisma {
     avatar_url?: SortOrder
     role?: SortOrder
     loyalty_points?: SortOrder
-    loyalty_tier?: SortOrder
-    refresh_token?: SortOrder
-    is_verified?: SortOrder
-    date_of_birth?: SortOrder
     created_at?: SortOrder
+    loyalty_tier?: SortOrder
     updated_at?: SortOrder
+    date_of_birth?: SortOrder
+    is_verified?: SortOrder
+    refresh_token?: SortOrder
+    ban_reason?: SortOrder
+    is_banned?: SortOrder
+    auth_provider?: SortOrder
+    google_email?: SortOrder
+    google_id?: SortOrder
   }
 
   export type UserSumOrderByAggregateInput = {
@@ -18322,12 +21428,18 @@ export namespace Prisma {
     _max?: NestedIntFilter<$PrismaModel>
   }
 
-  export type BoolWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
-    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
+  export type DateTimeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[]
+    notIn?: Date[] | string[]
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
     _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedBoolFilter<$PrismaModel>
-    _max?: NestedBoolFilter<$PrismaModel>
+    _min?: NestedDateTimeFilter<$PrismaModel>
+    _max?: NestedDateTimeFilter<$PrismaModel>
   }
 
   export type DateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
@@ -18344,18 +21456,12 @@ export namespace Prisma {
     _max?: NestedDateTimeNullableFilter<$PrismaModel>
   }
 
-  export type DateTimeWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    in?: Date[] | string[]
-    notIn?: Date[] | string[]
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
+  export type BoolWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
     _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedDateTimeFilter<$PrismaModel>
-    _max?: NestedDateTimeFilter<$PrismaModel>
+    _min?: NestedBoolFilter<$PrismaModel>
+    _max?: NestedBoolFilter<$PrismaModel>
   }
 
   export type UserScalarRelationFilter = {
@@ -18405,29 +21511,6 @@ export namespace Prisma {
 
   export type LoyaltyLogSumOrderByAggregateInput = {
     points?: SortOrder
-  }
-  export type JsonFilter<$PrismaModel = never> =
-    | PatchUndefined<
-        Either<Required<JsonFilterBase<$PrismaModel>>, Exclude<keyof Required<JsonFilterBase<$PrismaModel>>, 'path'>>,
-        Required<JsonFilterBase<$PrismaModel>>
-      >
-    | OptionalFlat<Omit<Required<JsonFilterBase<$PrismaModel>>, 'path'>>
-
-  export type JsonFilterBase<$PrismaModel = never> = {
-    equals?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
-    path?: string
-    mode?: QueryMode | EnumQueryModeFieldRefInput<$PrismaModel>
-    string_contains?: string | StringFieldRefInput<$PrismaModel>
-    string_starts_with?: string | StringFieldRefInput<$PrismaModel>
-    string_ends_with?: string | StringFieldRefInput<$PrismaModel>
-    array_starts_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
-    array_ends_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
-    array_contains?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
-    lt?: InputJsonValue
-    lte?: InputJsonValue
-    gt?: InputJsonValue
-    gte?: InputJsonValue
-    not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
   }
 
   export type FloatFilter<$PrismaModel = never> = {
@@ -18498,6 +21581,8 @@ export namespace Prisma {
     poster_url?: SortOrder
     backdrop_url?: SortOrder
     trailer_key?: SortOrder
+    genres?: SortOrder
+    cast?: SortOrder
     director?: SortOrder
     duration?: SortOrder
     rating?: SortOrder
@@ -18515,6 +21600,8 @@ export namespace Prisma {
     poster_url?: SortOrder
     backdrop_url?: SortOrder
     trailer_key?: SortOrder
+    genres?: SortOrder
+    cast?: SortOrder
     director?: SortOrder
     duration?: SortOrder
     rating?: SortOrder
@@ -18527,32 +21614,6 @@ export namespace Prisma {
     tmdb_id?: SortOrder
     duration?: SortOrder
     rating?: SortOrder
-  }
-  export type JsonWithAggregatesFilter<$PrismaModel = never> =
-    | PatchUndefined<
-        Either<Required<JsonWithAggregatesFilterBase<$PrismaModel>>, Exclude<keyof Required<JsonWithAggregatesFilterBase<$PrismaModel>>, 'path'>>,
-        Required<JsonWithAggregatesFilterBase<$PrismaModel>>
-      >
-    | OptionalFlat<Omit<Required<JsonWithAggregatesFilterBase<$PrismaModel>>, 'path'>>
-
-  export type JsonWithAggregatesFilterBase<$PrismaModel = never> = {
-    equals?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
-    path?: string
-    mode?: QueryMode | EnumQueryModeFieldRefInput<$PrismaModel>
-    string_contains?: string | StringFieldRefInput<$PrismaModel>
-    string_starts_with?: string | StringFieldRefInput<$PrismaModel>
-    string_ends_with?: string | StringFieldRefInput<$PrismaModel>
-    array_starts_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
-    array_ends_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
-    array_contains?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
-    lt?: InputJsonValue
-    lte?: InputJsonValue
-    gt?: InputJsonValue
-    gte?: InputJsonValue
-    not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedJsonFilter<$PrismaModel>
-    _max?: NestedJsonFilter<$PrismaModel>
   }
 
   export type FloatWithAggregatesFilter<$PrismaModel = never> = {
@@ -18719,15 +21780,15 @@ export namespace Prisma {
     not?: NestedEnumSeatTypeFilter<$PrismaModel> | $Enums.SeatType
   }
 
-  export type RoomScalarRelationFilter = {
-    is?: RoomWhereInput
-    isNot?: RoomWhereInput
-  }
-
   export type BookingItemListRelationFilter = {
     every?: BookingItemWhereInput
     some?: BookingItemWhereInput
     none?: BookingItemWhereInput
+  }
+
+  export type RoomScalarRelationFilter = {
+    is?: RoomWhereInput
+    isNot?: RoomWhereInput
   }
 
   export type BookingItemOrderByRelationAggregateInput = {
@@ -18862,15 +21923,20 @@ export namespace Prisma {
     isNot?: ShowtimeWhereInput
   }
 
-  export type PaymentNullableScalarRelationFilter = {
-    is?: PaymentWhereInput | null
-    isNot?: PaymentWhereInput | null
+  export type VoucherNullableScalarRelationFilter = {
+    is?: VoucherWhereInput | null
+    isNot?: VoucherWhereInput | null
   }
 
   export type FoodItemListRelationFilter = {
     every?: FoodItemWhereInput
     some?: FoodItemWhereInput
     none?: FoodItemWhereInput
+  }
+
+  export type PaymentNullableScalarRelationFilter = {
+    is?: PaymentWhereInput | null
+    isNot?: PaymentWhereInput | null
   }
 
   export type FoodItemOrderByRelationAggregateInput = {
@@ -18894,10 +21960,13 @@ export namespace Prisma {
     paid_at?: SortOrder
     created_at?: SortOrder
     expires_at?: SortOrder
+    discount_amount?: SortOrder
+    voucher_code?: SortOrder
   }
 
   export type BookingAvgOrderByAggregateInput = {
     total_amount?: SortOrder
+    discount_amount?: SortOrder
   }
 
   export type BookingMaxOrderByAggregateInput = {
@@ -18911,6 +21980,8 @@ export namespace Prisma {
     paid_at?: SortOrder
     created_at?: SortOrder
     expires_at?: SortOrder
+    discount_amount?: SortOrder
+    voucher_code?: SortOrder
   }
 
   export type BookingMinOrderByAggregateInput = {
@@ -18924,10 +21995,13 @@ export namespace Prisma {
     paid_at?: SortOrder
     created_at?: SortOrder
     expires_at?: SortOrder
+    discount_amount?: SortOrder
+    voucher_code?: SortOrder
   }
 
   export type BookingSumOrderByAggregateInput = {
     total_amount?: SortOrder
+    discount_amount?: SortOrder
   }
 
   export type EnumBookingStatusWithAggregatesFilter<$PrismaModel = never> = {
@@ -19175,6 +22249,11 @@ export namespace Prisma {
     not?: NestedIntNullableFilter<$PrismaModel> | number | null
   }
 
+  export type UserNullableScalarRelationFilter = {
+    is?: UserWhereInput | null
+    isNot?: UserWhereInput | null
+  }
+
   export type VoucherOrderByRelevanceInput = {
     fields: VoucherOrderByRelevanceFieldEnum | VoucherOrderByRelevanceFieldEnum[]
     sort: SortOrder
@@ -19191,6 +22270,11 @@ export namespace Prisma {
     usage_limit?: SortOrder
     used_count?: SortOrder
     expires_at?: SortOrder
+    created_at?: SortOrder
+    description?: SortOrder
+    is_active?: SortOrder
+    source?: SortOrder
+    owner_user_id?: SortOrder
   }
 
   export type VoucherAvgOrderByAggregateInput = {
@@ -19211,6 +22295,11 @@ export namespace Prisma {
     usage_limit?: SortOrder
     used_count?: SortOrder
     expires_at?: SortOrder
+    created_at?: SortOrder
+    description?: SortOrder
+    is_active?: SortOrder
+    source?: SortOrder
+    owner_user_id?: SortOrder
   }
 
   export type VoucherMinOrderByAggregateInput = {
@@ -19223,6 +22312,11 @@ export namespace Prisma {
     usage_limit?: SortOrder
     used_count?: SortOrder
     expires_at?: SortOrder
+    created_at?: SortOrder
+    description?: SortOrder
+    is_active?: SortOrder
+    source?: SortOrder
+    owner_user_id?: SortOrder
   }
 
   export type VoucherSumOrderByAggregateInput = {
@@ -19259,6 +22353,94 @@ export namespace Prisma {
     _max?: NestedIntNullableFilter<$PrismaModel>
   }
 
+  export type VoucherScalarRelationFilter = {
+    is?: VoucherWhereInput
+    isNot?: VoucherWhereInput
+  }
+
+  export type PointRedemptionOrderByRelevanceInput = {
+    fields: PointRedemptionOrderByRelevanceFieldEnum | PointRedemptionOrderByRelevanceFieldEnum[]
+    sort: SortOrder
+    search: string
+  }
+
+  export type PointRedemptionCountOrderByAggregateInput = {
+    id?: SortOrder
+    user_id?: SortOrder
+    points_used?: SortOrder
+    voucher_id?: SortOrder
+    created_at?: SortOrder
+  }
+
+  export type PointRedemptionAvgOrderByAggregateInput = {
+    points_used?: SortOrder
+  }
+
+  export type PointRedemptionMaxOrderByAggregateInput = {
+    id?: SortOrder
+    user_id?: SortOrder
+    points_used?: SortOrder
+    voucher_id?: SortOrder
+    created_at?: SortOrder
+  }
+
+  export type PointRedemptionMinOrderByAggregateInput = {
+    id?: SortOrder
+    user_id?: SortOrder
+    points_used?: SortOrder
+    voucher_id?: SortOrder
+    created_at?: SortOrder
+  }
+
+  export type PointRedemptionSumOrderByAggregateInput = {
+    points_used?: SortOrder
+  }
+
+  export type SupportTicketOrderByRelevanceInput = {
+    fields: SupportTicketOrderByRelevanceFieldEnum | SupportTicketOrderByRelevanceFieldEnum[]
+    sort: SortOrder
+    search: string
+  }
+
+  export type SupportTicketCountOrderByAggregateInput = {
+    id?: SortOrder
+    user_id?: SortOrder
+    category?: SortOrder
+    subject?: SortOrder
+    message?: SortOrder
+    status?: SortOrder
+    admin_reply?: SortOrder
+    replied_at?: SortOrder
+    created_at?: SortOrder
+    updated_at?: SortOrder
+  }
+
+  export type SupportTicketMaxOrderByAggregateInput = {
+    id?: SortOrder
+    user_id?: SortOrder
+    category?: SortOrder
+    subject?: SortOrder
+    message?: SortOrder
+    status?: SortOrder
+    admin_reply?: SortOrder
+    replied_at?: SortOrder
+    created_at?: SortOrder
+    updated_at?: SortOrder
+  }
+
+  export type SupportTicketMinOrderByAggregateInput = {
+    id?: SortOrder
+    user_id?: SortOrder
+    category?: SortOrder
+    subject?: SortOrder
+    message?: SortOrder
+    status?: SortOrder
+    admin_reply?: SortOrder
+    replied_at?: SortOrder
+    created_at?: SortOrder
+    updated_at?: SortOrder
+  }
+
   export type BookingCreateNestedManyWithoutUserInput = {
     create?: XOR<BookingCreateWithoutUserInput, BookingUncheckedCreateWithoutUserInput> | BookingCreateWithoutUserInput[] | BookingUncheckedCreateWithoutUserInput[]
     connectOrCreate?: BookingCreateOrConnectWithoutUserInput | BookingCreateOrConnectWithoutUserInput[]
@@ -19273,6 +22455,27 @@ export namespace Prisma {
     connect?: LoyaltyLogWhereUniqueInput | LoyaltyLogWhereUniqueInput[]
   }
 
+  export type SupportTicketCreateNestedManyWithoutUserInput = {
+    create?: XOR<SupportTicketCreateWithoutUserInput, SupportTicketUncheckedCreateWithoutUserInput> | SupportTicketCreateWithoutUserInput[] | SupportTicketUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: SupportTicketCreateOrConnectWithoutUserInput | SupportTicketCreateOrConnectWithoutUserInput[]
+    createMany?: SupportTicketCreateManyUserInputEnvelope
+    connect?: SupportTicketWhereUniqueInput | SupportTicketWhereUniqueInput[]
+  }
+
+  export type PointRedemptionCreateNestedManyWithoutUserInput = {
+    create?: XOR<PointRedemptionCreateWithoutUserInput, PointRedemptionUncheckedCreateWithoutUserInput> | PointRedemptionCreateWithoutUserInput[] | PointRedemptionUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: PointRedemptionCreateOrConnectWithoutUserInput | PointRedemptionCreateOrConnectWithoutUserInput[]
+    createMany?: PointRedemptionCreateManyUserInputEnvelope
+    connect?: PointRedemptionWhereUniqueInput | PointRedemptionWhereUniqueInput[]
+  }
+
+  export type VoucherCreateNestedManyWithoutOwnerInput = {
+    create?: XOR<VoucherCreateWithoutOwnerInput, VoucherUncheckedCreateWithoutOwnerInput> | VoucherCreateWithoutOwnerInput[] | VoucherUncheckedCreateWithoutOwnerInput[]
+    connectOrCreate?: VoucherCreateOrConnectWithoutOwnerInput | VoucherCreateOrConnectWithoutOwnerInput[]
+    createMany?: VoucherCreateManyOwnerInputEnvelope
+    connect?: VoucherWhereUniqueInput | VoucherWhereUniqueInput[]
+  }
+
   export type BookingUncheckedCreateNestedManyWithoutUserInput = {
     create?: XOR<BookingCreateWithoutUserInput, BookingUncheckedCreateWithoutUserInput> | BookingCreateWithoutUserInput[] | BookingUncheckedCreateWithoutUserInput[]
     connectOrCreate?: BookingCreateOrConnectWithoutUserInput | BookingCreateOrConnectWithoutUserInput[]
@@ -19285,6 +22488,27 @@ export namespace Prisma {
     connectOrCreate?: LoyaltyLogCreateOrConnectWithoutUserInput | LoyaltyLogCreateOrConnectWithoutUserInput[]
     createMany?: LoyaltyLogCreateManyUserInputEnvelope
     connect?: LoyaltyLogWhereUniqueInput | LoyaltyLogWhereUniqueInput[]
+  }
+
+  export type SupportTicketUncheckedCreateNestedManyWithoutUserInput = {
+    create?: XOR<SupportTicketCreateWithoutUserInput, SupportTicketUncheckedCreateWithoutUserInput> | SupportTicketCreateWithoutUserInput[] | SupportTicketUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: SupportTicketCreateOrConnectWithoutUserInput | SupportTicketCreateOrConnectWithoutUserInput[]
+    createMany?: SupportTicketCreateManyUserInputEnvelope
+    connect?: SupportTicketWhereUniqueInput | SupportTicketWhereUniqueInput[]
+  }
+
+  export type PointRedemptionUncheckedCreateNestedManyWithoutUserInput = {
+    create?: XOR<PointRedemptionCreateWithoutUserInput, PointRedemptionUncheckedCreateWithoutUserInput> | PointRedemptionCreateWithoutUserInput[] | PointRedemptionUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: PointRedemptionCreateOrConnectWithoutUserInput | PointRedemptionCreateOrConnectWithoutUserInput[]
+    createMany?: PointRedemptionCreateManyUserInputEnvelope
+    connect?: PointRedemptionWhereUniqueInput | PointRedemptionWhereUniqueInput[]
+  }
+
+  export type VoucherUncheckedCreateNestedManyWithoutOwnerInput = {
+    create?: XOR<VoucherCreateWithoutOwnerInput, VoucherUncheckedCreateWithoutOwnerInput> | VoucherCreateWithoutOwnerInput[] | VoucherUncheckedCreateWithoutOwnerInput[]
+    connectOrCreate?: VoucherCreateOrConnectWithoutOwnerInput | VoucherCreateOrConnectWithoutOwnerInput[]
+    createMany?: VoucherCreateManyOwnerInputEnvelope
+    connect?: VoucherWhereUniqueInput | VoucherWhereUniqueInput[]
   }
 
   export type StringFieldUpdateOperationsInput = {
@@ -19307,16 +22531,16 @@ export namespace Prisma {
     divide?: number
   }
 
-  export type BoolFieldUpdateOperationsInput = {
-    set?: boolean
+  export type DateTimeFieldUpdateOperationsInput = {
+    set?: Date | string
   }
 
   export type NullableDateTimeFieldUpdateOperationsInput = {
     set?: Date | string | null
   }
 
-  export type DateTimeFieldUpdateOperationsInput = {
-    set?: Date | string
+  export type BoolFieldUpdateOperationsInput = {
+    set?: boolean
   }
 
   export type BookingUpdateManyWithoutUserNestedInput = {
@@ -19347,6 +22571,48 @@ export namespace Prisma {
     deleteMany?: LoyaltyLogScalarWhereInput | LoyaltyLogScalarWhereInput[]
   }
 
+  export type SupportTicketUpdateManyWithoutUserNestedInput = {
+    create?: XOR<SupportTicketCreateWithoutUserInput, SupportTicketUncheckedCreateWithoutUserInput> | SupportTicketCreateWithoutUserInput[] | SupportTicketUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: SupportTicketCreateOrConnectWithoutUserInput | SupportTicketCreateOrConnectWithoutUserInput[]
+    upsert?: SupportTicketUpsertWithWhereUniqueWithoutUserInput | SupportTicketUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: SupportTicketCreateManyUserInputEnvelope
+    set?: SupportTicketWhereUniqueInput | SupportTicketWhereUniqueInput[]
+    disconnect?: SupportTicketWhereUniqueInput | SupportTicketWhereUniqueInput[]
+    delete?: SupportTicketWhereUniqueInput | SupportTicketWhereUniqueInput[]
+    connect?: SupportTicketWhereUniqueInput | SupportTicketWhereUniqueInput[]
+    update?: SupportTicketUpdateWithWhereUniqueWithoutUserInput | SupportTicketUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: SupportTicketUpdateManyWithWhereWithoutUserInput | SupportTicketUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: SupportTicketScalarWhereInput | SupportTicketScalarWhereInput[]
+  }
+
+  export type PointRedemptionUpdateManyWithoutUserNestedInput = {
+    create?: XOR<PointRedemptionCreateWithoutUserInput, PointRedemptionUncheckedCreateWithoutUserInput> | PointRedemptionCreateWithoutUserInput[] | PointRedemptionUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: PointRedemptionCreateOrConnectWithoutUserInput | PointRedemptionCreateOrConnectWithoutUserInput[]
+    upsert?: PointRedemptionUpsertWithWhereUniqueWithoutUserInput | PointRedemptionUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: PointRedemptionCreateManyUserInputEnvelope
+    set?: PointRedemptionWhereUniqueInput | PointRedemptionWhereUniqueInput[]
+    disconnect?: PointRedemptionWhereUniqueInput | PointRedemptionWhereUniqueInput[]
+    delete?: PointRedemptionWhereUniqueInput | PointRedemptionWhereUniqueInput[]
+    connect?: PointRedemptionWhereUniqueInput | PointRedemptionWhereUniqueInput[]
+    update?: PointRedemptionUpdateWithWhereUniqueWithoutUserInput | PointRedemptionUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: PointRedemptionUpdateManyWithWhereWithoutUserInput | PointRedemptionUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: PointRedemptionScalarWhereInput | PointRedemptionScalarWhereInput[]
+  }
+
+  export type VoucherUpdateManyWithoutOwnerNestedInput = {
+    create?: XOR<VoucherCreateWithoutOwnerInput, VoucherUncheckedCreateWithoutOwnerInput> | VoucherCreateWithoutOwnerInput[] | VoucherUncheckedCreateWithoutOwnerInput[]
+    connectOrCreate?: VoucherCreateOrConnectWithoutOwnerInput | VoucherCreateOrConnectWithoutOwnerInput[]
+    upsert?: VoucherUpsertWithWhereUniqueWithoutOwnerInput | VoucherUpsertWithWhereUniqueWithoutOwnerInput[]
+    createMany?: VoucherCreateManyOwnerInputEnvelope
+    set?: VoucherWhereUniqueInput | VoucherWhereUniqueInput[]
+    disconnect?: VoucherWhereUniqueInput | VoucherWhereUniqueInput[]
+    delete?: VoucherWhereUniqueInput | VoucherWhereUniqueInput[]
+    connect?: VoucherWhereUniqueInput | VoucherWhereUniqueInput[]
+    update?: VoucherUpdateWithWhereUniqueWithoutOwnerInput | VoucherUpdateWithWhereUniqueWithoutOwnerInput[]
+    updateMany?: VoucherUpdateManyWithWhereWithoutOwnerInput | VoucherUpdateManyWithWhereWithoutOwnerInput[]
+    deleteMany?: VoucherScalarWhereInput | VoucherScalarWhereInput[]
+  }
+
   export type BookingUncheckedUpdateManyWithoutUserNestedInput = {
     create?: XOR<BookingCreateWithoutUserInput, BookingUncheckedCreateWithoutUserInput> | BookingCreateWithoutUserInput[] | BookingUncheckedCreateWithoutUserInput[]
     connectOrCreate?: BookingCreateOrConnectWithoutUserInput | BookingCreateOrConnectWithoutUserInput[]
@@ -19373,6 +22639,48 @@ export namespace Prisma {
     update?: LoyaltyLogUpdateWithWhereUniqueWithoutUserInput | LoyaltyLogUpdateWithWhereUniqueWithoutUserInput[]
     updateMany?: LoyaltyLogUpdateManyWithWhereWithoutUserInput | LoyaltyLogUpdateManyWithWhereWithoutUserInput[]
     deleteMany?: LoyaltyLogScalarWhereInput | LoyaltyLogScalarWhereInput[]
+  }
+
+  export type SupportTicketUncheckedUpdateManyWithoutUserNestedInput = {
+    create?: XOR<SupportTicketCreateWithoutUserInput, SupportTicketUncheckedCreateWithoutUserInput> | SupportTicketCreateWithoutUserInput[] | SupportTicketUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: SupportTicketCreateOrConnectWithoutUserInput | SupportTicketCreateOrConnectWithoutUserInput[]
+    upsert?: SupportTicketUpsertWithWhereUniqueWithoutUserInput | SupportTicketUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: SupportTicketCreateManyUserInputEnvelope
+    set?: SupportTicketWhereUniqueInput | SupportTicketWhereUniqueInput[]
+    disconnect?: SupportTicketWhereUniqueInput | SupportTicketWhereUniqueInput[]
+    delete?: SupportTicketWhereUniqueInput | SupportTicketWhereUniqueInput[]
+    connect?: SupportTicketWhereUniqueInput | SupportTicketWhereUniqueInput[]
+    update?: SupportTicketUpdateWithWhereUniqueWithoutUserInput | SupportTicketUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: SupportTicketUpdateManyWithWhereWithoutUserInput | SupportTicketUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: SupportTicketScalarWhereInput | SupportTicketScalarWhereInput[]
+  }
+
+  export type PointRedemptionUncheckedUpdateManyWithoutUserNestedInput = {
+    create?: XOR<PointRedemptionCreateWithoutUserInput, PointRedemptionUncheckedCreateWithoutUserInput> | PointRedemptionCreateWithoutUserInput[] | PointRedemptionUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: PointRedemptionCreateOrConnectWithoutUserInput | PointRedemptionCreateOrConnectWithoutUserInput[]
+    upsert?: PointRedemptionUpsertWithWhereUniqueWithoutUserInput | PointRedemptionUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: PointRedemptionCreateManyUserInputEnvelope
+    set?: PointRedemptionWhereUniqueInput | PointRedemptionWhereUniqueInput[]
+    disconnect?: PointRedemptionWhereUniqueInput | PointRedemptionWhereUniqueInput[]
+    delete?: PointRedemptionWhereUniqueInput | PointRedemptionWhereUniqueInput[]
+    connect?: PointRedemptionWhereUniqueInput | PointRedemptionWhereUniqueInput[]
+    update?: PointRedemptionUpdateWithWhereUniqueWithoutUserInput | PointRedemptionUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: PointRedemptionUpdateManyWithWhereWithoutUserInput | PointRedemptionUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: PointRedemptionScalarWhereInput | PointRedemptionScalarWhereInput[]
+  }
+
+  export type VoucherUncheckedUpdateManyWithoutOwnerNestedInput = {
+    create?: XOR<VoucherCreateWithoutOwnerInput, VoucherUncheckedCreateWithoutOwnerInput> | VoucherCreateWithoutOwnerInput[] | VoucherUncheckedCreateWithoutOwnerInput[]
+    connectOrCreate?: VoucherCreateOrConnectWithoutOwnerInput | VoucherCreateOrConnectWithoutOwnerInput[]
+    upsert?: VoucherUpsertWithWhereUniqueWithoutOwnerInput | VoucherUpsertWithWhereUniqueWithoutOwnerInput[]
+    createMany?: VoucherCreateManyOwnerInputEnvelope
+    set?: VoucherWhereUniqueInput | VoucherWhereUniqueInput[]
+    disconnect?: VoucherWhereUniqueInput | VoucherWhereUniqueInput[]
+    delete?: VoucherWhereUniqueInput | VoucherWhereUniqueInput[]
+    connect?: VoucherWhereUniqueInput | VoucherWhereUniqueInput[]
+    update?: VoucherUpdateWithWhereUniqueWithoutOwnerInput | VoucherUpdateWithWhereUniqueWithoutOwnerInput[]
+    updateMany?: VoucherUpdateManyWithWhereWithoutOwnerInput | VoucherUpdateManyWithWhereWithoutOwnerInput[]
+    deleteMany?: VoucherScalarWhereInput | VoucherScalarWhereInput[]
   }
 
   export type UserCreateNestedOneWithoutLoyalty_logsInput = {
@@ -19587,17 +22895,17 @@ export namespace Prisma {
     deleteMany?: ShowtimeScalarWhereInput | ShowtimeScalarWhereInput[]
   }
 
-  export type RoomCreateNestedOneWithoutSeatsInput = {
-    create?: XOR<RoomCreateWithoutSeatsInput, RoomUncheckedCreateWithoutSeatsInput>
-    connectOrCreate?: RoomCreateOrConnectWithoutSeatsInput
-    connect?: RoomWhereUniqueInput
-  }
-
   export type BookingItemCreateNestedManyWithoutSeatInput = {
     create?: XOR<BookingItemCreateWithoutSeatInput, BookingItemUncheckedCreateWithoutSeatInput> | BookingItemCreateWithoutSeatInput[] | BookingItemUncheckedCreateWithoutSeatInput[]
     connectOrCreate?: BookingItemCreateOrConnectWithoutSeatInput | BookingItemCreateOrConnectWithoutSeatInput[]
     createMany?: BookingItemCreateManySeatInputEnvelope
     connect?: BookingItemWhereUniqueInput | BookingItemWhereUniqueInput[]
+  }
+
+  export type RoomCreateNestedOneWithoutSeatsInput = {
+    create?: XOR<RoomCreateWithoutSeatsInput, RoomUncheckedCreateWithoutSeatsInput>
+    connectOrCreate?: RoomCreateOrConnectWithoutSeatsInput
+    connect?: RoomWhereUniqueInput
   }
 
   export type BookingItemUncheckedCreateNestedManyWithoutSeatInput = {
@@ -19609,14 +22917,6 @@ export namespace Prisma {
 
   export type EnumSeatTypeFieldUpdateOperationsInput = {
     set?: $Enums.SeatType
-  }
-
-  export type RoomUpdateOneRequiredWithoutSeatsNestedInput = {
-    create?: XOR<RoomCreateWithoutSeatsInput, RoomUncheckedCreateWithoutSeatsInput>
-    connectOrCreate?: RoomCreateOrConnectWithoutSeatsInput
-    upsert?: RoomUpsertWithoutSeatsInput
-    connect?: RoomWhereUniqueInput
-    update?: XOR<XOR<RoomUpdateToOneWithWhereWithoutSeatsInput, RoomUpdateWithoutSeatsInput>, RoomUncheckedUpdateWithoutSeatsInput>
   }
 
   export type BookingItemUpdateManyWithoutSeatNestedInput = {
@@ -19633,6 +22933,14 @@ export namespace Prisma {
     deleteMany?: BookingItemScalarWhereInput | BookingItemScalarWhereInput[]
   }
 
+  export type RoomUpdateOneRequiredWithoutSeatsNestedInput = {
+    create?: XOR<RoomCreateWithoutSeatsInput, RoomUncheckedCreateWithoutSeatsInput>
+    connectOrCreate?: RoomCreateOrConnectWithoutSeatsInput
+    upsert?: RoomUpsertWithoutSeatsInput
+    connect?: RoomWhereUniqueInput
+    update?: XOR<XOR<RoomUpdateToOneWithWhereWithoutSeatsInput, RoomUpdateWithoutSeatsInput>, RoomUncheckedUpdateWithoutSeatsInput>
+  }
+
   export type BookingItemUncheckedUpdateManyWithoutSeatNestedInput = {
     create?: XOR<BookingItemCreateWithoutSeatInput, BookingItemUncheckedCreateWithoutSeatInput> | BookingItemCreateWithoutSeatInput[] | BookingItemUncheckedCreateWithoutSeatInput[]
     connectOrCreate?: BookingItemCreateOrConnectWithoutSeatInput | BookingItemCreateOrConnectWithoutSeatInput[]
@@ -19647,6 +22955,13 @@ export namespace Prisma {
     deleteMany?: BookingItemScalarWhereInput | BookingItemScalarWhereInput[]
   }
 
+  export type BookingCreateNestedManyWithoutShowtimeInput = {
+    create?: XOR<BookingCreateWithoutShowtimeInput, BookingUncheckedCreateWithoutShowtimeInput> | BookingCreateWithoutShowtimeInput[] | BookingUncheckedCreateWithoutShowtimeInput[]
+    connectOrCreate?: BookingCreateOrConnectWithoutShowtimeInput | BookingCreateOrConnectWithoutShowtimeInput[]
+    createMany?: BookingCreateManyShowtimeInputEnvelope
+    connect?: BookingWhereUniqueInput | BookingWhereUniqueInput[]
+  }
+
   export type MovieCreateNestedOneWithoutShowtimesInput = {
     create?: XOR<MovieCreateWithoutShowtimesInput, MovieUncheckedCreateWithoutShowtimesInput>
     connectOrCreate?: MovieCreateOrConnectWithoutShowtimesInput
@@ -19659,18 +22974,25 @@ export namespace Prisma {
     connect?: RoomWhereUniqueInput
   }
 
-  export type BookingCreateNestedManyWithoutShowtimeInput = {
+  export type BookingUncheckedCreateNestedManyWithoutShowtimeInput = {
     create?: XOR<BookingCreateWithoutShowtimeInput, BookingUncheckedCreateWithoutShowtimeInput> | BookingCreateWithoutShowtimeInput[] | BookingUncheckedCreateWithoutShowtimeInput[]
     connectOrCreate?: BookingCreateOrConnectWithoutShowtimeInput | BookingCreateOrConnectWithoutShowtimeInput[]
     createMany?: BookingCreateManyShowtimeInputEnvelope
     connect?: BookingWhereUniqueInput | BookingWhereUniqueInput[]
   }
 
-  export type BookingUncheckedCreateNestedManyWithoutShowtimeInput = {
+  export type BookingUpdateManyWithoutShowtimeNestedInput = {
     create?: XOR<BookingCreateWithoutShowtimeInput, BookingUncheckedCreateWithoutShowtimeInput> | BookingCreateWithoutShowtimeInput[] | BookingUncheckedCreateWithoutShowtimeInput[]
     connectOrCreate?: BookingCreateOrConnectWithoutShowtimeInput | BookingCreateOrConnectWithoutShowtimeInput[]
+    upsert?: BookingUpsertWithWhereUniqueWithoutShowtimeInput | BookingUpsertWithWhereUniqueWithoutShowtimeInput[]
     createMany?: BookingCreateManyShowtimeInputEnvelope
+    set?: BookingWhereUniqueInput | BookingWhereUniqueInput[]
+    disconnect?: BookingWhereUniqueInput | BookingWhereUniqueInput[]
+    delete?: BookingWhereUniqueInput | BookingWhereUniqueInput[]
     connect?: BookingWhereUniqueInput | BookingWhereUniqueInput[]
+    update?: BookingUpdateWithWhereUniqueWithoutShowtimeInput | BookingUpdateWithWhereUniqueWithoutShowtimeInput[]
+    updateMany?: BookingUpdateManyWithWhereWithoutShowtimeInput | BookingUpdateManyWithWhereWithoutShowtimeInput[]
+    deleteMany?: BookingScalarWhereInput | BookingScalarWhereInput[]
   }
 
   export type MovieUpdateOneRequiredWithoutShowtimesNestedInput = {
@@ -19689,20 +23011,6 @@ export namespace Prisma {
     update?: XOR<XOR<RoomUpdateToOneWithWhereWithoutShowtimesInput, RoomUpdateWithoutShowtimesInput>, RoomUncheckedUpdateWithoutShowtimesInput>
   }
 
-  export type BookingUpdateManyWithoutShowtimeNestedInput = {
-    create?: XOR<BookingCreateWithoutShowtimeInput, BookingUncheckedCreateWithoutShowtimeInput> | BookingCreateWithoutShowtimeInput[] | BookingUncheckedCreateWithoutShowtimeInput[]
-    connectOrCreate?: BookingCreateOrConnectWithoutShowtimeInput | BookingCreateOrConnectWithoutShowtimeInput[]
-    upsert?: BookingUpsertWithWhereUniqueWithoutShowtimeInput | BookingUpsertWithWhereUniqueWithoutShowtimeInput[]
-    createMany?: BookingCreateManyShowtimeInputEnvelope
-    set?: BookingWhereUniqueInput | BookingWhereUniqueInput[]
-    disconnect?: BookingWhereUniqueInput | BookingWhereUniqueInput[]
-    delete?: BookingWhereUniqueInput | BookingWhereUniqueInput[]
-    connect?: BookingWhereUniqueInput | BookingWhereUniqueInput[]
-    update?: BookingUpdateWithWhereUniqueWithoutShowtimeInput | BookingUpdateWithWhereUniqueWithoutShowtimeInput[]
-    updateMany?: BookingUpdateManyWithWhereWithoutShowtimeInput | BookingUpdateManyWithWhereWithoutShowtimeInput[]
-    deleteMany?: BookingScalarWhereInput | BookingScalarWhereInput[]
-  }
-
   export type BookingUncheckedUpdateManyWithoutShowtimeNestedInput = {
     create?: XOR<BookingCreateWithoutShowtimeInput, BookingUncheckedCreateWithoutShowtimeInput> | BookingCreateWithoutShowtimeInput[] | BookingUncheckedCreateWithoutShowtimeInput[]
     connectOrCreate?: BookingCreateOrConnectWithoutShowtimeInput | BookingCreateOrConnectWithoutShowtimeInput[]
@@ -19717,10 +23025,11 @@ export namespace Prisma {
     deleteMany?: BookingScalarWhereInput | BookingScalarWhereInput[]
   }
 
-  export type UserCreateNestedOneWithoutBookingsInput = {
-    create?: XOR<UserCreateWithoutBookingsInput, UserUncheckedCreateWithoutBookingsInput>
-    connectOrCreate?: UserCreateOrConnectWithoutBookingsInput
-    connect?: UserWhereUniqueInput
+  export type BookingItemCreateNestedManyWithoutBookingInput = {
+    create?: XOR<BookingItemCreateWithoutBookingInput, BookingItemUncheckedCreateWithoutBookingInput> | BookingItemCreateWithoutBookingInput[] | BookingItemUncheckedCreateWithoutBookingInput[]
+    connectOrCreate?: BookingItemCreateOrConnectWithoutBookingInput | BookingItemCreateOrConnectWithoutBookingInput[]
+    createMany?: BookingItemCreateManyBookingInputEnvelope
+    connect?: BookingItemWhereUniqueInput | BookingItemWhereUniqueInput[]
   }
 
   export type ShowtimeCreateNestedOneWithoutBookingsInput = {
@@ -19729,17 +23038,16 @@ export namespace Prisma {
     connect?: ShowtimeWhereUniqueInput
   }
 
-  export type BookingItemCreateNestedManyWithoutBookingInput = {
-    create?: XOR<BookingItemCreateWithoutBookingInput, BookingItemUncheckedCreateWithoutBookingInput> | BookingItemCreateWithoutBookingInput[] | BookingItemUncheckedCreateWithoutBookingInput[]
-    connectOrCreate?: BookingItemCreateOrConnectWithoutBookingInput | BookingItemCreateOrConnectWithoutBookingInput[]
-    createMany?: BookingItemCreateManyBookingInputEnvelope
-    connect?: BookingItemWhereUniqueInput | BookingItemWhereUniqueInput[]
+  export type UserCreateNestedOneWithoutBookingsInput = {
+    create?: XOR<UserCreateWithoutBookingsInput, UserUncheckedCreateWithoutBookingsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutBookingsInput
+    connect?: UserWhereUniqueInput
   }
 
-  export type PaymentCreateNestedOneWithoutBookingInput = {
-    create?: XOR<PaymentCreateWithoutBookingInput, PaymentUncheckedCreateWithoutBookingInput>
-    connectOrCreate?: PaymentCreateOrConnectWithoutBookingInput
-    connect?: PaymentWhereUniqueInput
+  export type VoucherCreateNestedOneWithoutBookingsInput = {
+    create?: XOR<VoucherCreateWithoutBookingsInput, VoucherUncheckedCreateWithoutBookingsInput>
+    connectOrCreate?: VoucherCreateOrConnectWithoutBookingsInput
+    connect?: VoucherWhereUniqueInput
   }
 
   export type FoodItemCreateNestedManyWithoutBookingInput = {
@@ -19749,17 +23057,17 @@ export namespace Prisma {
     connect?: FoodItemWhereUniqueInput | FoodItemWhereUniqueInput[]
   }
 
+  export type PaymentCreateNestedOneWithoutBookingInput = {
+    create?: XOR<PaymentCreateWithoutBookingInput, PaymentUncheckedCreateWithoutBookingInput>
+    connectOrCreate?: PaymentCreateOrConnectWithoutBookingInput
+    connect?: PaymentWhereUniqueInput
+  }
+
   export type BookingItemUncheckedCreateNestedManyWithoutBookingInput = {
     create?: XOR<BookingItemCreateWithoutBookingInput, BookingItemUncheckedCreateWithoutBookingInput> | BookingItemCreateWithoutBookingInput[] | BookingItemUncheckedCreateWithoutBookingInput[]
     connectOrCreate?: BookingItemCreateOrConnectWithoutBookingInput | BookingItemCreateOrConnectWithoutBookingInput[]
     createMany?: BookingItemCreateManyBookingInputEnvelope
     connect?: BookingItemWhereUniqueInput | BookingItemWhereUniqueInput[]
-  }
-
-  export type PaymentUncheckedCreateNestedOneWithoutBookingInput = {
-    create?: XOR<PaymentCreateWithoutBookingInput, PaymentUncheckedCreateWithoutBookingInput>
-    connectOrCreate?: PaymentCreateOrConnectWithoutBookingInput
-    connect?: PaymentWhereUniqueInput
   }
 
   export type FoodItemUncheckedCreateNestedManyWithoutBookingInput = {
@@ -19769,24 +23077,14 @@ export namespace Prisma {
     connect?: FoodItemWhereUniqueInput | FoodItemWhereUniqueInput[]
   }
 
+  export type PaymentUncheckedCreateNestedOneWithoutBookingInput = {
+    create?: XOR<PaymentCreateWithoutBookingInput, PaymentUncheckedCreateWithoutBookingInput>
+    connectOrCreate?: PaymentCreateOrConnectWithoutBookingInput
+    connect?: PaymentWhereUniqueInput
+  }
+
   export type EnumBookingStatusFieldUpdateOperationsInput = {
     set?: $Enums.BookingStatus
-  }
-
-  export type UserUpdateOneRequiredWithoutBookingsNestedInput = {
-    create?: XOR<UserCreateWithoutBookingsInput, UserUncheckedCreateWithoutBookingsInput>
-    connectOrCreate?: UserCreateOrConnectWithoutBookingsInput
-    upsert?: UserUpsertWithoutBookingsInput
-    connect?: UserWhereUniqueInput
-    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutBookingsInput, UserUpdateWithoutBookingsInput>, UserUncheckedUpdateWithoutBookingsInput>
-  }
-
-  export type ShowtimeUpdateOneRequiredWithoutBookingsNestedInput = {
-    create?: XOR<ShowtimeCreateWithoutBookingsInput, ShowtimeUncheckedCreateWithoutBookingsInput>
-    connectOrCreate?: ShowtimeCreateOrConnectWithoutBookingsInput
-    upsert?: ShowtimeUpsertWithoutBookingsInput
-    connect?: ShowtimeWhereUniqueInput
-    update?: XOR<XOR<ShowtimeUpdateToOneWithWhereWithoutBookingsInput, ShowtimeUpdateWithoutBookingsInput>, ShowtimeUncheckedUpdateWithoutBookingsInput>
   }
 
   export type BookingItemUpdateManyWithoutBookingNestedInput = {
@@ -19803,14 +23101,30 @@ export namespace Prisma {
     deleteMany?: BookingItemScalarWhereInput | BookingItemScalarWhereInput[]
   }
 
-  export type PaymentUpdateOneWithoutBookingNestedInput = {
-    create?: XOR<PaymentCreateWithoutBookingInput, PaymentUncheckedCreateWithoutBookingInput>
-    connectOrCreate?: PaymentCreateOrConnectWithoutBookingInput
-    upsert?: PaymentUpsertWithoutBookingInput
-    disconnect?: PaymentWhereInput | boolean
-    delete?: PaymentWhereInput | boolean
-    connect?: PaymentWhereUniqueInput
-    update?: XOR<XOR<PaymentUpdateToOneWithWhereWithoutBookingInput, PaymentUpdateWithoutBookingInput>, PaymentUncheckedUpdateWithoutBookingInput>
+  export type ShowtimeUpdateOneRequiredWithoutBookingsNestedInput = {
+    create?: XOR<ShowtimeCreateWithoutBookingsInput, ShowtimeUncheckedCreateWithoutBookingsInput>
+    connectOrCreate?: ShowtimeCreateOrConnectWithoutBookingsInput
+    upsert?: ShowtimeUpsertWithoutBookingsInput
+    connect?: ShowtimeWhereUniqueInput
+    update?: XOR<XOR<ShowtimeUpdateToOneWithWhereWithoutBookingsInput, ShowtimeUpdateWithoutBookingsInput>, ShowtimeUncheckedUpdateWithoutBookingsInput>
+  }
+
+  export type UserUpdateOneRequiredWithoutBookingsNestedInput = {
+    create?: XOR<UserCreateWithoutBookingsInput, UserUncheckedCreateWithoutBookingsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutBookingsInput
+    upsert?: UserUpsertWithoutBookingsInput
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutBookingsInput, UserUpdateWithoutBookingsInput>, UserUncheckedUpdateWithoutBookingsInput>
+  }
+
+  export type VoucherUpdateOneWithoutBookingsNestedInput = {
+    create?: XOR<VoucherCreateWithoutBookingsInput, VoucherUncheckedCreateWithoutBookingsInput>
+    connectOrCreate?: VoucherCreateOrConnectWithoutBookingsInput
+    upsert?: VoucherUpsertWithoutBookingsInput
+    disconnect?: VoucherWhereInput | boolean
+    delete?: VoucherWhereInput | boolean
+    connect?: VoucherWhereUniqueInput
+    update?: XOR<XOR<VoucherUpdateToOneWithWhereWithoutBookingsInput, VoucherUpdateWithoutBookingsInput>, VoucherUncheckedUpdateWithoutBookingsInput>
   }
 
   export type FoodItemUpdateManyWithoutBookingNestedInput = {
@@ -19827,6 +23141,16 @@ export namespace Prisma {
     deleteMany?: FoodItemScalarWhereInput | FoodItemScalarWhereInput[]
   }
 
+  export type PaymentUpdateOneWithoutBookingNestedInput = {
+    create?: XOR<PaymentCreateWithoutBookingInput, PaymentUncheckedCreateWithoutBookingInput>
+    connectOrCreate?: PaymentCreateOrConnectWithoutBookingInput
+    upsert?: PaymentUpsertWithoutBookingInput
+    disconnect?: PaymentWhereInput | boolean
+    delete?: PaymentWhereInput | boolean
+    connect?: PaymentWhereUniqueInput
+    update?: XOR<XOR<PaymentUpdateToOneWithWhereWithoutBookingInput, PaymentUpdateWithoutBookingInput>, PaymentUncheckedUpdateWithoutBookingInput>
+  }
+
   export type BookingItemUncheckedUpdateManyWithoutBookingNestedInput = {
     create?: XOR<BookingItemCreateWithoutBookingInput, BookingItemUncheckedCreateWithoutBookingInput> | BookingItemCreateWithoutBookingInput[] | BookingItemUncheckedCreateWithoutBookingInput[]
     connectOrCreate?: BookingItemCreateOrConnectWithoutBookingInput | BookingItemCreateOrConnectWithoutBookingInput[]
@@ -19841,16 +23165,6 @@ export namespace Prisma {
     deleteMany?: BookingItemScalarWhereInput | BookingItemScalarWhereInput[]
   }
 
-  export type PaymentUncheckedUpdateOneWithoutBookingNestedInput = {
-    create?: XOR<PaymentCreateWithoutBookingInput, PaymentUncheckedCreateWithoutBookingInput>
-    connectOrCreate?: PaymentCreateOrConnectWithoutBookingInput
-    upsert?: PaymentUpsertWithoutBookingInput
-    disconnect?: PaymentWhereInput | boolean
-    delete?: PaymentWhereInput | boolean
-    connect?: PaymentWhereUniqueInput
-    update?: XOR<XOR<PaymentUpdateToOneWithWhereWithoutBookingInput, PaymentUpdateWithoutBookingInput>, PaymentUncheckedUpdateWithoutBookingInput>
-  }
-
   export type FoodItemUncheckedUpdateManyWithoutBookingNestedInput = {
     create?: XOR<FoodItemCreateWithoutBookingInput, FoodItemUncheckedCreateWithoutBookingInput> | FoodItemCreateWithoutBookingInput[] | FoodItemUncheckedCreateWithoutBookingInput[]
     connectOrCreate?: FoodItemCreateOrConnectWithoutBookingInput | FoodItemCreateOrConnectWithoutBookingInput[]
@@ -19863,6 +23177,16 @@ export namespace Prisma {
     update?: FoodItemUpdateWithWhereUniqueWithoutBookingInput | FoodItemUpdateWithWhereUniqueWithoutBookingInput[]
     updateMany?: FoodItemUpdateManyWithWhereWithoutBookingInput | FoodItemUpdateManyWithWhereWithoutBookingInput[]
     deleteMany?: FoodItemScalarWhereInput | FoodItemScalarWhereInput[]
+  }
+
+  export type PaymentUncheckedUpdateOneWithoutBookingNestedInput = {
+    create?: XOR<PaymentCreateWithoutBookingInput, PaymentUncheckedCreateWithoutBookingInput>
+    connectOrCreate?: PaymentCreateOrConnectWithoutBookingInput
+    upsert?: PaymentUpsertWithoutBookingInput
+    disconnect?: PaymentWhereInput | boolean
+    delete?: PaymentWhereInput | boolean
+    connect?: PaymentWhereUniqueInput
+    update?: XOR<XOR<PaymentUpdateToOneWithWhereWithoutBookingInput, PaymentUpdateWithoutBookingInput>, PaymentUncheckedUpdateWithoutBookingInput>
   }
 
   export type BookingCreateNestedOneWithoutBooking_itemsInput = {
@@ -19985,6 +23309,40 @@ export namespace Prisma {
     update?: XOR<XOR<FoodComboUpdateToOneWithWhereWithoutFood_itemsInput, FoodComboUpdateWithoutFood_itemsInput>, FoodComboUncheckedUpdateWithoutFood_itemsInput>
   }
 
+  export type BookingCreateNestedManyWithoutVoucherInput = {
+    create?: XOR<BookingCreateWithoutVoucherInput, BookingUncheckedCreateWithoutVoucherInput> | BookingCreateWithoutVoucherInput[] | BookingUncheckedCreateWithoutVoucherInput[]
+    connectOrCreate?: BookingCreateOrConnectWithoutVoucherInput | BookingCreateOrConnectWithoutVoucherInput[]
+    createMany?: BookingCreateManyVoucherInputEnvelope
+    connect?: BookingWhereUniqueInput | BookingWhereUniqueInput[]
+  }
+
+  export type PointRedemptionCreateNestedManyWithoutVoucherInput = {
+    create?: XOR<PointRedemptionCreateWithoutVoucherInput, PointRedemptionUncheckedCreateWithoutVoucherInput> | PointRedemptionCreateWithoutVoucherInput[] | PointRedemptionUncheckedCreateWithoutVoucherInput[]
+    connectOrCreate?: PointRedemptionCreateOrConnectWithoutVoucherInput | PointRedemptionCreateOrConnectWithoutVoucherInput[]
+    createMany?: PointRedemptionCreateManyVoucherInputEnvelope
+    connect?: PointRedemptionWhereUniqueInput | PointRedemptionWhereUniqueInput[]
+  }
+
+  export type UserCreateNestedOneWithoutOwned_vouchersInput = {
+    create?: XOR<UserCreateWithoutOwned_vouchersInput, UserUncheckedCreateWithoutOwned_vouchersInput>
+    connectOrCreate?: UserCreateOrConnectWithoutOwned_vouchersInput
+    connect?: UserWhereUniqueInput
+  }
+
+  export type BookingUncheckedCreateNestedManyWithoutVoucherInput = {
+    create?: XOR<BookingCreateWithoutVoucherInput, BookingUncheckedCreateWithoutVoucherInput> | BookingCreateWithoutVoucherInput[] | BookingUncheckedCreateWithoutVoucherInput[]
+    connectOrCreate?: BookingCreateOrConnectWithoutVoucherInput | BookingCreateOrConnectWithoutVoucherInput[]
+    createMany?: BookingCreateManyVoucherInputEnvelope
+    connect?: BookingWhereUniqueInput | BookingWhereUniqueInput[]
+  }
+
+  export type PointRedemptionUncheckedCreateNestedManyWithoutVoucherInput = {
+    create?: XOR<PointRedemptionCreateWithoutVoucherInput, PointRedemptionUncheckedCreateWithoutVoucherInput> | PointRedemptionCreateWithoutVoucherInput[] | PointRedemptionUncheckedCreateWithoutVoucherInput[]
+    connectOrCreate?: PointRedemptionCreateOrConnectWithoutVoucherInput | PointRedemptionCreateOrConnectWithoutVoucherInput[]
+    createMany?: PointRedemptionCreateManyVoucherInputEnvelope
+    connect?: PointRedemptionWhereUniqueInput | PointRedemptionWhereUniqueInput[]
+  }
+
   export type EnumDiscountTypeFieldUpdateOperationsInput = {
     set?: $Enums.DiscountType
   }
@@ -19995,6 +23353,114 @@ export namespace Prisma {
     decrement?: number
     multiply?: number
     divide?: number
+  }
+
+  export type BookingUpdateManyWithoutVoucherNestedInput = {
+    create?: XOR<BookingCreateWithoutVoucherInput, BookingUncheckedCreateWithoutVoucherInput> | BookingCreateWithoutVoucherInput[] | BookingUncheckedCreateWithoutVoucherInput[]
+    connectOrCreate?: BookingCreateOrConnectWithoutVoucherInput | BookingCreateOrConnectWithoutVoucherInput[]
+    upsert?: BookingUpsertWithWhereUniqueWithoutVoucherInput | BookingUpsertWithWhereUniqueWithoutVoucherInput[]
+    createMany?: BookingCreateManyVoucherInputEnvelope
+    set?: BookingWhereUniqueInput | BookingWhereUniqueInput[]
+    disconnect?: BookingWhereUniqueInput | BookingWhereUniqueInput[]
+    delete?: BookingWhereUniqueInput | BookingWhereUniqueInput[]
+    connect?: BookingWhereUniqueInput | BookingWhereUniqueInput[]
+    update?: BookingUpdateWithWhereUniqueWithoutVoucherInput | BookingUpdateWithWhereUniqueWithoutVoucherInput[]
+    updateMany?: BookingUpdateManyWithWhereWithoutVoucherInput | BookingUpdateManyWithWhereWithoutVoucherInput[]
+    deleteMany?: BookingScalarWhereInput | BookingScalarWhereInput[]
+  }
+
+  export type PointRedemptionUpdateManyWithoutVoucherNestedInput = {
+    create?: XOR<PointRedemptionCreateWithoutVoucherInput, PointRedemptionUncheckedCreateWithoutVoucherInput> | PointRedemptionCreateWithoutVoucherInput[] | PointRedemptionUncheckedCreateWithoutVoucherInput[]
+    connectOrCreate?: PointRedemptionCreateOrConnectWithoutVoucherInput | PointRedemptionCreateOrConnectWithoutVoucherInput[]
+    upsert?: PointRedemptionUpsertWithWhereUniqueWithoutVoucherInput | PointRedemptionUpsertWithWhereUniqueWithoutVoucherInput[]
+    createMany?: PointRedemptionCreateManyVoucherInputEnvelope
+    set?: PointRedemptionWhereUniqueInput | PointRedemptionWhereUniqueInput[]
+    disconnect?: PointRedemptionWhereUniqueInput | PointRedemptionWhereUniqueInput[]
+    delete?: PointRedemptionWhereUniqueInput | PointRedemptionWhereUniqueInput[]
+    connect?: PointRedemptionWhereUniqueInput | PointRedemptionWhereUniqueInput[]
+    update?: PointRedemptionUpdateWithWhereUniqueWithoutVoucherInput | PointRedemptionUpdateWithWhereUniqueWithoutVoucherInput[]
+    updateMany?: PointRedemptionUpdateManyWithWhereWithoutVoucherInput | PointRedemptionUpdateManyWithWhereWithoutVoucherInput[]
+    deleteMany?: PointRedemptionScalarWhereInput | PointRedemptionScalarWhereInput[]
+  }
+
+  export type UserUpdateOneWithoutOwned_vouchersNestedInput = {
+    create?: XOR<UserCreateWithoutOwned_vouchersInput, UserUncheckedCreateWithoutOwned_vouchersInput>
+    connectOrCreate?: UserCreateOrConnectWithoutOwned_vouchersInput
+    upsert?: UserUpsertWithoutOwned_vouchersInput
+    disconnect?: UserWhereInput | boolean
+    delete?: UserWhereInput | boolean
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutOwned_vouchersInput, UserUpdateWithoutOwned_vouchersInput>, UserUncheckedUpdateWithoutOwned_vouchersInput>
+  }
+
+  export type BookingUncheckedUpdateManyWithoutVoucherNestedInput = {
+    create?: XOR<BookingCreateWithoutVoucherInput, BookingUncheckedCreateWithoutVoucherInput> | BookingCreateWithoutVoucherInput[] | BookingUncheckedCreateWithoutVoucherInput[]
+    connectOrCreate?: BookingCreateOrConnectWithoutVoucherInput | BookingCreateOrConnectWithoutVoucherInput[]
+    upsert?: BookingUpsertWithWhereUniqueWithoutVoucherInput | BookingUpsertWithWhereUniqueWithoutVoucherInput[]
+    createMany?: BookingCreateManyVoucherInputEnvelope
+    set?: BookingWhereUniqueInput | BookingWhereUniqueInput[]
+    disconnect?: BookingWhereUniqueInput | BookingWhereUniqueInput[]
+    delete?: BookingWhereUniqueInput | BookingWhereUniqueInput[]
+    connect?: BookingWhereUniqueInput | BookingWhereUniqueInput[]
+    update?: BookingUpdateWithWhereUniqueWithoutVoucherInput | BookingUpdateWithWhereUniqueWithoutVoucherInput[]
+    updateMany?: BookingUpdateManyWithWhereWithoutVoucherInput | BookingUpdateManyWithWhereWithoutVoucherInput[]
+    deleteMany?: BookingScalarWhereInput | BookingScalarWhereInput[]
+  }
+
+  export type PointRedemptionUncheckedUpdateManyWithoutVoucherNestedInput = {
+    create?: XOR<PointRedemptionCreateWithoutVoucherInput, PointRedemptionUncheckedCreateWithoutVoucherInput> | PointRedemptionCreateWithoutVoucherInput[] | PointRedemptionUncheckedCreateWithoutVoucherInput[]
+    connectOrCreate?: PointRedemptionCreateOrConnectWithoutVoucherInput | PointRedemptionCreateOrConnectWithoutVoucherInput[]
+    upsert?: PointRedemptionUpsertWithWhereUniqueWithoutVoucherInput | PointRedemptionUpsertWithWhereUniqueWithoutVoucherInput[]
+    createMany?: PointRedemptionCreateManyVoucherInputEnvelope
+    set?: PointRedemptionWhereUniqueInput | PointRedemptionWhereUniqueInput[]
+    disconnect?: PointRedemptionWhereUniqueInput | PointRedemptionWhereUniqueInput[]
+    delete?: PointRedemptionWhereUniqueInput | PointRedemptionWhereUniqueInput[]
+    connect?: PointRedemptionWhereUniqueInput | PointRedemptionWhereUniqueInput[]
+    update?: PointRedemptionUpdateWithWhereUniqueWithoutVoucherInput | PointRedemptionUpdateWithWhereUniqueWithoutVoucherInput[]
+    updateMany?: PointRedemptionUpdateManyWithWhereWithoutVoucherInput | PointRedemptionUpdateManyWithWhereWithoutVoucherInput[]
+    deleteMany?: PointRedemptionScalarWhereInput | PointRedemptionScalarWhereInput[]
+  }
+
+  export type UserCreateNestedOneWithoutPoint_redemptionsInput = {
+    create?: XOR<UserCreateWithoutPoint_redemptionsInput, UserUncheckedCreateWithoutPoint_redemptionsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutPoint_redemptionsInput
+    connect?: UserWhereUniqueInput
+  }
+
+  export type VoucherCreateNestedOneWithoutPoint_redemptionsInput = {
+    create?: XOR<VoucherCreateWithoutPoint_redemptionsInput, VoucherUncheckedCreateWithoutPoint_redemptionsInput>
+    connectOrCreate?: VoucherCreateOrConnectWithoutPoint_redemptionsInput
+    connect?: VoucherWhereUniqueInput
+  }
+
+  export type UserUpdateOneRequiredWithoutPoint_redemptionsNestedInput = {
+    create?: XOR<UserCreateWithoutPoint_redemptionsInput, UserUncheckedCreateWithoutPoint_redemptionsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutPoint_redemptionsInput
+    upsert?: UserUpsertWithoutPoint_redemptionsInput
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutPoint_redemptionsInput, UserUpdateWithoutPoint_redemptionsInput>, UserUncheckedUpdateWithoutPoint_redemptionsInput>
+  }
+
+  export type VoucherUpdateOneRequiredWithoutPoint_redemptionsNestedInput = {
+    create?: XOR<VoucherCreateWithoutPoint_redemptionsInput, VoucherUncheckedCreateWithoutPoint_redemptionsInput>
+    connectOrCreate?: VoucherCreateOrConnectWithoutPoint_redemptionsInput
+    upsert?: VoucherUpsertWithoutPoint_redemptionsInput
+    connect?: VoucherWhereUniqueInput
+    update?: XOR<XOR<VoucherUpdateToOneWithWhereWithoutPoint_redemptionsInput, VoucherUpdateWithoutPoint_redemptionsInput>, VoucherUncheckedUpdateWithoutPoint_redemptionsInput>
+  }
+
+  export type UserCreateNestedOneWithoutSupport_ticketsInput = {
+    create?: XOR<UserCreateWithoutSupport_ticketsInput, UserUncheckedCreateWithoutSupport_ticketsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutSupport_ticketsInput
+    connect?: UserWhereUniqueInput
+  }
+
+  export type UserUpdateOneRequiredWithoutSupport_ticketsNestedInput = {
+    create?: XOR<UserCreateWithoutSupport_ticketsInput, UserUncheckedCreateWithoutSupport_ticketsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutSupport_ticketsInput
+    upsert?: UserUpsertWithoutSupport_ticketsInput
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutSupport_ticketsInput, UserUpdateWithoutSupport_ticketsInput>, UserUncheckedUpdateWithoutSupport_ticketsInput>
   }
 
   export type NestedStringFilter<$PrismaModel = never> = {
@@ -20045,9 +23511,15 @@ export namespace Prisma {
     not?: NestedIntFilter<$PrismaModel> | number
   }
 
-  export type NestedBoolFilter<$PrismaModel = never> = {
-    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
-    not?: NestedBoolFilter<$PrismaModel> | boolean
+  export type NestedDateTimeFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[]
+    notIn?: Date[] | string[]
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeFilter<$PrismaModel> | Date | string
   }
 
   export type NestedDateTimeNullableFilter<$PrismaModel = never> = {
@@ -20061,15 +23533,9 @@ export namespace Prisma {
     not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
   }
 
-  export type NestedDateTimeFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    in?: Date[] | string[]
-    notIn?: Date[] | string[]
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeFilter<$PrismaModel> | Date | string
+  export type NestedBoolFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolFilter<$PrismaModel> | boolean
   }
 
   export type NestedStringWithAggregatesFilter<$PrismaModel = never> = {
@@ -20156,12 +23622,18 @@ export namespace Prisma {
     not?: NestedFloatFilter<$PrismaModel> | number
   }
 
-  export type NestedBoolWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
-    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
+  export type NestedDateTimeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[]
+    notIn?: Date[] | string[]
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
     _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedBoolFilter<$PrismaModel>
-    _max?: NestedBoolFilter<$PrismaModel>
+    _min?: NestedDateTimeFilter<$PrismaModel>
+    _max?: NestedDateTimeFilter<$PrismaModel>
   }
 
   export type NestedDateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
@@ -20178,18 +23650,12 @@ export namespace Prisma {
     _max?: NestedDateTimeNullableFilter<$PrismaModel>
   }
 
-  export type NestedDateTimeWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    in?: Date[] | string[]
-    notIn?: Date[] | string[]
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
+  export type NestedBoolWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
     _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedDateTimeFilter<$PrismaModel>
-    _max?: NestedDateTimeFilter<$PrismaModel>
+    _min?: NestedBoolFilter<$PrismaModel>
+    _max?: NestedBoolFilter<$PrismaModel>
   }
 
   export type NestedEnumMovieStatusFilter<$PrismaModel = never> = {
@@ -20197,29 +23663,6 @@ export namespace Prisma {
     in?: $Enums.MovieStatus[]
     notIn?: $Enums.MovieStatus[]
     not?: NestedEnumMovieStatusFilter<$PrismaModel> | $Enums.MovieStatus
-  }
-  export type NestedJsonFilter<$PrismaModel = never> =
-    | PatchUndefined<
-        Either<Required<NestedJsonFilterBase<$PrismaModel>>, Exclude<keyof Required<NestedJsonFilterBase<$PrismaModel>>, 'path'>>,
-        Required<NestedJsonFilterBase<$PrismaModel>>
-      >
-    | OptionalFlat<Omit<Required<NestedJsonFilterBase<$PrismaModel>>, 'path'>>
-
-  export type NestedJsonFilterBase<$PrismaModel = never> = {
-    equals?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
-    path?: string
-    mode?: QueryMode | EnumQueryModeFieldRefInput<$PrismaModel>
-    string_contains?: string | StringFieldRefInput<$PrismaModel>
-    string_starts_with?: string | StringFieldRefInput<$PrismaModel>
-    string_ends_with?: string | StringFieldRefInput<$PrismaModel>
-    array_starts_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
-    array_ends_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
-    array_contains?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
-    lt?: InputJsonValue
-    lte?: InputJsonValue
-    gt?: InputJsonValue
-    gte?: InputJsonValue
-    not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
   }
 
   export type NestedFloatWithAggregatesFilter<$PrismaModel = never> = {
@@ -20386,10 +23829,12 @@ export namespace Prisma {
     paid_at?: Date | string | null
     created_at?: Date | string
     expires_at: Date | string
-    showtime: ShowtimeCreateNestedOneWithoutBookingsInput
+    discount_amount?: number
     booking_items?: BookingItemCreateNestedManyWithoutBookingInput
-    payment?: PaymentCreateNestedOneWithoutBookingInput
+    showtime: ShowtimeCreateNestedOneWithoutBookingsInput
+    voucher?: VoucherCreateNestedOneWithoutBookingsInput
     food_items?: FoodItemCreateNestedManyWithoutBookingInput
+    payment?: PaymentCreateNestedOneWithoutBookingInput
   }
 
   export type BookingUncheckedCreateWithoutUserInput = {
@@ -20402,9 +23847,11 @@ export namespace Prisma {
     paid_at?: Date | string | null
     created_at?: Date | string
     expires_at: Date | string
+    discount_amount?: number
+    voucher_code?: string | null
     booking_items?: BookingItemUncheckedCreateNestedManyWithoutBookingInput
-    payment?: PaymentUncheckedCreateNestedOneWithoutBookingInput
     food_items?: FoodItemUncheckedCreateNestedManyWithoutBookingInput
+    payment?: PaymentUncheckedCreateNestedOneWithoutBookingInput
   }
 
   export type BookingCreateOrConnectWithoutUserInput = {
@@ -20445,6 +23892,110 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
+  export type SupportTicketCreateWithoutUserInput = {
+    id?: string
+    category: string
+    subject: string
+    message: string
+    status?: string
+    admin_reply?: string | null
+    replied_at?: Date | string | null
+    created_at?: Date | string
+    updated_at?: Date | string
+  }
+
+  export type SupportTicketUncheckedCreateWithoutUserInput = {
+    id?: string
+    category: string
+    subject: string
+    message: string
+    status?: string
+    admin_reply?: string | null
+    replied_at?: Date | string | null
+    created_at?: Date | string
+    updated_at?: Date | string
+  }
+
+  export type SupportTicketCreateOrConnectWithoutUserInput = {
+    where: SupportTicketWhereUniqueInput
+    create: XOR<SupportTicketCreateWithoutUserInput, SupportTicketUncheckedCreateWithoutUserInput>
+  }
+
+  export type SupportTicketCreateManyUserInputEnvelope = {
+    data: SupportTicketCreateManyUserInput | SupportTicketCreateManyUserInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type PointRedemptionCreateWithoutUserInput = {
+    id?: string
+    points_used: number
+    created_at?: Date | string
+    voucher: VoucherCreateNestedOneWithoutPoint_redemptionsInput
+  }
+
+  export type PointRedemptionUncheckedCreateWithoutUserInput = {
+    id?: string
+    points_used: number
+    voucher_id: string
+    created_at?: Date | string
+  }
+
+  export type PointRedemptionCreateOrConnectWithoutUserInput = {
+    where: PointRedemptionWhereUniqueInput
+    create: XOR<PointRedemptionCreateWithoutUserInput, PointRedemptionUncheckedCreateWithoutUserInput>
+  }
+
+  export type PointRedemptionCreateManyUserInputEnvelope = {
+    data: PointRedemptionCreateManyUserInput | PointRedemptionCreateManyUserInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type VoucherCreateWithoutOwnerInput = {
+    id?: string
+    code: string
+    discount_type: $Enums.DiscountType
+    discount_value: number
+    min_amount?: number
+    max_discount?: number | null
+    usage_limit: number
+    used_count?: number
+    expires_at: Date | string
+    created_at?: Date | string
+    description?: string | null
+    is_active?: boolean
+    source?: string
+    bookings?: BookingCreateNestedManyWithoutVoucherInput
+    point_redemptions?: PointRedemptionCreateNestedManyWithoutVoucherInput
+  }
+
+  export type VoucherUncheckedCreateWithoutOwnerInput = {
+    id?: string
+    code: string
+    discount_type: $Enums.DiscountType
+    discount_value: number
+    min_amount?: number
+    max_discount?: number | null
+    usage_limit: number
+    used_count?: number
+    expires_at: Date | string
+    created_at?: Date | string
+    description?: string | null
+    is_active?: boolean
+    source?: string
+    bookings?: BookingUncheckedCreateNestedManyWithoutVoucherInput
+    point_redemptions?: PointRedemptionUncheckedCreateNestedManyWithoutVoucherInput
+  }
+
+  export type VoucherCreateOrConnectWithoutOwnerInput = {
+    where: VoucherWhereUniqueInput
+    create: XOR<VoucherCreateWithoutOwnerInput, VoucherUncheckedCreateWithoutOwnerInput>
+  }
+
+  export type VoucherCreateManyOwnerInputEnvelope = {
+    data: VoucherCreateManyOwnerInput | VoucherCreateManyOwnerInput[]
+    skipDuplicates?: boolean
+  }
+
   export type BookingUpsertWithWhereUniqueWithoutUserInput = {
     where: BookingWhereUniqueInput
     update: XOR<BookingUpdateWithoutUserInput, BookingUncheckedUpdateWithoutUserInput>
@@ -20475,6 +24026,8 @@ export namespace Prisma {
     paid_at?: DateTimeNullableFilter<"Booking"> | Date | string | null
     created_at?: DateTimeFilter<"Booking"> | Date | string
     expires_at?: DateTimeFilter<"Booking"> | Date | string
+    discount_amount?: IntFilter<"Booking"> | number
+    voucher_code?: StringNullableFilter<"Booking"> | string | null
   }
 
   export type LoyaltyLogUpsertWithWhereUniqueWithoutUserInput = {
@@ -20506,40 +24059,151 @@ export namespace Prisma {
     created_at?: DateTimeFilter<"LoyaltyLog"> | Date | string
   }
 
+  export type SupportTicketUpsertWithWhereUniqueWithoutUserInput = {
+    where: SupportTicketWhereUniqueInput
+    update: XOR<SupportTicketUpdateWithoutUserInput, SupportTicketUncheckedUpdateWithoutUserInput>
+    create: XOR<SupportTicketCreateWithoutUserInput, SupportTicketUncheckedCreateWithoutUserInput>
+  }
+
+  export type SupportTicketUpdateWithWhereUniqueWithoutUserInput = {
+    where: SupportTicketWhereUniqueInput
+    data: XOR<SupportTicketUpdateWithoutUserInput, SupportTicketUncheckedUpdateWithoutUserInput>
+  }
+
+  export type SupportTicketUpdateManyWithWhereWithoutUserInput = {
+    where: SupportTicketScalarWhereInput
+    data: XOR<SupportTicketUpdateManyMutationInput, SupportTicketUncheckedUpdateManyWithoutUserInput>
+  }
+
+  export type SupportTicketScalarWhereInput = {
+    AND?: SupportTicketScalarWhereInput | SupportTicketScalarWhereInput[]
+    OR?: SupportTicketScalarWhereInput[]
+    NOT?: SupportTicketScalarWhereInput | SupportTicketScalarWhereInput[]
+    id?: StringFilter<"SupportTicket"> | string
+    user_id?: StringFilter<"SupportTicket"> | string
+    category?: StringFilter<"SupportTicket"> | string
+    subject?: StringFilter<"SupportTicket"> | string
+    message?: StringFilter<"SupportTicket"> | string
+    status?: StringFilter<"SupportTicket"> | string
+    admin_reply?: StringNullableFilter<"SupportTicket"> | string | null
+    replied_at?: DateTimeNullableFilter<"SupportTicket"> | Date | string | null
+    created_at?: DateTimeFilter<"SupportTicket"> | Date | string
+    updated_at?: DateTimeFilter<"SupportTicket"> | Date | string
+  }
+
+  export type PointRedemptionUpsertWithWhereUniqueWithoutUserInput = {
+    where: PointRedemptionWhereUniqueInput
+    update: XOR<PointRedemptionUpdateWithoutUserInput, PointRedemptionUncheckedUpdateWithoutUserInput>
+    create: XOR<PointRedemptionCreateWithoutUserInput, PointRedemptionUncheckedCreateWithoutUserInput>
+  }
+
+  export type PointRedemptionUpdateWithWhereUniqueWithoutUserInput = {
+    where: PointRedemptionWhereUniqueInput
+    data: XOR<PointRedemptionUpdateWithoutUserInput, PointRedemptionUncheckedUpdateWithoutUserInput>
+  }
+
+  export type PointRedemptionUpdateManyWithWhereWithoutUserInput = {
+    where: PointRedemptionScalarWhereInput
+    data: XOR<PointRedemptionUpdateManyMutationInput, PointRedemptionUncheckedUpdateManyWithoutUserInput>
+  }
+
+  export type PointRedemptionScalarWhereInput = {
+    AND?: PointRedemptionScalarWhereInput | PointRedemptionScalarWhereInput[]
+    OR?: PointRedemptionScalarWhereInput[]
+    NOT?: PointRedemptionScalarWhereInput | PointRedemptionScalarWhereInput[]
+    id?: StringFilter<"PointRedemption"> | string
+    user_id?: StringFilter<"PointRedemption"> | string
+    points_used?: IntFilter<"PointRedemption"> | number
+    voucher_id?: StringFilter<"PointRedemption"> | string
+    created_at?: DateTimeFilter<"PointRedemption"> | Date | string
+  }
+
+  export type VoucherUpsertWithWhereUniqueWithoutOwnerInput = {
+    where: VoucherWhereUniqueInput
+    update: XOR<VoucherUpdateWithoutOwnerInput, VoucherUncheckedUpdateWithoutOwnerInput>
+    create: XOR<VoucherCreateWithoutOwnerInput, VoucherUncheckedCreateWithoutOwnerInput>
+  }
+
+  export type VoucherUpdateWithWhereUniqueWithoutOwnerInput = {
+    where: VoucherWhereUniqueInput
+    data: XOR<VoucherUpdateWithoutOwnerInput, VoucherUncheckedUpdateWithoutOwnerInput>
+  }
+
+  export type VoucherUpdateManyWithWhereWithoutOwnerInput = {
+    where: VoucherScalarWhereInput
+    data: XOR<VoucherUpdateManyMutationInput, VoucherUncheckedUpdateManyWithoutOwnerInput>
+  }
+
+  export type VoucherScalarWhereInput = {
+    AND?: VoucherScalarWhereInput | VoucherScalarWhereInput[]
+    OR?: VoucherScalarWhereInput[]
+    NOT?: VoucherScalarWhereInput | VoucherScalarWhereInput[]
+    id?: StringFilter<"Voucher"> | string
+    code?: StringFilter<"Voucher"> | string
+    discount_type?: EnumDiscountTypeFilter<"Voucher"> | $Enums.DiscountType
+    discount_value?: IntFilter<"Voucher"> | number
+    min_amount?: IntFilter<"Voucher"> | number
+    max_discount?: IntNullableFilter<"Voucher"> | number | null
+    usage_limit?: IntFilter<"Voucher"> | number
+    used_count?: IntFilter<"Voucher"> | number
+    expires_at?: DateTimeFilter<"Voucher"> | Date | string
+    created_at?: DateTimeFilter<"Voucher"> | Date | string
+    description?: StringNullableFilter<"Voucher"> | string | null
+    is_active?: BoolFilter<"Voucher"> | boolean
+    source?: StringFilter<"Voucher"> | string
+    owner_user_id?: StringNullableFilter<"Voucher"> | string | null
+  }
+
   export type UserCreateWithoutLoyalty_logsInput = {
     id?: string
     email: string
     phone?: string | null
-    password_hash: string
+    password_hash?: string | null
     name: string
     avatar_url?: string | null
     role?: $Enums.Role
     loyalty_points?: number
-    loyalty_tier?: string
-    refresh_token?: string | null
-    is_verified?: boolean
-    date_of_birth?: Date | string | null
     created_at?: Date | string
+    loyalty_tier?: string
     updated_at?: Date | string
+    date_of_birth?: Date | string | null
+    is_verified?: boolean
+    refresh_token?: string | null
+    ban_reason?: string | null
+    is_banned?: boolean
+    auth_provider?: string
+    google_email?: string | null
+    google_id?: string | null
     bookings?: BookingCreateNestedManyWithoutUserInput
+    support_tickets?: SupportTicketCreateNestedManyWithoutUserInput
+    point_redemptions?: PointRedemptionCreateNestedManyWithoutUserInput
+    owned_vouchers?: VoucherCreateNestedManyWithoutOwnerInput
   }
 
   export type UserUncheckedCreateWithoutLoyalty_logsInput = {
     id?: string
     email: string
     phone?: string | null
-    password_hash: string
+    password_hash?: string | null
     name: string
     avatar_url?: string | null
     role?: $Enums.Role
     loyalty_points?: number
-    loyalty_tier?: string
-    refresh_token?: string | null
-    is_verified?: boolean
-    date_of_birth?: Date | string | null
     created_at?: Date | string
+    loyalty_tier?: string
     updated_at?: Date | string
+    date_of_birth?: Date | string | null
+    is_verified?: boolean
+    refresh_token?: string | null
+    ban_reason?: string | null
+    is_banned?: boolean
+    auth_provider?: string
+    google_email?: string | null
+    google_id?: string | null
     bookings?: BookingUncheckedCreateNestedManyWithoutUserInput
+    support_tickets?: SupportTicketUncheckedCreateNestedManyWithoutUserInput
+    point_redemptions?: PointRedemptionUncheckedCreateNestedManyWithoutUserInput
+    owned_vouchers?: VoucherUncheckedCreateNestedManyWithoutOwnerInput
   }
 
   export type UserCreateOrConnectWithoutLoyalty_logsInput = {
@@ -20562,36 +24226,52 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     phone?: NullableStringFieldUpdateOperationsInput | string | null
-    password_hash?: StringFieldUpdateOperationsInput | string
+    password_hash?: NullableStringFieldUpdateOperationsInput | string | null
     name?: StringFieldUpdateOperationsInput | string
     avatar_url?: NullableStringFieldUpdateOperationsInput | string | null
     role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
     loyalty_points?: IntFieldUpdateOperationsInput | number
-    loyalty_tier?: StringFieldUpdateOperationsInput | string
-    refresh_token?: NullableStringFieldUpdateOperationsInput | string | null
-    is_verified?: BoolFieldUpdateOperationsInput | boolean
-    date_of_birth?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    loyalty_tier?: StringFieldUpdateOperationsInput | string
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    date_of_birth?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    is_verified?: BoolFieldUpdateOperationsInput | boolean
+    refresh_token?: NullableStringFieldUpdateOperationsInput | string | null
+    ban_reason?: NullableStringFieldUpdateOperationsInput | string | null
+    is_banned?: BoolFieldUpdateOperationsInput | boolean
+    auth_provider?: StringFieldUpdateOperationsInput | string
+    google_email?: NullableStringFieldUpdateOperationsInput | string | null
+    google_id?: NullableStringFieldUpdateOperationsInput | string | null
     bookings?: BookingUpdateManyWithoutUserNestedInput
+    support_tickets?: SupportTicketUpdateManyWithoutUserNestedInput
+    point_redemptions?: PointRedemptionUpdateManyWithoutUserNestedInput
+    owned_vouchers?: VoucherUpdateManyWithoutOwnerNestedInput
   }
 
   export type UserUncheckedUpdateWithoutLoyalty_logsInput = {
     id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     phone?: NullableStringFieldUpdateOperationsInput | string | null
-    password_hash?: StringFieldUpdateOperationsInput | string
+    password_hash?: NullableStringFieldUpdateOperationsInput | string | null
     name?: StringFieldUpdateOperationsInput | string
     avatar_url?: NullableStringFieldUpdateOperationsInput | string | null
     role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
     loyalty_points?: IntFieldUpdateOperationsInput | number
-    loyalty_tier?: StringFieldUpdateOperationsInput | string
-    refresh_token?: NullableStringFieldUpdateOperationsInput | string | null
-    is_verified?: BoolFieldUpdateOperationsInput | boolean
-    date_of_birth?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    loyalty_tier?: StringFieldUpdateOperationsInput | string
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    date_of_birth?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    is_verified?: BoolFieldUpdateOperationsInput | boolean
+    refresh_token?: NullableStringFieldUpdateOperationsInput | string | null
+    ban_reason?: NullableStringFieldUpdateOperationsInput | string | null
+    is_banned?: BoolFieldUpdateOperationsInput | boolean
+    auth_provider?: StringFieldUpdateOperationsInput | string
+    google_email?: NullableStringFieldUpdateOperationsInput | string | null
+    google_id?: NullableStringFieldUpdateOperationsInput | string | null
     bookings?: BookingUncheckedUpdateManyWithoutUserNestedInput
+    support_tickets?: SupportTicketUncheckedUpdateManyWithoutUserNestedInput
+    point_redemptions?: PointRedemptionUncheckedUpdateManyWithoutUserNestedInput
+    owned_vouchers?: VoucherUncheckedUpdateManyWithoutOwnerNestedInput
   }
 
   export type ShowtimeCreateWithoutMovieInput = {
@@ -20603,8 +24283,8 @@ export namespace Prisma {
     couple_price: number
     language: string
     format: string
-    room: RoomCreateNestedOneWithoutShowtimesInput
     bookings?: BookingCreateNestedManyWithoutShowtimeInput
+    room: RoomCreateNestedOneWithoutShowtimesInput
   }
 
   export type ShowtimeUncheckedCreateWithoutMovieInput = {
@@ -20780,8 +24460,8 @@ export namespace Prisma {
     couple_price: number
     language: string
     format: string
-    movie: MovieCreateNestedOneWithoutShowtimesInput
     bookings?: BookingCreateNestedManyWithoutShowtimeInput
+    movie: MovieCreateNestedOneWithoutShowtimesInput
   }
 
   export type ShowtimeUncheckedCreateWithoutRoomInput = {
@@ -20881,6 +24561,30 @@ export namespace Prisma {
     data: XOR<ShowtimeUpdateManyMutationInput, ShowtimeUncheckedUpdateManyWithoutRoomInput>
   }
 
+  export type BookingItemCreateWithoutSeatInput = {
+    id?: string
+    price: number
+    showtime_id: string
+    booking: BookingCreateNestedOneWithoutBooking_itemsInput
+  }
+
+  export type BookingItemUncheckedCreateWithoutSeatInput = {
+    id?: string
+    booking_id: string
+    price: number
+    showtime_id: string
+  }
+
+  export type BookingItemCreateOrConnectWithoutSeatInput = {
+    where: BookingItemWhereUniqueInput
+    create: XOR<BookingItemCreateWithoutSeatInput, BookingItemUncheckedCreateWithoutSeatInput>
+  }
+
+  export type BookingItemCreateManySeatInputEnvelope = {
+    data: BookingItemCreateManySeatInput | BookingItemCreateManySeatInput[]
+    skipDuplicates?: boolean
+  }
+
   export type RoomCreateWithoutSeatsInput = {
     id?: string
     name: string
@@ -20906,28 +24610,31 @@ export namespace Prisma {
     create: XOR<RoomCreateWithoutSeatsInput, RoomUncheckedCreateWithoutSeatsInput>
   }
 
-  export type BookingItemCreateWithoutSeatInput = {
-    id?: string
-    price: number
-    showtime_id: string
-    booking: BookingCreateNestedOneWithoutBooking_itemsInput
-  }
-
-  export type BookingItemUncheckedCreateWithoutSeatInput = {
-    id?: string
-    booking_id: string
-    price: number
-    showtime_id: string
-  }
-
-  export type BookingItemCreateOrConnectWithoutSeatInput = {
+  export type BookingItemUpsertWithWhereUniqueWithoutSeatInput = {
     where: BookingItemWhereUniqueInput
+    update: XOR<BookingItemUpdateWithoutSeatInput, BookingItemUncheckedUpdateWithoutSeatInput>
     create: XOR<BookingItemCreateWithoutSeatInput, BookingItemUncheckedCreateWithoutSeatInput>
   }
 
-  export type BookingItemCreateManySeatInputEnvelope = {
-    data: BookingItemCreateManySeatInput | BookingItemCreateManySeatInput[]
-    skipDuplicates?: boolean
+  export type BookingItemUpdateWithWhereUniqueWithoutSeatInput = {
+    where: BookingItemWhereUniqueInput
+    data: XOR<BookingItemUpdateWithoutSeatInput, BookingItemUncheckedUpdateWithoutSeatInput>
+  }
+
+  export type BookingItemUpdateManyWithWhereWithoutSeatInput = {
+    where: BookingItemScalarWhereInput
+    data: XOR<BookingItemUpdateManyMutationInput, BookingItemUncheckedUpdateManyWithoutSeatInput>
+  }
+
+  export type BookingItemScalarWhereInput = {
+    AND?: BookingItemScalarWhereInput | BookingItemScalarWhereInput[]
+    OR?: BookingItemScalarWhereInput[]
+    NOT?: BookingItemScalarWhereInput | BookingItemScalarWhereInput[]
+    id?: StringFilter<"BookingItem"> | string
+    booking_id?: StringFilter<"BookingItem"> | string
+    seat_id?: StringFilter<"BookingItem"> | string
+    price?: IntFilter<"BookingItem"> | number
+    showtime_id?: StringFilter<"BookingItem"> | string
   }
 
   export type RoomUpsertWithoutSeatsInput = {
@@ -20961,31 +24668,48 @@ export namespace Prisma {
     showtimes?: ShowtimeUncheckedUpdateManyWithoutRoomNestedInput
   }
 
-  export type BookingItemUpsertWithWhereUniqueWithoutSeatInput = {
-    where: BookingItemWhereUniqueInput
-    update: XOR<BookingItemUpdateWithoutSeatInput, BookingItemUncheckedUpdateWithoutSeatInput>
-    create: XOR<BookingItemCreateWithoutSeatInput, BookingItemUncheckedCreateWithoutSeatInput>
+  export type BookingCreateWithoutShowtimeInput = {
+    id?: string
+    status?: $Enums.BookingStatus
+    total_amount: number
+    qr_code: string
+    qr_image_url?: string | null
+    paid_at?: Date | string | null
+    created_at?: Date | string
+    expires_at: Date | string
+    discount_amount?: number
+    booking_items?: BookingItemCreateNestedManyWithoutBookingInput
+    user: UserCreateNestedOneWithoutBookingsInput
+    voucher?: VoucherCreateNestedOneWithoutBookingsInput
+    food_items?: FoodItemCreateNestedManyWithoutBookingInput
+    payment?: PaymentCreateNestedOneWithoutBookingInput
   }
 
-  export type BookingItemUpdateWithWhereUniqueWithoutSeatInput = {
-    where: BookingItemWhereUniqueInput
-    data: XOR<BookingItemUpdateWithoutSeatInput, BookingItemUncheckedUpdateWithoutSeatInput>
+  export type BookingUncheckedCreateWithoutShowtimeInput = {
+    id?: string
+    user_id: string
+    status?: $Enums.BookingStatus
+    total_amount: number
+    qr_code: string
+    qr_image_url?: string | null
+    paid_at?: Date | string | null
+    created_at?: Date | string
+    expires_at: Date | string
+    discount_amount?: number
+    voucher_code?: string | null
+    booking_items?: BookingItemUncheckedCreateNestedManyWithoutBookingInput
+    food_items?: FoodItemUncheckedCreateNestedManyWithoutBookingInput
+    payment?: PaymentUncheckedCreateNestedOneWithoutBookingInput
   }
 
-  export type BookingItemUpdateManyWithWhereWithoutSeatInput = {
-    where: BookingItemScalarWhereInput
-    data: XOR<BookingItemUpdateManyMutationInput, BookingItemUncheckedUpdateManyWithoutSeatInput>
+  export type BookingCreateOrConnectWithoutShowtimeInput = {
+    where: BookingWhereUniqueInput
+    create: XOR<BookingCreateWithoutShowtimeInput, BookingUncheckedCreateWithoutShowtimeInput>
   }
 
-  export type BookingItemScalarWhereInput = {
-    AND?: BookingItemScalarWhereInput | BookingItemScalarWhereInput[]
-    OR?: BookingItemScalarWhereInput[]
-    NOT?: BookingItemScalarWhereInput | BookingItemScalarWhereInput[]
-    id?: StringFilter<"BookingItem"> | string
-    booking_id?: StringFilter<"BookingItem"> | string
-    seat_id?: StringFilter<"BookingItem"> | string
-    price?: IntFilter<"BookingItem"> | number
-    showtime_id?: StringFilter<"BookingItem"> | string
+  export type BookingCreateManyShowtimeInputEnvelope = {
+    data: BookingCreateManyShowtimeInput | BookingCreateManyShowtimeInput[]
+    skipDuplicates?: boolean
   }
 
   export type MovieCreateWithoutShowtimesInput = {
@@ -20997,8 +24721,8 @@ export namespace Prisma {
     poster_url: string
     backdrop_url: string
     trailer_key?: string | null
-    genres: JsonNullValueInput | InputJsonValue
-    cast: JsonNullValueInput | InputJsonValue
+    genres: string
+    cast: string
     director: string
     duration: number
     rating: number
@@ -21016,8 +24740,8 @@ export namespace Prisma {
     poster_url: string
     backdrop_url: string
     trailer_key?: string | null
-    genres: JsonNullValueInput | InputJsonValue
-    cast: JsonNullValueInput | InputJsonValue
+    genres: string
+    cast: string
     director: string
     duration: number
     rating: number
@@ -21056,44 +24780,20 @@ export namespace Prisma {
     create: XOR<RoomCreateWithoutShowtimesInput, RoomUncheckedCreateWithoutShowtimesInput>
   }
 
-  export type BookingCreateWithoutShowtimeInput = {
-    id?: string
-    status?: $Enums.BookingStatus
-    total_amount: number
-    qr_code: string
-    qr_image_url?: string | null
-    paid_at?: Date | string | null
-    created_at?: Date | string
-    expires_at: Date | string
-    user: UserCreateNestedOneWithoutBookingsInput
-    booking_items?: BookingItemCreateNestedManyWithoutBookingInput
-    payment?: PaymentCreateNestedOneWithoutBookingInput
-    food_items?: FoodItemCreateNestedManyWithoutBookingInput
-  }
-
-  export type BookingUncheckedCreateWithoutShowtimeInput = {
-    id?: string
-    user_id: string
-    status?: $Enums.BookingStatus
-    total_amount: number
-    qr_code: string
-    qr_image_url?: string | null
-    paid_at?: Date | string | null
-    created_at?: Date | string
-    expires_at: Date | string
-    booking_items?: BookingItemUncheckedCreateNestedManyWithoutBookingInput
-    payment?: PaymentUncheckedCreateNestedOneWithoutBookingInput
-    food_items?: FoodItemUncheckedCreateNestedManyWithoutBookingInput
-  }
-
-  export type BookingCreateOrConnectWithoutShowtimeInput = {
+  export type BookingUpsertWithWhereUniqueWithoutShowtimeInput = {
     where: BookingWhereUniqueInput
+    update: XOR<BookingUpdateWithoutShowtimeInput, BookingUncheckedUpdateWithoutShowtimeInput>
     create: XOR<BookingCreateWithoutShowtimeInput, BookingUncheckedCreateWithoutShowtimeInput>
   }
 
-  export type BookingCreateManyShowtimeInputEnvelope = {
-    data: BookingCreateManyShowtimeInput | BookingCreateManyShowtimeInput[]
-    skipDuplicates?: boolean
+  export type BookingUpdateWithWhereUniqueWithoutShowtimeInput = {
+    where: BookingWhereUniqueInput
+    data: XOR<BookingUpdateWithoutShowtimeInput, BookingUncheckedUpdateWithoutShowtimeInput>
+  }
+
+  export type BookingUpdateManyWithWhereWithoutShowtimeInput = {
+    where: BookingScalarWhereInput
+    data: XOR<BookingUpdateManyMutationInput, BookingUncheckedUpdateManyWithoutShowtimeInput>
   }
 
   export type MovieUpsertWithoutShowtimesInput = {
@@ -21116,8 +24816,8 @@ export namespace Prisma {
     poster_url?: StringFieldUpdateOperationsInput | string
     backdrop_url?: StringFieldUpdateOperationsInput | string
     trailer_key?: NullableStringFieldUpdateOperationsInput | string | null
-    genres?: JsonNullValueInput | InputJsonValue
-    cast?: JsonNullValueInput | InputJsonValue
+    genres?: StringFieldUpdateOperationsInput | string
+    cast?: StringFieldUpdateOperationsInput | string
     director?: StringFieldUpdateOperationsInput | string
     duration?: IntFieldUpdateOperationsInput | number
     rating?: FloatFieldUpdateOperationsInput | number
@@ -21135,8 +24835,8 @@ export namespace Prisma {
     poster_url?: StringFieldUpdateOperationsInput | string
     backdrop_url?: StringFieldUpdateOperationsInput | string
     trailer_key?: NullableStringFieldUpdateOperationsInput | string | null
-    genres?: JsonNullValueInput | InputJsonValue
-    cast?: JsonNullValueInput | InputJsonValue
+    genres?: StringFieldUpdateOperationsInput | string
+    cast?: StringFieldUpdateOperationsInput | string
     director?: StringFieldUpdateOperationsInput | string
     duration?: IntFieldUpdateOperationsInput | number
     rating?: FloatFieldUpdateOperationsInput | number
@@ -21176,61 +24876,28 @@ export namespace Prisma {
     seats?: SeatUncheckedUpdateManyWithoutRoomNestedInput
   }
 
-  export type BookingUpsertWithWhereUniqueWithoutShowtimeInput = {
-    where: BookingWhereUniqueInput
-    update: XOR<BookingUpdateWithoutShowtimeInput, BookingUncheckedUpdateWithoutShowtimeInput>
-    create: XOR<BookingCreateWithoutShowtimeInput, BookingUncheckedCreateWithoutShowtimeInput>
-  }
-
-  export type BookingUpdateWithWhereUniqueWithoutShowtimeInput = {
-    where: BookingWhereUniqueInput
-    data: XOR<BookingUpdateWithoutShowtimeInput, BookingUncheckedUpdateWithoutShowtimeInput>
-  }
-
-  export type BookingUpdateManyWithWhereWithoutShowtimeInput = {
-    where: BookingScalarWhereInput
-    data: XOR<BookingUpdateManyMutationInput, BookingUncheckedUpdateManyWithoutShowtimeInput>
-  }
-
-  export type UserCreateWithoutBookingsInput = {
+  export type BookingItemCreateWithoutBookingInput = {
     id?: string
-    email: string
-    phone?: string | null
-    password_hash: string
-    name: string
-    avatar_url?: string | null
-    role?: $Enums.Role
-    loyalty_points?: number
-    loyalty_tier?: string
-    refresh_token?: string | null
-    is_verified?: boolean
-    date_of_birth?: Date | string | null
-    created_at?: Date | string
-    updated_at?: Date | string
-    loyalty_logs?: LoyaltyLogCreateNestedManyWithoutUserInput
+    price: number
+    showtime_id: string
+    seat: SeatCreateNestedOneWithoutBooking_itemsInput
   }
 
-  export type UserUncheckedCreateWithoutBookingsInput = {
+  export type BookingItemUncheckedCreateWithoutBookingInput = {
     id?: string
-    email: string
-    phone?: string | null
-    password_hash: string
-    name: string
-    avatar_url?: string | null
-    role?: $Enums.Role
-    loyalty_points?: number
-    loyalty_tier?: string
-    refresh_token?: string | null
-    is_verified?: boolean
-    date_of_birth?: Date | string | null
-    created_at?: Date | string
-    updated_at?: Date | string
-    loyalty_logs?: LoyaltyLogUncheckedCreateNestedManyWithoutUserInput
+    seat_id: string
+    price: number
+    showtime_id: string
   }
 
-  export type UserCreateOrConnectWithoutBookingsInput = {
-    where: UserWhereUniqueInput
-    create: XOR<UserCreateWithoutBookingsInput, UserUncheckedCreateWithoutBookingsInput>
+  export type BookingItemCreateOrConnectWithoutBookingInput = {
+    where: BookingItemWhereUniqueInput
+    create: XOR<BookingItemCreateWithoutBookingInput, BookingItemUncheckedCreateWithoutBookingInput>
+  }
+
+  export type BookingItemCreateManyBookingInputEnvelope = {
+    data: BookingItemCreateManyBookingInput | BookingItemCreateManyBookingInput[]
+    skipDuplicates?: boolean
   }
 
   export type ShowtimeCreateWithoutBookingsInput = {
@@ -21264,27 +24931,125 @@ export namespace Prisma {
     create: XOR<ShowtimeCreateWithoutBookingsInput, ShowtimeUncheckedCreateWithoutBookingsInput>
   }
 
-  export type BookingItemCreateWithoutBookingInput = {
+  export type UserCreateWithoutBookingsInput = {
     id?: string
-    price: number
-    showtime_id: string
-    seat: SeatCreateNestedOneWithoutBooking_itemsInput
+    email: string
+    phone?: string | null
+    password_hash?: string | null
+    name: string
+    avatar_url?: string | null
+    role?: $Enums.Role
+    loyalty_points?: number
+    created_at?: Date | string
+    loyalty_tier?: string
+    updated_at?: Date | string
+    date_of_birth?: Date | string | null
+    is_verified?: boolean
+    refresh_token?: string | null
+    ban_reason?: string | null
+    is_banned?: boolean
+    auth_provider?: string
+    google_email?: string | null
+    google_id?: string | null
+    loyalty_logs?: LoyaltyLogCreateNestedManyWithoutUserInput
+    support_tickets?: SupportTicketCreateNestedManyWithoutUserInput
+    point_redemptions?: PointRedemptionCreateNestedManyWithoutUserInput
+    owned_vouchers?: VoucherCreateNestedManyWithoutOwnerInput
   }
 
-  export type BookingItemUncheckedCreateWithoutBookingInput = {
+  export type UserUncheckedCreateWithoutBookingsInput = {
     id?: string
-    seat_id: string
+    email: string
+    phone?: string | null
+    password_hash?: string | null
+    name: string
+    avatar_url?: string | null
+    role?: $Enums.Role
+    loyalty_points?: number
+    created_at?: Date | string
+    loyalty_tier?: string
+    updated_at?: Date | string
+    date_of_birth?: Date | string | null
+    is_verified?: boolean
+    refresh_token?: string | null
+    ban_reason?: string | null
+    is_banned?: boolean
+    auth_provider?: string
+    google_email?: string | null
+    google_id?: string | null
+    loyalty_logs?: LoyaltyLogUncheckedCreateNestedManyWithoutUserInput
+    support_tickets?: SupportTicketUncheckedCreateNestedManyWithoutUserInput
+    point_redemptions?: PointRedemptionUncheckedCreateNestedManyWithoutUserInput
+    owned_vouchers?: VoucherUncheckedCreateNestedManyWithoutOwnerInput
+  }
+
+  export type UserCreateOrConnectWithoutBookingsInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutBookingsInput, UserUncheckedCreateWithoutBookingsInput>
+  }
+
+  export type VoucherCreateWithoutBookingsInput = {
+    id?: string
+    code: string
+    discount_type: $Enums.DiscountType
+    discount_value: number
+    min_amount?: number
+    max_discount?: number | null
+    usage_limit: number
+    used_count?: number
+    expires_at: Date | string
+    created_at?: Date | string
+    description?: string | null
+    is_active?: boolean
+    source?: string
+    point_redemptions?: PointRedemptionCreateNestedManyWithoutVoucherInput
+    owner?: UserCreateNestedOneWithoutOwned_vouchersInput
+  }
+
+  export type VoucherUncheckedCreateWithoutBookingsInput = {
+    id?: string
+    code: string
+    discount_type: $Enums.DiscountType
+    discount_value: number
+    min_amount?: number
+    max_discount?: number | null
+    usage_limit: number
+    used_count?: number
+    expires_at: Date | string
+    created_at?: Date | string
+    description?: string | null
+    is_active?: boolean
+    source?: string
+    owner_user_id?: string | null
+    point_redemptions?: PointRedemptionUncheckedCreateNestedManyWithoutVoucherInput
+  }
+
+  export type VoucherCreateOrConnectWithoutBookingsInput = {
+    where: VoucherWhereUniqueInput
+    create: XOR<VoucherCreateWithoutBookingsInput, VoucherUncheckedCreateWithoutBookingsInput>
+  }
+
+  export type FoodItemCreateWithoutBookingInput = {
+    id?: string
+    quantity: number
     price: number
-    showtime_id: string
+    combo: FoodComboCreateNestedOneWithoutFood_itemsInput
   }
 
-  export type BookingItemCreateOrConnectWithoutBookingInput = {
-    where: BookingItemWhereUniqueInput
-    create: XOR<BookingItemCreateWithoutBookingInput, BookingItemUncheckedCreateWithoutBookingInput>
+  export type FoodItemUncheckedCreateWithoutBookingInput = {
+    id?: string
+    combo_id: string
+    quantity: number
+    price: number
   }
 
-  export type BookingItemCreateManyBookingInputEnvelope = {
-    data: BookingItemCreateManyBookingInput | BookingItemCreateManyBookingInput[]
+  export type FoodItemCreateOrConnectWithoutBookingInput = {
+    where: FoodItemWhereUniqueInput
+    create: XOR<FoodItemCreateWithoutBookingInput, FoodItemUncheckedCreateWithoutBookingInput>
+  }
+
+  export type FoodItemCreateManyBookingInputEnvelope = {
+    data: FoodItemCreateManyBookingInput | FoodItemCreateManyBookingInput[]
     skipDuplicates?: boolean
   }
 
@@ -21313,75 +25078,20 @@ export namespace Prisma {
     create: XOR<PaymentCreateWithoutBookingInput, PaymentUncheckedCreateWithoutBookingInput>
   }
 
-  export type FoodItemCreateWithoutBookingInput = {
-    id?: string
-    quantity: number
-    price: number
-    combo: FoodComboCreateNestedOneWithoutFood_itemsInput
+  export type BookingItemUpsertWithWhereUniqueWithoutBookingInput = {
+    where: BookingItemWhereUniqueInput
+    update: XOR<BookingItemUpdateWithoutBookingInput, BookingItemUncheckedUpdateWithoutBookingInput>
+    create: XOR<BookingItemCreateWithoutBookingInput, BookingItemUncheckedCreateWithoutBookingInput>
   }
 
-  export type FoodItemUncheckedCreateWithoutBookingInput = {
-    id?: string
-    combo_id: string
-    quantity: number
-    price: number
+  export type BookingItemUpdateWithWhereUniqueWithoutBookingInput = {
+    where: BookingItemWhereUniqueInput
+    data: XOR<BookingItemUpdateWithoutBookingInput, BookingItemUncheckedUpdateWithoutBookingInput>
   }
 
-  export type FoodItemCreateOrConnectWithoutBookingInput = {
-    where: FoodItemWhereUniqueInput
-    create: XOR<FoodItemCreateWithoutBookingInput, FoodItemUncheckedCreateWithoutBookingInput>
-  }
-
-  export type FoodItemCreateManyBookingInputEnvelope = {
-    data: FoodItemCreateManyBookingInput | FoodItemCreateManyBookingInput[]
-    skipDuplicates?: boolean
-  }
-
-  export type UserUpsertWithoutBookingsInput = {
-    update: XOR<UserUpdateWithoutBookingsInput, UserUncheckedUpdateWithoutBookingsInput>
-    create: XOR<UserCreateWithoutBookingsInput, UserUncheckedCreateWithoutBookingsInput>
-    where?: UserWhereInput
-  }
-
-  export type UserUpdateToOneWithWhereWithoutBookingsInput = {
-    where?: UserWhereInput
-    data: XOR<UserUpdateWithoutBookingsInput, UserUncheckedUpdateWithoutBookingsInput>
-  }
-
-  export type UserUpdateWithoutBookingsInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    email?: StringFieldUpdateOperationsInput | string
-    phone?: NullableStringFieldUpdateOperationsInput | string | null
-    password_hash?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    avatar_url?: NullableStringFieldUpdateOperationsInput | string | null
-    role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
-    loyalty_points?: IntFieldUpdateOperationsInput | number
-    loyalty_tier?: StringFieldUpdateOperationsInput | string
-    refresh_token?: NullableStringFieldUpdateOperationsInput | string | null
-    is_verified?: BoolFieldUpdateOperationsInput | boolean
-    date_of_birth?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    loyalty_logs?: LoyaltyLogUpdateManyWithoutUserNestedInput
-  }
-
-  export type UserUncheckedUpdateWithoutBookingsInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    email?: StringFieldUpdateOperationsInput | string
-    phone?: NullableStringFieldUpdateOperationsInput | string | null
-    password_hash?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    avatar_url?: NullableStringFieldUpdateOperationsInput | string | null
-    role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
-    loyalty_points?: IntFieldUpdateOperationsInput | number
-    loyalty_tier?: StringFieldUpdateOperationsInput | string
-    refresh_token?: NullableStringFieldUpdateOperationsInput | string | null
-    is_verified?: BoolFieldUpdateOperationsInput | boolean
-    date_of_birth?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    loyalty_logs?: LoyaltyLogUncheckedUpdateManyWithoutUserNestedInput
+  export type BookingItemUpdateManyWithWhereWithoutBookingInput = {
+    where: BookingItemScalarWhereInput
+    data: XOR<BookingItemUpdateManyMutationInput, BookingItemUncheckedUpdateManyWithoutBookingInput>
   }
 
   export type ShowtimeUpsertWithoutBookingsInput = {
@@ -21421,20 +25131,141 @@ export namespace Prisma {
     format?: StringFieldUpdateOperationsInput | string
   }
 
-  export type BookingItemUpsertWithWhereUniqueWithoutBookingInput = {
-    where: BookingItemWhereUniqueInput
-    update: XOR<BookingItemUpdateWithoutBookingInput, BookingItemUncheckedUpdateWithoutBookingInput>
-    create: XOR<BookingItemCreateWithoutBookingInput, BookingItemUncheckedCreateWithoutBookingInput>
+  export type UserUpsertWithoutBookingsInput = {
+    update: XOR<UserUpdateWithoutBookingsInput, UserUncheckedUpdateWithoutBookingsInput>
+    create: XOR<UserCreateWithoutBookingsInput, UserUncheckedCreateWithoutBookingsInput>
+    where?: UserWhereInput
   }
 
-  export type BookingItemUpdateWithWhereUniqueWithoutBookingInput = {
-    where: BookingItemWhereUniqueInput
-    data: XOR<BookingItemUpdateWithoutBookingInput, BookingItemUncheckedUpdateWithoutBookingInput>
+  export type UserUpdateToOneWithWhereWithoutBookingsInput = {
+    where?: UserWhereInput
+    data: XOR<UserUpdateWithoutBookingsInput, UserUncheckedUpdateWithoutBookingsInput>
   }
 
-  export type BookingItemUpdateManyWithWhereWithoutBookingInput = {
-    where: BookingItemScalarWhereInput
-    data: XOR<BookingItemUpdateManyMutationInput, BookingItemUncheckedUpdateManyWithoutBookingInput>
+  export type UserUpdateWithoutBookingsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    password_hash?: NullableStringFieldUpdateOperationsInput | string | null
+    name?: StringFieldUpdateOperationsInput | string
+    avatar_url?: NullableStringFieldUpdateOperationsInput | string | null
+    role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
+    loyalty_points?: IntFieldUpdateOperationsInput | number
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    loyalty_tier?: StringFieldUpdateOperationsInput | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    date_of_birth?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    is_verified?: BoolFieldUpdateOperationsInput | boolean
+    refresh_token?: NullableStringFieldUpdateOperationsInput | string | null
+    ban_reason?: NullableStringFieldUpdateOperationsInput | string | null
+    is_banned?: BoolFieldUpdateOperationsInput | boolean
+    auth_provider?: StringFieldUpdateOperationsInput | string
+    google_email?: NullableStringFieldUpdateOperationsInput | string | null
+    google_id?: NullableStringFieldUpdateOperationsInput | string | null
+    loyalty_logs?: LoyaltyLogUpdateManyWithoutUserNestedInput
+    support_tickets?: SupportTicketUpdateManyWithoutUserNestedInput
+    point_redemptions?: PointRedemptionUpdateManyWithoutUserNestedInput
+    owned_vouchers?: VoucherUpdateManyWithoutOwnerNestedInput
+  }
+
+  export type UserUncheckedUpdateWithoutBookingsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    password_hash?: NullableStringFieldUpdateOperationsInput | string | null
+    name?: StringFieldUpdateOperationsInput | string
+    avatar_url?: NullableStringFieldUpdateOperationsInput | string | null
+    role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
+    loyalty_points?: IntFieldUpdateOperationsInput | number
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    loyalty_tier?: StringFieldUpdateOperationsInput | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    date_of_birth?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    is_verified?: BoolFieldUpdateOperationsInput | boolean
+    refresh_token?: NullableStringFieldUpdateOperationsInput | string | null
+    ban_reason?: NullableStringFieldUpdateOperationsInput | string | null
+    is_banned?: BoolFieldUpdateOperationsInput | boolean
+    auth_provider?: StringFieldUpdateOperationsInput | string
+    google_email?: NullableStringFieldUpdateOperationsInput | string | null
+    google_id?: NullableStringFieldUpdateOperationsInput | string | null
+    loyalty_logs?: LoyaltyLogUncheckedUpdateManyWithoutUserNestedInput
+    support_tickets?: SupportTicketUncheckedUpdateManyWithoutUserNestedInput
+    point_redemptions?: PointRedemptionUncheckedUpdateManyWithoutUserNestedInput
+    owned_vouchers?: VoucherUncheckedUpdateManyWithoutOwnerNestedInput
+  }
+
+  export type VoucherUpsertWithoutBookingsInput = {
+    update: XOR<VoucherUpdateWithoutBookingsInput, VoucherUncheckedUpdateWithoutBookingsInput>
+    create: XOR<VoucherCreateWithoutBookingsInput, VoucherUncheckedCreateWithoutBookingsInput>
+    where?: VoucherWhereInput
+  }
+
+  export type VoucherUpdateToOneWithWhereWithoutBookingsInput = {
+    where?: VoucherWhereInput
+    data: XOR<VoucherUpdateWithoutBookingsInput, VoucherUncheckedUpdateWithoutBookingsInput>
+  }
+
+  export type VoucherUpdateWithoutBookingsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    code?: StringFieldUpdateOperationsInput | string
+    discount_type?: EnumDiscountTypeFieldUpdateOperationsInput | $Enums.DiscountType
+    discount_value?: IntFieldUpdateOperationsInput | number
+    min_amount?: IntFieldUpdateOperationsInput | number
+    max_discount?: NullableIntFieldUpdateOperationsInput | number | null
+    usage_limit?: IntFieldUpdateOperationsInput | number
+    used_count?: IntFieldUpdateOperationsInput | number
+    expires_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    is_active?: BoolFieldUpdateOperationsInput | boolean
+    source?: StringFieldUpdateOperationsInput | string
+    point_redemptions?: PointRedemptionUpdateManyWithoutVoucherNestedInput
+    owner?: UserUpdateOneWithoutOwned_vouchersNestedInput
+  }
+
+  export type VoucherUncheckedUpdateWithoutBookingsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    code?: StringFieldUpdateOperationsInput | string
+    discount_type?: EnumDiscountTypeFieldUpdateOperationsInput | $Enums.DiscountType
+    discount_value?: IntFieldUpdateOperationsInput | number
+    min_amount?: IntFieldUpdateOperationsInput | number
+    max_discount?: NullableIntFieldUpdateOperationsInput | number | null
+    usage_limit?: IntFieldUpdateOperationsInput | number
+    used_count?: IntFieldUpdateOperationsInput | number
+    expires_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    is_active?: BoolFieldUpdateOperationsInput | boolean
+    source?: StringFieldUpdateOperationsInput | string
+    owner_user_id?: NullableStringFieldUpdateOperationsInput | string | null
+    point_redemptions?: PointRedemptionUncheckedUpdateManyWithoutVoucherNestedInput
+  }
+
+  export type FoodItemUpsertWithWhereUniqueWithoutBookingInput = {
+    where: FoodItemWhereUniqueInput
+    update: XOR<FoodItemUpdateWithoutBookingInput, FoodItemUncheckedUpdateWithoutBookingInput>
+    create: XOR<FoodItemCreateWithoutBookingInput, FoodItemUncheckedCreateWithoutBookingInput>
+  }
+
+  export type FoodItemUpdateWithWhereUniqueWithoutBookingInput = {
+    where: FoodItemWhereUniqueInput
+    data: XOR<FoodItemUpdateWithoutBookingInput, FoodItemUncheckedUpdateWithoutBookingInput>
+  }
+
+  export type FoodItemUpdateManyWithWhereWithoutBookingInput = {
+    where: FoodItemScalarWhereInput
+    data: XOR<FoodItemUpdateManyMutationInput, FoodItemUncheckedUpdateManyWithoutBookingInput>
+  }
+
+  export type FoodItemScalarWhereInput = {
+    AND?: FoodItemScalarWhereInput | FoodItemScalarWhereInput[]
+    OR?: FoodItemScalarWhereInput[]
+    NOT?: FoodItemScalarWhereInput | FoodItemScalarWhereInput[]
+    id?: StringFilter<"FoodItem"> | string
+    booking_id?: StringFilter<"FoodItem"> | string
+    combo_id?: StringFilter<"FoodItem"> | string
+    quantity?: IntFilter<"FoodItem"> | number
+    price?: IntFilter<"FoodItem"> | number
   }
 
   export type PaymentUpsertWithoutBookingInput = {
@@ -21468,33 +25299,6 @@ export namespace Prisma {
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type FoodItemUpsertWithWhereUniqueWithoutBookingInput = {
-    where: FoodItemWhereUniqueInput
-    update: XOR<FoodItemUpdateWithoutBookingInput, FoodItemUncheckedUpdateWithoutBookingInput>
-    create: XOR<FoodItemCreateWithoutBookingInput, FoodItemUncheckedCreateWithoutBookingInput>
-  }
-
-  export type FoodItemUpdateWithWhereUniqueWithoutBookingInput = {
-    where: FoodItemWhereUniqueInput
-    data: XOR<FoodItemUpdateWithoutBookingInput, FoodItemUncheckedUpdateWithoutBookingInput>
-  }
-
-  export type FoodItemUpdateManyWithWhereWithoutBookingInput = {
-    where: FoodItemScalarWhereInput
-    data: XOR<FoodItemUpdateManyMutationInput, FoodItemUncheckedUpdateManyWithoutBookingInput>
-  }
-
-  export type FoodItemScalarWhereInput = {
-    AND?: FoodItemScalarWhereInput | FoodItemScalarWhereInput[]
-    OR?: FoodItemScalarWhereInput[]
-    NOT?: FoodItemScalarWhereInput | FoodItemScalarWhereInput[]
-    id?: StringFilter<"FoodItem"> | string
-    booking_id?: StringFilter<"FoodItem"> | string
-    combo_id?: StringFilter<"FoodItem"> | string
-    quantity?: IntFilter<"FoodItem"> | number
-    price?: IntFilter<"FoodItem"> | number
-  }
-
   export type BookingCreateWithoutBooking_itemsInput = {
     id?: string
     status?: $Enums.BookingStatus
@@ -21504,10 +25308,12 @@ export namespace Prisma {
     paid_at?: Date | string | null
     created_at?: Date | string
     expires_at: Date | string
-    user: UserCreateNestedOneWithoutBookingsInput
+    discount_amount?: number
     showtime: ShowtimeCreateNestedOneWithoutBookingsInput
-    payment?: PaymentCreateNestedOneWithoutBookingInput
+    user: UserCreateNestedOneWithoutBookingsInput
+    voucher?: VoucherCreateNestedOneWithoutBookingsInput
     food_items?: FoodItemCreateNestedManyWithoutBookingInput
+    payment?: PaymentCreateNestedOneWithoutBookingInput
   }
 
   export type BookingUncheckedCreateWithoutBooking_itemsInput = {
@@ -21521,8 +25327,10 @@ export namespace Prisma {
     paid_at?: Date | string | null
     created_at?: Date | string
     expires_at: Date | string
-    payment?: PaymentUncheckedCreateNestedOneWithoutBookingInput
+    discount_amount?: number
+    voucher_code?: string | null
     food_items?: FoodItemUncheckedCreateNestedManyWithoutBookingInput
+    payment?: PaymentUncheckedCreateNestedOneWithoutBookingInput
   }
 
   export type BookingCreateOrConnectWithoutBooking_itemsInput = {
@@ -21571,10 +25379,12 @@ export namespace Prisma {
     paid_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     expires_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    user?: UserUpdateOneRequiredWithoutBookingsNestedInput
+    discount_amount?: IntFieldUpdateOperationsInput | number
     showtime?: ShowtimeUpdateOneRequiredWithoutBookingsNestedInput
-    payment?: PaymentUpdateOneWithoutBookingNestedInput
+    user?: UserUpdateOneRequiredWithoutBookingsNestedInput
+    voucher?: VoucherUpdateOneWithoutBookingsNestedInput
     food_items?: FoodItemUpdateManyWithoutBookingNestedInput
+    payment?: PaymentUpdateOneWithoutBookingNestedInput
   }
 
   export type BookingUncheckedUpdateWithoutBooking_itemsInput = {
@@ -21588,8 +25398,10 @@ export namespace Prisma {
     paid_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     expires_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    payment?: PaymentUncheckedUpdateOneWithoutBookingNestedInput
+    discount_amount?: IntFieldUpdateOperationsInput | number
+    voucher_code?: NullableStringFieldUpdateOperationsInput | string | null
     food_items?: FoodItemUncheckedUpdateManyWithoutBookingNestedInput
+    payment?: PaymentUncheckedUpdateOneWithoutBookingNestedInput
   }
 
   export type SeatUpsertWithoutBooking_itemsInput = {
@@ -21628,9 +25440,11 @@ export namespace Prisma {
     paid_at?: Date | string | null
     created_at?: Date | string
     expires_at: Date | string
-    user: UserCreateNestedOneWithoutBookingsInput
-    showtime: ShowtimeCreateNestedOneWithoutBookingsInput
+    discount_amount?: number
     booking_items?: BookingItemCreateNestedManyWithoutBookingInput
+    showtime: ShowtimeCreateNestedOneWithoutBookingsInput
+    user: UserCreateNestedOneWithoutBookingsInput
+    voucher?: VoucherCreateNestedOneWithoutBookingsInput
     food_items?: FoodItemCreateNestedManyWithoutBookingInput
   }
 
@@ -21645,6 +25459,8 @@ export namespace Prisma {
     paid_at?: Date | string | null
     created_at?: Date | string
     expires_at: Date | string
+    discount_amount?: number
+    voucher_code?: string | null
     booking_items?: BookingItemUncheckedCreateNestedManyWithoutBookingInput
     food_items?: FoodItemUncheckedCreateNestedManyWithoutBookingInput
   }
@@ -21674,9 +25490,11 @@ export namespace Prisma {
     paid_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     expires_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    user?: UserUpdateOneRequiredWithoutBookingsNestedInput
-    showtime?: ShowtimeUpdateOneRequiredWithoutBookingsNestedInput
+    discount_amount?: IntFieldUpdateOperationsInput | number
     booking_items?: BookingItemUpdateManyWithoutBookingNestedInput
+    showtime?: ShowtimeUpdateOneRequiredWithoutBookingsNestedInput
+    user?: UserUpdateOneRequiredWithoutBookingsNestedInput
+    voucher?: VoucherUpdateOneWithoutBookingsNestedInput
     food_items?: FoodItemUpdateManyWithoutBookingNestedInput
   }
 
@@ -21691,6 +25509,8 @@ export namespace Prisma {
     paid_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     expires_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    discount_amount?: IntFieldUpdateOperationsInput | number
+    voucher_code?: NullableStringFieldUpdateOperationsInput | string | null
     booking_items?: BookingItemUncheckedUpdateManyWithoutBookingNestedInput
     food_items?: FoodItemUncheckedUpdateManyWithoutBookingNestedInput
   }
@@ -21744,9 +25564,11 @@ export namespace Prisma {
     paid_at?: Date | string | null
     created_at?: Date | string
     expires_at: Date | string
-    user: UserCreateNestedOneWithoutBookingsInput
-    showtime: ShowtimeCreateNestedOneWithoutBookingsInput
+    discount_amount?: number
     booking_items?: BookingItemCreateNestedManyWithoutBookingInput
+    showtime: ShowtimeCreateNestedOneWithoutBookingsInput
+    user: UserCreateNestedOneWithoutBookingsInput
+    voucher?: VoucherCreateNestedOneWithoutBookingsInput
     payment?: PaymentCreateNestedOneWithoutBookingInput
   }
 
@@ -21761,6 +25583,8 @@ export namespace Prisma {
     paid_at?: Date | string | null
     created_at?: Date | string
     expires_at: Date | string
+    discount_amount?: number
+    voucher_code?: string | null
     booking_items?: BookingItemUncheckedCreateNestedManyWithoutBookingInput
     payment?: PaymentUncheckedCreateNestedOneWithoutBookingInput
   }
@@ -21811,9 +25635,11 @@ export namespace Prisma {
     paid_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     expires_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    user?: UserUpdateOneRequiredWithoutBookingsNestedInput
-    showtime?: ShowtimeUpdateOneRequiredWithoutBookingsNestedInput
+    discount_amount?: IntFieldUpdateOperationsInput | number
     booking_items?: BookingItemUpdateManyWithoutBookingNestedInput
+    showtime?: ShowtimeUpdateOneRequiredWithoutBookingsNestedInput
+    user?: UserUpdateOneRequiredWithoutBookingsNestedInput
+    voucher?: VoucherUpdateOneWithoutBookingsNestedInput
     payment?: PaymentUpdateOneWithoutBookingNestedInput
   }
 
@@ -21828,6 +25654,8 @@ export namespace Prisma {
     paid_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     expires_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    discount_amount?: IntFieldUpdateOperationsInput | number
+    voucher_code?: NullableStringFieldUpdateOperationsInput | string | null
     booking_items?: BookingItemUncheckedUpdateManyWithoutBookingNestedInput
     payment?: PaymentUncheckedUpdateOneWithoutBookingNestedInput
   }
@@ -21859,6 +25687,554 @@ export namespace Prisma {
     image_url?: StringFieldUpdateOperationsInput | string
   }
 
+  export type BookingCreateWithoutVoucherInput = {
+    id?: string
+    status?: $Enums.BookingStatus
+    total_amount: number
+    qr_code: string
+    qr_image_url?: string | null
+    paid_at?: Date | string | null
+    created_at?: Date | string
+    expires_at: Date | string
+    discount_amount?: number
+    booking_items?: BookingItemCreateNestedManyWithoutBookingInput
+    showtime: ShowtimeCreateNestedOneWithoutBookingsInput
+    user: UserCreateNestedOneWithoutBookingsInput
+    food_items?: FoodItemCreateNestedManyWithoutBookingInput
+    payment?: PaymentCreateNestedOneWithoutBookingInput
+  }
+
+  export type BookingUncheckedCreateWithoutVoucherInput = {
+    id?: string
+    user_id: string
+    showtime_id: string
+    status?: $Enums.BookingStatus
+    total_amount: number
+    qr_code: string
+    qr_image_url?: string | null
+    paid_at?: Date | string | null
+    created_at?: Date | string
+    expires_at: Date | string
+    discount_amount?: number
+    booking_items?: BookingItemUncheckedCreateNestedManyWithoutBookingInput
+    food_items?: FoodItemUncheckedCreateNestedManyWithoutBookingInput
+    payment?: PaymentUncheckedCreateNestedOneWithoutBookingInput
+  }
+
+  export type BookingCreateOrConnectWithoutVoucherInput = {
+    where: BookingWhereUniqueInput
+    create: XOR<BookingCreateWithoutVoucherInput, BookingUncheckedCreateWithoutVoucherInput>
+  }
+
+  export type BookingCreateManyVoucherInputEnvelope = {
+    data: BookingCreateManyVoucherInput | BookingCreateManyVoucherInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type PointRedemptionCreateWithoutVoucherInput = {
+    id?: string
+    points_used: number
+    created_at?: Date | string
+    user: UserCreateNestedOneWithoutPoint_redemptionsInput
+  }
+
+  export type PointRedemptionUncheckedCreateWithoutVoucherInput = {
+    id?: string
+    user_id: string
+    points_used: number
+    created_at?: Date | string
+  }
+
+  export type PointRedemptionCreateOrConnectWithoutVoucherInput = {
+    where: PointRedemptionWhereUniqueInput
+    create: XOR<PointRedemptionCreateWithoutVoucherInput, PointRedemptionUncheckedCreateWithoutVoucherInput>
+  }
+
+  export type PointRedemptionCreateManyVoucherInputEnvelope = {
+    data: PointRedemptionCreateManyVoucherInput | PointRedemptionCreateManyVoucherInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type UserCreateWithoutOwned_vouchersInput = {
+    id?: string
+    email: string
+    phone?: string | null
+    password_hash?: string | null
+    name: string
+    avatar_url?: string | null
+    role?: $Enums.Role
+    loyalty_points?: number
+    created_at?: Date | string
+    loyalty_tier?: string
+    updated_at?: Date | string
+    date_of_birth?: Date | string | null
+    is_verified?: boolean
+    refresh_token?: string | null
+    ban_reason?: string | null
+    is_banned?: boolean
+    auth_provider?: string
+    google_email?: string | null
+    google_id?: string | null
+    bookings?: BookingCreateNestedManyWithoutUserInput
+    loyalty_logs?: LoyaltyLogCreateNestedManyWithoutUserInput
+    support_tickets?: SupportTicketCreateNestedManyWithoutUserInput
+    point_redemptions?: PointRedemptionCreateNestedManyWithoutUserInput
+  }
+
+  export type UserUncheckedCreateWithoutOwned_vouchersInput = {
+    id?: string
+    email: string
+    phone?: string | null
+    password_hash?: string | null
+    name: string
+    avatar_url?: string | null
+    role?: $Enums.Role
+    loyalty_points?: number
+    created_at?: Date | string
+    loyalty_tier?: string
+    updated_at?: Date | string
+    date_of_birth?: Date | string | null
+    is_verified?: boolean
+    refresh_token?: string | null
+    ban_reason?: string | null
+    is_banned?: boolean
+    auth_provider?: string
+    google_email?: string | null
+    google_id?: string | null
+    bookings?: BookingUncheckedCreateNestedManyWithoutUserInput
+    loyalty_logs?: LoyaltyLogUncheckedCreateNestedManyWithoutUserInput
+    support_tickets?: SupportTicketUncheckedCreateNestedManyWithoutUserInput
+    point_redemptions?: PointRedemptionUncheckedCreateNestedManyWithoutUserInput
+  }
+
+  export type UserCreateOrConnectWithoutOwned_vouchersInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutOwned_vouchersInput, UserUncheckedCreateWithoutOwned_vouchersInput>
+  }
+
+  export type BookingUpsertWithWhereUniqueWithoutVoucherInput = {
+    where: BookingWhereUniqueInput
+    update: XOR<BookingUpdateWithoutVoucherInput, BookingUncheckedUpdateWithoutVoucherInput>
+    create: XOR<BookingCreateWithoutVoucherInput, BookingUncheckedCreateWithoutVoucherInput>
+  }
+
+  export type BookingUpdateWithWhereUniqueWithoutVoucherInput = {
+    where: BookingWhereUniqueInput
+    data: XOR<BookingUpdateWithoutVoucherInput, BookingUncheckedUpdateWithoutVoucherInput>
+  }
+
+  export type BookingUpdateManyWithWhereWithoutVoucherInput = {
+    where: BookingScalarWhereInput
+    data: XOR<BookingUpdateManyMutationInput, BookingUncheckedUpdateManyWithoutVoucherInput>
+  }
+
+  export type PointRedemptionUpsertWithWhereUniqueWithoutVoucherInput = {
+    where: PointRedemptionWhereUniqueInput
+    update: XOR<PointRedemptionUpdateWithoutVoucherInput, PointRedemptionUncheckedUpdateWithoutVoucherInput>
+    create: XOR<PointRedemptionCreateWithoutVoucherInput, PointRedemptionUncheckedCreateWithoutVoucherInput>
+  }
+
+  export type PointRedemptionUpdateWithWhereUniqueWithoutVoucherInput = {
+    where: PointRedemptionWhereUniqueInput
+    data: XOR<PointRedemptionUpdateWithoutVoucherInput, PointRedemptionUncheckedUpdateWithoutVoucherInput>
+  }
+
+  export type PointRedemptionUpdateManyWithWhereWithoutVoucherInput = {
+    where: PointRedemptionScalarWhereInput
+    data: XOR<PointRedemptionUpdateManyMutationInput, PointRedemptionUncheckedUpdateManyWithoutVoucherInput>
+  }
+
+  export type UserUpsertWithoutOwned_vouchersInput = {
+    update: XOR<UserUpdateWithoutOwned_vouchersInput, UserUncheckedUpdateWithoutOwned_vouchersInput>
+    create: XOR<UserCreateWithoutOwned_vouchersInput, UserUncheckedCreateWithoutOwned_vouchersInput>
+    where?: UserWhereInput
+  }
+
+  export type UserUpdateToOneWithWhereWithoutOwned_vouchersInput = {
+    where?: UserWhereInput
+    data: XOR<UserUpdateWithoutOwned_vouchersInput, UserUncheckedUpdateWithoutOwned_vouchersInput>
+  }
+
+  export type UserUpdateWithoutOwned_vouchersInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    password_hash?: NullableStringFieldUpdateOperationsInput | string | null
+    name?: StringFieldUpdateOperationsInput | string
+    avatar_url?: NullableStringFieldUpdateOperationsInput | string | null
+    role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
+    loyalty_points?: IntFieldUpdateOperationsInput | number
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    loyalty_tier?: StringFieldUpdateOperationsInput | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    date_of_birth?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    is_verified?: BoolFieldUpdateOperationsInput | boolean
+    refresh_token?: NullableStringFieldUpdateOperationsInput | string | null
+    ban_reason?: NullableStringFieldUpdateOperationsInput | string | null
+    is_banned?: BoolFieldUpdateOperationsInput | boolean
+    auth_provider?: StringFieldUpdateOperationsInput | string
+    google_email?: NullableStringFieldUpdateOperationsInput | string | null
+    google_id?: NullableStringFieldUpdateOperationsInput | string | null
+    bookings?: BookingUpdateManyWithoutUserNestedInput
+    loyalty_logs?: LoyaltyLogUpdateManyWithoutUserNestedInput
+    support_tickets?: SupportTicketUpdateManyWithoutUserNestedInput
+    point_redemptions?: PointRedemptionUpdateManyWithoutUserNestedInput
+  }
+
+  export type UserUncheckedUpdateWithoutOwned_vouchersInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    password_hash?: NullableStringFieldUpdateOperationsInput | string | null
+    name?: StringFieldUpdateOperationsInput | string
+    avatar_url?: NullableStringFieldUpdateOperationsInput | string | null
+    role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
+    loyalty_points?: IntFieldUpdateOperationsInput | number
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    loyalty_tier?: StringFieldUpdateOperationsInput | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    date_of_birth?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    is_verified?: BoolFieldUpdateOperationsInput | boolean
+    refresh_token?: NullableStringFieldUpdateOperationsInput | string | null
+    ban_reason?: NullableStringFieldUpdateOperationsInput | string | null
+    is_banned?: BoolFieldUpdateOperationsInput | boolean
+    auth_provider?: StringFieldUpdateOperationsInput | string
+    google_email?: NullableStringFieldUpdateOperationsInput | string | null
+    google_id?: NullableStringFieldUpdateOperationsInput | string | null
+    bookings?: BookingUncheckedUpdateManyWithoutUserNestedInput
+    loyalty_logs?: LoyaltyLogUncheckedUpdateManyWithoutUserNestedInput
+    support_tickets?: SupportTicketUncheckedUpdateManyWithoutUserNestedInput
+    point_redemptions?: PointRedemptionUncheckedUpdateManyWithoutUserNestedInput
+  }
+
+  export type UserCreateWithoutPoint_redemptionsInput = {
+    id?: string
+    email: string
+    phone?: string | null
+    password_hash?: string | null
+    name: string
+    avatar_url?: string | null
+    role?: $Enums.Role
+    loyalty_points?: number
+    created_at?: Date | string
+    loyalty_tier?: string
+    updated_at?: Date | string
+    date_of_birth?: Date | string | null
+    is_verified?: boolean
+    refresh_token?: string | null
+    ban_reason?: string | null
+    is_banned?: boolean
+    auth_provider?: string
+    google_email?: string | null
+    google_id?: string | null
+    bookings?: BookingCreateNestedManyWithoutUserInput
+    loyalty_logs?: LoyaltyLogCreateNestedManyWithoutUserInput
+    support_tickets?: SupportTicketCreateNestedManyWithoutUserInput
+    owned_vouchers?: VoucherCreateNestedManyWithoutOwnerInput
+  }
+
+  export type UserUncheckedCreateWithoutPoint_redemptionsInput = {
+    id?: string
+    email: string
+    phone?: string | null
+    password_hash?: string | null
+    name: string
+    avatar_url?: string | null
+    role?: $Enums.Role
+    loyalty_points?: number
+    created_at?: Date | string
+    loyalty_tier?: string
+    updated_at?: Date | string
+    date_of_birth?: Date | string | null
+    is_verified?: boolean
+    refresh_token?: string | null
+    ban_reason?: string | null
+    is_banned?: boolean
+    auth_provider?: string
+    google_email?: string | null
+    google_id?: string | null
+    bookings?: BookingUncheckedCreateNestedManyWithoutUserInput
+    loyalty_logs?: LoyaltyLogUncheckedCreateNestedManyWithoutUserInput
+    support_tickets?: SupportTicketUncheckedCreateNestedManyWithoutUserInput
+    owned_vouchers?: VoucherUncheckedCreateNestedManyWithoutOwnerInput
+  }
+
+  export type UserCreateOrConnectWithoutPoint_redemptionsInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutPoint_redemptionsInput, UserUncheckedCreateWithoutPoint_redemptionsInput>
+  }
+
+  export type VoucherCreateWithoutPoint_redemptionsInput = {
+    id?: string
+    code: string
+    discount_type: $Enums.DiscountType
+    discount_value: number
+    min_amount?: number
+    max_discount?: number | null
+    usage_limit: number
+    used_count?: number
+    expires_at: Date | string
+    created_at?: Date | string
+    description?: string | null
+    is_active?: boolean
+    source?: string
+    bookings?: BookingCreateNestedManyWithoutVoucherInput
+    owner?: UserCreateNestedOneWithoutOwned_vouchersInput
+  }
+
+  export type VoucherUncheckedCreateWithoutPoint_redemptionsInput = {
+    id?: string
+    code: string
+    discount_type: $Enums.DiscountType
+    discount_value: number
+    min_amount?: number
+    max_discount?: number | null
+    usage_limit: number
+    used_count?: number
+    expires_at: Date | string
+    created_at?: Date | string
+    description?: string | null
+    is_active?: boolean
+    source?: string
+    owner_user_id?: string | null
+    bookings?: BookingUncheckedCreateNestedManyWithoutVoucherInput
+  }
+
+  export type VoucherCreateOrConnectWithoutPoint_redemptionsInput = {
+    where: VoucherWhereUniqueInput
+    create: XOR<VoucherCreateWithoutPoint_redemptionsInput, VoucherUncheckedCreateWithoutPoint_redemptionsInput>
+  }
+
+  export type UserUpsertWithoutPoint_redemptionsInput = {
+    update: XOR<UserUpdateWithoutPoint_redemptionsInput, UserUncheckedUpdateWithoutPoint_redemptionsInput>
+    create: XOR<UserCreateWithoutPoint_redemptionsInput, UserUncheckedCreateWithoutPoint_redemptionsInput>
+    where?: UserWhereInput
+  }
+
+  export type UserUpdateToOneWithWhereWithoutPoint_redemptionsInput = {
+    where?: UserWhereInput
+    data: XOR<UserUpdateWithoutPoint_redemptionsInput, UserUncheckedUpdateWithoutPoint_redemptionsInput>
+  }
+
+  export type UserUpdateWithoutPoint_redemptionsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    password_hash?: NullableStringFieldUpdateOperationsInput | string | null
+    name?: StringFieldUpdateOperationsInput | string
+    avatar_url?: NullableStringFieldUpdateOperationsInput | string | null
+    role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
+    loyalty_points?: IntFieldUpdateOperationsInput | number
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    loyalty_tier?: StringFieldUpdateOperationsInput | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    date_of_birth?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    is_verified?: BoolFieldUpdateOperationsInput | boolean
+    refresh_token?: NullableStringFieldUpdateOperationsInput | string | null
+    ban_reason?: NullableStringFieldUpdateOperationsInput | string | null
+    is_banned?: BoolFieldUpdateOperationsInput | boolean
+    auth_provider?: StringFieldUpdateOperationsInput | string
+    google_email?: NullableStringFieldUpdateOperationsInput | string | null
+    google_id?: NullableStringFieldUpdateOperationsInput | string | null
+    bookings?: BookingUpdateManyWithoutUserNestedInput
+    loyalty_logs?: LoyaltyLogUpdateManyWithoutUserNestedInput
+    support_tickets?: SupportTicketUpdateManyWithoutUserNestedInput
+    owned_vouchers?: VoucherUpdateManyWithoutOwnerNestedInput
+  }
+
+  export type UserUncheckedUpdateWithoutPoint_redemptionsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    password_hash?: NullableStringFieldUpdateOperationsInput | string | null
+    name?: StringFieldUpdateOperationsInput | string
+    avatar_url?: NullableStringFieldUpdateOperationsInput | string | null
+    role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
+    loyalty_points?: IntFieldUpdateOperationsInput | number
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    loyalty_tier?: StringFieldUpdateOperationsInput | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    date_of_birth?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    is_verified?: BoolFieldUpdateOperationsInput | boolean
+    refresh_token?: NullableStringFieldUpdateOperationsInput | string | null
+    ban_reason?: NullableStringFieldUpdateOperationsInput | string | null
+    is_banned?: BoolFieldUpdateOperationsInput | boolean
+    auth_provider?: StringFieldUpdateOperationsInput | string
+    google_email?: NullableStringFieldUpdateOperationsInput | string | null
+    google_id?: NullableStringFieldUpdateOperationsInput | string | null
+    bookings?: BookingUncheckedUpdateManyWithoutUserNestedInput
+    loyalty_logs?: LoyaltyLogUncheckedUpdateManyWithoutUserNestedInput
+    support_tickets?: SupportTicketUncheckedUpdateManyWithoutUserNestedInput
+    owned_vouchers?: VoucherUncheckedUpdateManyWithoutOwnerNestedInput
+  }
+
+  export type VoucherUpsertWithoutPoint_redemptionsInput = {
+    update: XOR<VoucherUpdateWithoutPoint_redemptionsInput, VoucherUncheckedUpdateWithoutPoint_redemptionsInput>
+    create: XOR<VoucherCreateWithoutPoint_redemptionsInput, VoucherUncheckedCreateWithoutPoint_redemptionsInput>
+    where?: VoucherWhereInput
+  }
+
+  export type VoucherUpdateToOneWithWhereWithoutPoint_redemptionsInput = {
+    where?: VoucherWhereInput
+    data: XOR<VoucherUpdateWithoutPoint_redemptionsInput, VoucherUncheckedUpdateWithoutPoint_redemptionsInput>
+  }
+
+  export type VoucherUpdateWithoutPoint_redemptionsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    code?: StringFieldUpdateOperationsInput | string
+    discount_type?: EnumDiscountTypeFieldUpdateOperationsInput | $Enums.DiscountType
+    discount_value?: IntFieldUpdateOperationsInput | number
+    min_amount?: IntFieldUpdateOperationsInput | number
+    max_discount?: NullableIntFieldUpdateOperationsInput | number | null
+    usage_limit?: IntFieldUpdateOperationsInput | number
+    used_count?: IntFieldUpdateOperationsInput | number
+    expires_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    is_active?: BoolFieldUpdateOperationsInput | boolean
+    source?: StringFieldUpdateOperationsInput | string
+    bookings?: BookingUpdateManyWithoutVoucherNestedInput
+    owner?: UserUpdateOneWithoutOwned_vouchersNestedInput
+  }
+
+  export type VoucherUncheckedUpdateWithoutPoint_redemptionsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    code?: StringFieldUpdateOperationsInput | string
+    discount_type?: EnumDiscountTypeFieldUpdateOperationsInput | $Enums.DiscountType
+    discount_value?: IntFieldUpdateOperationsInput | number
+    min_amount?: IntFieldUpdateOperationsInput | number
+    max_discount?: NullableIntFieldUpdateOperationsInput | number | null
+    usage_limit?: IntFieldUpdateOperationsInput | number
+    used_count?: IntFieldUpdateOperationsInput | number
+    expires_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    is_active?: BoolFieldUpdateOperationsInput | boolean
+    source?: StringFieldUpdateOperationsInput | string
+    owner_user_id?: NullableStringFieldUpdateOperationsInput | string | null
+    bookings?: BookingUncheckedUpdateManyWithoutVoucherNestedInput
+  }
+
+  export type UserCreateWithoutSupport_ticketsInput = {
+    id?: string
+    email: string
+    phone?: string | null
+    password_hash?: string | null
+    name: string
+    avatar_url?: string | null
+    role?: $Enums.Role
+    loyalty_points?: number
+    created_at?: Date | string
+    loyalty_tier?: string
+    updated_at?: Date | string
+    date_of_birth?: Date | string | null
+    is_verified?: boolean
+    refresh_token?: string | null
+    ban_reason?: string | null
+    is_banned?: boolean
+    auth_provider?: string
+    google_email?: string | null
+    google_id?: string | null
+    bookings?: BookingCreateNestedManyWithoutUserInput
+    loyalty_logs?: LoyaltyLogCreateNestedManyWithoutUserInput
+    point_redemptions?: PointRedemptionCreateNestedManyWithoutUserInput
+    owned_vouchers?: VoucherCreateNestedManyWithoutOwnerInput
+  }
+
+  export type UserUncheckedCreateWithoutSupport_ticketsInput = {
+    id?: string
+    email: string
+    phone?: string | null
+    password_hash?: string | null
+    name: string
+    avatar_url?: string | null
+    role?: $Enums.Role
+    loyalty_points?: number
+    created_at?: Date | string
+    loyalty_tier?: string
+    updated_at?: Date | string
+    date_of_birth?: Date | string | null
+    is_verified?: boolean
+    refresh_token?: string | null
+    ban_reason?: string | null
+    is_banned?: boolean
+    auth_provider?: string
+    google_email?: string | null
+    google_id?: string | null
+    bookings?: BookingUncheckedCreateNestedManyWithoutUserInput
+    loyalty_logs?: LoyaltyLogUncheckedCreateNestedManyWithoutUserInput
+    point_redemptions?: PointRedemptionUncheckedCreateNestedManyWithoutUserInput
+    owned_vouchers?: VoucherUncheckedCreateNestedManyWithoutOwnerInput
+  }
+
+  export type UserCreateOrConnectWithoutSupport_ticketsInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutSupport_ticketsInput, UserUncheckedCreateWithoutSupport_ticketsInput>
+  }
+
+  export type UserUpsertWithoutSupport_ticketsInput = {
+    update: XOR<UserUpdateWithoutSupport_ticketsInput, UserUncheckedUpdateWithoutSupport_ticketsInput>
+    create: XOR<UserCreateWithoutSupport_ticketsInput, UserUncheckedCreateWithoutSupport_ticketsInput>
+    where?: UserWhereInput
+  }
+
+  export type UserUpdateToOneWithWhereWithoutSupport_ticketsInput = {
+    where?: UserWhereInput
+    data: XOR<UserUpdateWithoutSupport_ticketsInput, UserUncheckedUpdateWithoutSupport_ticketsInput>
+  }
+
+  export type UserUpdateWithoutSupport_ticketsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    password_hash?: NullableStringFieldUpdateOperationsInput | string | null
+    name?: StringFieldUpdateOperationsInput | string
+    avatar_url?: NullableStringFieldUpdateOperationsInput | string | null
+    role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
+    loyalty_points?: IntFieldUpdateOperationsInput | number
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    loyalty_tier?: StringFieldUpdateOperationsInput | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    date_of_birth?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    is_verified?: BoolFieldUpdateOperationsInput | boolean
+    refresh_token?: NullableStringFieldUpdateOperationsInput | string | null
+    ban_reason?: NullableStringFieldUpdateOperationsInput | string | null
+    is_banned?: BoolFieldUpdateOperationsInput | boolean
+    auth_provider?: StringFieldUpdateOperationsInput | string
+    google_email?: NullableStringFieldUpdateOperationsInput | string | null
+    google_id?: NullableStringFieldUpdateOperationsInput | string | null
+    bookings?: BookingUpdateManyWithoutUserNestedInput
+    loyalty_logs?: LoyaltyLogUpdateManyWithoutUserNestedInput
+    point_redemptions?: PointRedemptionUpdateManyWithoutUserNestedInput
+    owned_vouchers?: VoucherUpdateManyWithoutOwnerNestedInput
+  }
+
+  export type UserUncheckedUpdateWithoutSupport_ticketsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    password_hash?: NullableStringFieldUpdateOperationsInput | string | null
+    name?: StringFieldUpdateOperationsInput | string
+    avatar_url?: NullableStringFieldUpdateOperationsInput | string | null
+    role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
+    loyalty_points?: IntFieldUpdateOperationsInput | number
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    loyalty_tier?: StringFieldUpdateOperationsInput | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    date_of_birth?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    is_verified?: BoolFieldUpdateOperationsInput | boolean
+    refresh_token?: NullableStringFieldUpdateOperationsInput | string | null
+    ban_reason?: NullableStringFieldUpdateOperationsInput | string | null
+    is_banned?: BoolFieldUpdateOperationsInput | boolean
+    auth_provider?: StringFieldUpdateOperationsInput | string
+    google_email?: NullableStringFieldUpdateOperationsInput | string | null
+    google_id?: NullableStringFieldUpdateOperationsInput | string | null
+    bookings?: BookingUncheckedUpdateManyWithoutUserNestedInput
+    loyalty_logs?: LoyaltyLogUncheckedUpdateManyWithoutUserNestedInput
+    point_redemptions?: PointRedemptionUncheckedUpdateManyWithoutUserNestedInput
+    owned_vouchers?: VoucherUncheckedUpdateManyWithoutOwnerNestedInput
+  }
+
   export type BookingCreateManyUserInput = {
     id?: string
     showtime_id: string
@@ -21869,6 +26245,8 @@ export namespace Prisma {
     paid_at?: Date | string | null
     created_at?: Date | string
     expires_at: Date | string
+    discount_amount?: number
+    voucher_code?: string | null
   }
 
   export type LoyaltyLogCreateManyUserInput = {
@@ -21880,6 +26258,41 @@ export namespace Prisma {
     created_at?: Date | string
   }
 
+  export type SupportTicketCreateManyUserInput = {
+    id?: string
+    category: string
+    subject: string
+    message: string
+    status?: string
+    admin_reply?: string | null
+    replied_at?: Date | string | null
+    created_at?: Date | string
+    updated_at?: Date | string
+  }
+
+  export type PointRedemptionCreateManyUserInput = {
+    id?: string
+    points_used: number
+    voucher_id: string
+    created_at?: Date | string
+  }
+
+  export type VoucherCreateManyOwnerInput = {
+    id?: string
+    code: string
+    discount_type: $Enums.DiscountType
+    discount_value: number
+    min_amount?: number
+    max_discount?: number | null
+    usage_limit: number
+    used_count?: number
+    expires_at: Date | string
+    created_at?: Date | string
+    description?: string | null
+    is_active?: boolean
+    source?: string
+  }
+
   export type BookingUpdateWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
     status?: EnumBookingStatusFieldUpdateOperationsInput | $Enums.BookingStatus
@@ -21889,10 +26302,12 @@ export namespace Prisma {
     paid_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     expires_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    showtime?: ShowtimeUpdateOneRequiredWithoutBookingsNestedInput
+    discount_amount?: IntFieldUpdateOperationsInput | number
     booking_items?: BookingItemUpdateManyWithoutBookingNestedInput
-    payment?: PaymentUpdateOneWithoutBookingNestedInput
+    showtime?: ShowtimeUpdateOneRequiredWithoutBookingsNestedInput
+    voucher?: VoucherUpdateOneWithoutBookingsNestedInput
     food_items?: FoodItemUpdateManyWithoutBookingNestedInput
+    payment?: PaymentUpdateOneWithoutBookingNestedInput
   }
 
   export type BookingUncheckedUpdateWithoutUserInput = {
@@ -21905,9 +26320,11 @@ export namespace Prisma {
     paid_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     expires_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    discount_amount?: IntFieldUpdateOperationsInput | number
+    voucher_code?: NullableStringFieldUpdateOperationsInput | string | null
     booking_items?: BookingItemUncheckedUpdateManyWithoutBookingNestedInput
-    payment?: PaymentUncheckedUpdateOneWithoutBookingNestedInput
     food_items?: FoodItemUncheckedUpdateManyWithoutBookingNestedInput
+    payment?: PaymentUncheckedUpdateOneWithoutBookingNestedInput
   }
 
   export type BookingUncheckedUpdateManyWithoutUserInput = {
@@ -21920,6 +26337,8 @@ export namespace Prisma {
     paid_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     expires_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    discount_amount?: IntFieldUpdateOperationsInput | number
+    voucher_code?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type LoyaltyLogUpdateWithoutUserInput = {
@@ -21949,6 +26368,115 @@ export namespace Prisma {
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
+  export type SupportTicketUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    category?: StringFieldUpdateOperationsInput | string
+    subject?: StringFieldUpdateOperationsInput | string
+    message?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    admin_reply?: NullableStringFieldUpdateOperationsInput | string | null
+    replied_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type SupportTicketUncheckedUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    category?: StringFieldUpdateOperationsInput | string
+    subject?: StringFieldUpdateOperationsInput | string
+    message?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    admin_reply?: NullableStringFieldUpdateOperationsInput | string | null
+    replied_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type SupportTicketUncheckedUpdateManyWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    category?: StringFieldUpdateOperationsInput | string
+    subject?: StringFieldUpdateOperationsInput | string
+    message?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    admin_reply?: NullableStringFieldUpdateOperationsInput | string | null
+    replied_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type PointRedemptionUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    points_used?: IntFieldUpdateOperationsInput | number
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    voucher?: VoucherUpdateOneRequiredWithoutPoint_redemptionsNestedInput
+  }
+
+  export type PointRedemptionUncheckedUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    points_used?: IntFieldUpdateOperationsInput | number
+    voucher_id?: StringFieldUpdateOperationsInput | string
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type PointRedemptionUncheckedUpdateManyWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    points_used?: IntFieldUpdateOperationsInput | number
+    voucher_id?: StringFieldUpdateOperationsInput | string
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type VoucherUpdateWithoutOwnerInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    code?: StringFieldUpdateOperationsInput | string
+    discount_type?: EnumDiscountTypeFieldUpdateOperationsInput | $Enums.DiscountType
+    discount_value?: IntFieldUpdateOperationsInput | number
+    min_amount?: IntFieldUpdateOperationsInput | number
+    max_discount?: NullableIntFieldUpdateOperationsInput | number | null
+    usage_limit?: IntFieldUpdateOperationsInput | number
+    used_count?: IntFieldUpdateOperationsInput | number
+    expires_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    is_active?: BoolFieldUpdateOperationsInput | boolean
+    source?: StringFieldUpdateOperationsInput | string
+    bookings?: BookingUpdateManyWithoutVoucherNestedInput
+    point_redemptions?: PointRedemptionUpdateManyWithoutVoucherNestedInput
+  }
+
+  export type VoucherUncheckedUpdateWithoutOwnerInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    code?: StringFieldUpdateOperationsInput | string
+    discount_type?: EnumDiscountTypeFieldUpdateOperationsInput | $Enums.DiscountType
+    discount_value?: IntFieldUpdateOperationsInput | number
+    min_amount?: IntFieldUpdateOperationsInput | number
+    max_discount?: NullableIntFieldUpdateOperationsInput | number | null
+    usage_limit?: IntFieldUpdateOperationsInput | number
+    used_count?: IntFieldUpdateOperationsInput | number
+    expires_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    is_active?: BoolFieldUpdateOperationsInput | boolean
+    source?: StringFieldUpdateOperationsInput | string
+    bookings?: BookingUncheckedUpdateManyWithoutVoucherNestedInput
+    point_redemptions?: PointRedemptionUncheckedUpdateManyWithoutVoucherNestedInput
+  }
+
+  export type VoucherUncheckedUpdateManyWithoutOwnerInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    code?: StringFieldUpdateOperationsInput | string
+    discount_type?: EnumDiscountTypeFieldUpdateOperationsInput | $Enums.DiscountType
+    discount_value?: IntFieldUpdateOperationsInput | number
+    min_amount?: IntFieldUpdateOperationsInput | number
+    max_discount?: NullableIntFieldUpdateOperationsInput | number | null
+    usage_limit?: IntFieldUpdateOperationsInput | number
+    used_count?: IntFieldUpdateOperationsInput | number
+    expires_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    is_active?: BoolFieldUpdateOperationsInput | boolean
+    source?: StringFieldUpdateOperationsInput | string
+  }
+
   export type ShowtimeCreateManyMovieInput = {
     id?: string
     room_id: string
@@ -21970,8 +26498,8 @@ export namespace Prisma {
     couple_price?: IntFieldUpdateOperationsInput | number
     language?: StringFieldUpdateOperationsInput | string
     format?: StringFieldUpdateOperationsInput | string
-    room?: RoomUpdateOneRequiredWithoutShowtimesNestedInput
     bookings?: BookingUpdateManyWithoutShowtimeNestedInput
+    room?: RoomUpdateOneRequiredWithoutShowtimesNestedInput
   }
 
   export type ShowtimeUncheckedUpdateWithoutMovieInput = {
@@ -22086,8 +26614,8 @@ export namespace Prisma {
     couple_price?: IntFieldUpdateOperationsInput | number
     language?: StringFieldUpdateOperationsInput | string
     format?: StringFieldUpdateOperationsInput | string
-    movie?: MovieUpdateOneRequiredWithoutShowtimesNestedInput
     bookings?: BookingUpdateManyWithoutShowtimeNestedInput
+    movie?: MovieUpdateOneRequiredWithoutShowtimesNestedInput
   }
 
   export type ShowtimeUncheckedUpdateWithoutRoomInput = {
@@ -22153,6 +26681,8 @@ export namespace Prisma {
     paid_at?: Date | string | null
     created_at?: Date | string
     expires_at: Date | string
+    discount_amount?: number
+    voucher_code?: string | null
   }
 
   export type BookingUpdateWithoutShowtimeInput = {
@@ -22164,10 +26694,12 @@ export namespace Prisma {
     paid_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     expires_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    user?: UserUpdateOneRequiredWithoutBookingsNestedInput
+    discount_amount?: IntFieldUpdateOperationsInput | number
     booking_items?: BookingItemUpdateManyWithoutBookingNestedInput
-    payment?: PaymentUpdateOneWithoutBookingNestedInput
+    user?: UserUpdateOneRequiredWithoutBookingsNestedInput
+    voucher?: VoucherUpdateOneWithoutBookingsNestedInput
     food_items?: FoodItemUpdateManyWithoutBookingNestedInput
+    payment?: PaymentUpdateOneWithoutBookingNestedInput
   }
 
   export type BookingUncheckedUpdateWithoutShowtimeInput = {
@@ -22180,9 +26712,11 @@ export namespace Prisma {
     paid_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     expires_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    discount_amount?: IntFieldUpdateOperationsInput | number
+    voucher_code?: NullableStringFieldUpdateOperationsInput | string | null
     booking_items?: BookingItemUncheckedUpdateManyWithoutBookingNestedInput
-    payment?: PaymentUncheckedUpdateOneWithoutBookingNestedInput
     food_items?: FoodItemUncheckedUpdateManyWithoutBookingNestedInput
+    payment?: PaymentUncheckedUpdateOneWithoutBookingNestedInput
   }
 
   export type BookingUncheckedUpdateManyWithoutShowtimeInput = {
@@ -22195,6 +26729,8 @@ export namespace Prisma {
     paid_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     expires_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    discount_amount?: IntFieldUpdateOperationsInput | number
+    voucher_code?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type BookingItemCreateManyBookingInput = {
@@ -22279,6 +26815,96 @@ export namespace Prisma {
     booking_id?: StringFieldUpdateOperationsInput | string
     quantity?: IntFieldUpdateOperationsInput | number
     price?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type BookingCreateManyVoucherInput = {
+    id?: string
+    user_id: string
+    showtime_id: string
+    status?: $Enums.BookingStatus
+    total_amount: number
+    qr_code: string
+    qr_image_url?: string | null
+    paid_at?: Date | string | null
+    created_at?: Date | string
+    expires_at: Date | string
+    discount_amount?: number
+  }
+
+  export type PointRedemptionCreateManyVoucherInput = {
+    id?: string
+    user_id: string
+    points_used: number
+    created_at?: Date | string
+  }
+
+  export type BookingUpdateWithoutVoucherInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    status?: EnumBookingStatusFieldUpdateOperationsInput | $Enums.BookingStatus
+    total_amount?: IntFieldUpdateOperationsInput | number
+    qr_code?: StringFieldUpdateOperationsInput | string
+    qr_image_url?: NullableStringFieldUpdateOperationsInput | string | null
+    paid_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    expires_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    discount_amount?: IntFieldUpdateOperationsInput | number
+    booking_items?: BookingItemUpdateManyWithoutBookingNestedInput
+    showtime?: ShowtimeUpdateOneRequiredWithoutBookingsNestedInput
+    user?: UserUpdateOneRequiredWithoutBookingsNestedInput
+    food_items?: FoodItemUpdateManyWithoutBookingNestedInput
+    payment?: PaymentUpdateOneWithoutBookingNestedInput
+  }
+
+  export type BookingUncheckedUpdateWithoutVoucherInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    user_id?: StringFieldUpdateOperationsInput | string
+    showtime_id?: StringFieldUpdateOperationsInput | string
+    status?: EnumBookingStatusFieldUpdateOperationsInput | $Enums.BookingStatus
+    total_amount?: IntFieldUpdateOperationsInput | number
+    qr_code?: StringFieldUpdateOperationsInput | string
+    qr_image_url?: NullableStringFieldUpdateOperationsInput | string | null
+    paid_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    expires_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    discount_amount?: IntFieldUpdateOperationsInput | number
+    booking_items?: BookingItemUncheckedUpdateManyWithoutBookingNestedInput
+    food_items?: FoodItemUncheckedUpdateManyWithoutBookingNestedInput
+    payment?: PaymentUncheckedUpdateOneWithoutBookingNestedInput
+  }
+
+  export type BookingUncheckedUpdateManyWithoutVoucherInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    user_id?: StringFieldUpdateOperationsInput | string
+    showtime_id?: StringFieldUpdateOperationsInput | string
+    status?: EnumBookingStatusFieldUpdateOperationsInput | $Enums.BookingStatus
+    total_amount?: IntFieldUpdateOperationsInput | number
+    qr_code?: StringFieldUpdateOperationsInput | string
+    qr_image_url?: NullableStringFieldUpdateOperationsInput | string | null
+    paid_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    expires_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    discount_amount?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type PointRedemptionUpdateWithoutVoucherInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    points_used?: IntFieldUpdateOperationsInput | number
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    user?: UserUpdateOneRequiredWithoutPoint_redemptionsNestedInput
+  }
+
+  export type PointRedemptionUncheckedUpdateWithoutVoucherInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    user_id?: StringFieldUpdateOperationsInput | string
+    points_used?: IntFieldUpdateOperationsInput | number
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type PointRedemptionUncheckedUpdateManyWithoutVoucherInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    user_id?: StringFieldUpdateOperationsInput | string
+    points_used?: IntFieldUpdateOperationsInput | number
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
 

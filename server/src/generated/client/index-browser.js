@@ -130,12 +130,17 @@ exports.Prisma.UserScalarFieldEnum = {
   avatar_url: 'avatar_url',
   role: 'role',
   loyalty_points: 'loyalty_points',
-  loyalty_tier: 'loyalty_tier',
-  refresh_token: 'refresh_token',
-  is_verified: 'is_verified',
-  date_of_birth: 'date_of_birth',
   created_at: 'created_at',
-  updated_at: 'updated_at'
+  loyalty_tier: 'loyalty_tier',
+  updated_at: 'updated_at',
+  date_of_birth: 'date_of_birth',
+  is_verified: 'is_verified',
+  refresh_token: 'refresh_token',
+  ban_reason: 'ban_reason',
+  is_banned: 'is_banned',
+  auth_provider: 'auth_provider',
+  google_email: 'google_email',
+  google_id: 'google_id'
 };
 
 exports.Prisma.LoyaltyLogScalarFieldEnum = {
@@ -217,7 +222,9 @@ exports.Prisma.BookingScalarFieldEnum = {
   qr_image_url: 'qr_image_url',
   paid_at: 'paid_at',
   created_at: 'created_at',
-  expires_at: 'expires_at'
+  expires_at: 'expires_at',
+  discount_amount: 'discount_amount',
+  voucher_code: 'voucher_code'
 };
 
 exports.Prisma.BookingItemScalarFieldEnum = {
@@ -264,16 +271,38 @@ exports.Prisma.VoucherScalarFieldEnum = {
   max_discount: 'max_discount',
   usage_limit: 'usage_limit',
   used_count: 'used_count',
-  expires_at: 'expires_at'
+  expires_at: 'expires_at',
+  created_at: 'created_at',
+  description: 'description',
+  is_active: 'is_active',
+  source: 'source',
+  owner_user_id: 'owner_user_id'
+};
+
+exports.Prisma.PointRedemptionScalarFieldEnum = {
+  id: 'id',
+  user_id: 'user_id',
+  points_used: 'points_used',
+  voucher_id: 'voucher_id',
+  created_at: 'created_at'
+};
+
+exports.Prisma.SupportTicketScalarFieldEnum = {
+  id: 'id',
+  user_id: 'user_id',
+  category: 'category',
+  subject: 'subject',
+  message: 'message',
+  status: 'status',
+  admin_reply: 'admin_reply',
+  replied_at: 'replied_at',
+  created_at: 'created_at',
+  updated_at: 'updated_at'
 };
 
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
-};
-
-exports.Prisma.JsonNullValueInput = {
-  JsonNull: Prisma.JsonNull
 };
 
 exports.Prisma.NullsOrder = {
@@ -289,7 +318,11 @@ exports.Prisma.UserOrderByRelevanceFieldEnum = {
   name: 'name',
   avatar_url: 'avatar_url',
   loyalty_tier: 'loyalty_tier',
-  refresh_token: 'refresh_token'
+  refresh_token: 'refresh_token',
+  ban_reason: 'ban_reason',
+  auth_provider: 'auth_provider',
+  google_email: 'google_email',
+  google_id: 'google_id'
 };
 
 exports.Prisma.LoyaltyLogOrderByRelevanceFieldEnum = {
@@ -300,17 +333,6 @@ exports.Prisma.LoyaltyLogOrderByRelevanceFieldEnum = {
   booking_id: 'booking_id'
 };
 
-exports.Prisma.JsonNullValueFilter = {
-  DbNull: Prisma.DbNull,
-  JsonNull: Prisma.JsonNull,
-  AnyNull: Prisma.AnyNull
-};
-
-exports.Prisma.QueryMode = {
-  default: 'default',
-  insensitive: 'insensitive'
-};
-
 exports.Prisma.MovieOrderByRelevanceFieldEnum = {
   id: 'id',
   title: 'title',
@@ -319,6 +341,8 @@ exports.Prisma.MovieOrderByRelevanceFieldEnum = {
   poster_url: 'poster_url',
   backdrop_url: 'backdrop_url',
   trailer_key: 'trailer_key',
+  genres: 'genres',
+  cast: 'cast',
   director: 'director',
   language: 'language'
 };
@@ -356,7 +380,8 @@ exports.Prisma.BookingOrderByRelevanceFieldEnum = {
   user_id: 'user_id',
   showtime_id: 'showtime_id',
   qr_code: 'qr_code',
-  qr_image_url: 'qr_image_url'
+  qr_image_url: 'qr_image_url',
+  voucher_code: 'voucher_code'
 };
 
 exports.Prisma.BookingItemOrderByRelevanceFieldEnum = {
@@ -388,7 +413,26 @@ exports.Prisma.FoodItemOrderByRelevanceFieldEnum = {
 
 exports.Prisma.VoucherOrderByRelevanceFieldEnum = {
   id: 'id',
-  code: 'code'
+  code: 'code',
+  description: 'description',
+  source: 'source',
+  owner_user_id: 'owner_user_id'
+};
+
+exports.Prisma.PointRedemptionOrderByRelevanceFieldEnum = {
+  id: 'id',
+  user_id: 'user_id',
+  voucher_id: 'voucher_id'
+};
+
+exports.Prisma.SupportTicketOrderByRelevanceFieldEnum = {
+  id: 'id',
+  user_id: 'user_id',
+  category: 'category',
+  subject: 'subject',
+  message: 'message',
+  status: 'status',
+  admin_reply: 'admin_reply'
 };
 exports.Role = exports.$Enums.Role = {
   USER: 'USER',
@@ -450,7 +494,9 @@ exports.Prisma.ModelName = {
   Payment: 'Payment',
   FoodCombo: 'FoodCombo',
   FoodItem: 'FoodItem',
-  Voucher: 'Voucher'
+  Voucher: 'Voucher',
+  PointRedemption: 'PointRedemption',
+  SupportTicket: 'SupportTicket'
 };
 
 /**
